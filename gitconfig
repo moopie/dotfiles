@@ -1,0 +1,12 @@
+[color]
+    	status = auto
+	branch = auto
+	diff = auto
+	grep = auto
+[user]
+    	name = Anton Amirian
+	email = platypus@lavabit.com
+[alias]
+    	st = status
+	co = checkout
+	ci = commit
