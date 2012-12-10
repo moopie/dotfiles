@@ -101,7 +101,7 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
+colorscheme Monokai
 set background=dark
 
 " Set extra options when running in GUI mode
