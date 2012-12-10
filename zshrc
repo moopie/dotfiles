@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.zsh/oh-my-zsh
-OMZ=$ZSH/oh-my-zsh
+CONF=$HOME/.zsh
+ZSH=$CONF/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -31,7 +31,7 @@ ZSH_THEME="custom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-source $OMZ/oh-my-zsh.sh
-source $ZSH/custom.zsh
+source $ZSH/oh-my-zsh.sh
+source $CONF/custom.zsh
 
 # Customize to your needs...
