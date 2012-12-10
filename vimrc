@@ -18,6 +18,9 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
+"" something else
+set cursorline
+set number
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,7 +104,7 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-colorscheme Monokai
+colorscheme molokai
 set background=dark
 
 " Set extra options when running in GUI mode
