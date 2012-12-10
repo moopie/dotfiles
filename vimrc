@@ -21,6 +21,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 "" something else
 set cursorline
 set number
+set mouse=a
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -66,7 +67,7 @@ set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set whichwrap=b,s,<,>,[,]
 
 " Ignore case when searching
 set ignorecase
