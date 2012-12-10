@@ -1,0 +1,2 @@
+# ignore rtorrent session stuffs
+rtorrent/session/*
