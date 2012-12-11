@@ -1,3 +1,6 @@
+"" make vim better (c) some internet dude
+set nocompatible
+
 "" pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
