@@ -5,4 +5,7 @@
 # # *.[oa]
 # # *~'
 
+!rtorrent/
+!rtorrent/session/
 rtorrent/session/*
+ncmpcpp/error.log
