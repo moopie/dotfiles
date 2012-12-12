@@ -5,7 +5,5 @@
 # # *.[oa]
 # # *~'
 
-!rtorrent/
-!rtorrent/session/
-rtorrent/session/*
+irssi/config
 ncmpcpp/error.log
