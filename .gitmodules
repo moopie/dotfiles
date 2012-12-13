@@ -49,3 +49,15 @@
 [submodule ".config/zsh/oh-my-zsh"]
 	path = .config/zsh/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = git://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundle/tlib"]
+	path = vim/bundle/tlib
+	url = git://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/vim-addon-mw-utils"]
+	path = vim/bundle/vim-addon-mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundle/css-color"]
+	path = vim/bundle/css-color
+	url = git://github.com/skammer/vim-css-color.git
