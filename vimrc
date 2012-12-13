@@ -122,9 +122,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts

@@ -1,9 +1,3 @@
-alias rtfn='elinks https://www.archlinux.org/feeds/news/'
-alias pacman='sudo pacman-color'
-
-## tmux
-#if [ "$TMUX" = "" ]; then tmux; fi
-
 ## colored man
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
