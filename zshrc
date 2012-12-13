@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-CONF=$HOME/.zsh
+CONF=$XDG_CONFIG_HOME/zsh
 ZSH=$CONF/oh-my-zsh
 
 # Set name of the theme to load.
