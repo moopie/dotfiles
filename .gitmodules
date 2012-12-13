@@ -23,10 +23,7 @@
 	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
 [submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "zsh/oh-my-zsh"]
-	path = zsh/oh-my-zsh
+	path = .config/zsh/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/monokai"]
 	path = vim/bundle/monokai
@@ -34,15 +31,21 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = git://github.com/tomasr/molokai.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = git://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = git://github.com/vim-scripts/vimwiki.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/yankring"]
+	path = vim/bundle/yankring
+	url = git://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/bundle/repeat"]
+	path = vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/lusty"]
+	path = vim/bundle/lusty
+	url = git://github.com/sjbach/lusty.git
+[submodule "vim/bundle/sparkup"]
+	path = vim/bundle/sparkup
+	url = git://github.com/rstacruz/sparkup.git
