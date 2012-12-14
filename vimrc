@@ -29,6 +29,9 @@ set cursorline
 set number
 set mouse=a
 
+"" yankring
+let g:yankring_history_dir = "~/.vim/dump"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
