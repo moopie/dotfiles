@@ -6,6 +6,8 @@
 # # *~'
 
 irssi/config
+irssi/config.autosave
+irssi/away.log
 ncmpcpp/error.log
 vim/.netrwhist
 vim/dump

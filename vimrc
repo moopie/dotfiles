@@ -37,7 +37,7 @@ let g:yankring_history_dir = "~/.vim/dump"
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=1000
 
 " Enable filetype plugins
 filetype plugin on
@@ -66,9 +66,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " When you forgot to sudo before editing a file that requires root privileges
 cmap w!! w !sudo tee % >/dev/null
-
-" Hide buffers instead of closing them
-set hidden
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,7 +106,7 @@ set hlsearch
 set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw
+"set lazyredraw
 
 " For regular expressions turn magic on
 set magic
@@ -133,7 +130,7 @@ set tm=500
 syntax enable
 
 colorscheme molokai
-set background=dark
+"set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")

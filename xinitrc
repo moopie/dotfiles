@@ -17,6 +17,6 @@ urxvtd -q -o -f
 
 dropboxd
 
-xsetroot -cursor_name Neutral
+xsetroot -cursor_name neutral
 
 exec awesome
