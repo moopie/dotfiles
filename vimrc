@@ -228,7 +228,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
-  set stal=2
+  "" Always show the tab bar
+  "set stal=2
 catch
 endtry
 

@@ -11,12 +11,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
     unset f
 fi
 
+if [ -z $(modprobe -i nvidia) ]; then
+    nvidia-settings -a InitialPixmapPlacement=2
+fi
+
 feh --bg-fill ~/.wallpapers/current.jpg &
 
 urxvtd -q -o -f
 
-dropboxd
+dropboxd &
 
-xsetroot -cursor_name Neutral
+xsetroot -cursor_name Neutral &
 
 exec awesome
