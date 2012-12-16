@@ -33,7 +33,7 @@ URxvt*urgentOnBell: true
 
 !make links clickable
 URxvt.perl-ext-common: default,matcher,vtwheel
-URxvt.urlLauncher: /usr/bin/firefox
+URxvt.urlLauncher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
 !Zenburn color-scheme
