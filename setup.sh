@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-conf = $XDG_HOME_DIR
+conf = $XDG_CONFIG_HOME
 
 ln -s awesome $conf/awesome
 ln -s fontconfig $conf/fontconfig
