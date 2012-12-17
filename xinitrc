@@ -20,6 +20,7 @@ fi
 xset r rate 180
 xset mouse 22/7 1
 
+# Don't forget to `mkdir ~/.wallpapers`
 feh --bg-fill ~/.wallpapers/current.jpg &
 
 urxvtd -q -o -f
