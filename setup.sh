@@ -1,19 +1,22 @@
 #!/usr/bin/env sh
 
 conf = $XDG_CONFIG_HOME
+dir = $PWD
 
-ln -s awesome $conf/awesome
-ln -s fontconfig $conf/fontconfig
-ln -s zsh $conf/zsh
+ln -s $dir/awesome $conf/awesome
+ln -s $dir/fontconfig $conf/fontconfig
+ln -s $dir/zsh $conf/zsh
 
-ln -s vim ~/.vim
-ln -s irssi ~/.irssi
+ln -s $dir/vim ~/.vim
+ln -s $dir/irssi ~/.irssi
+ln -s $dir/vimperator ~/.vimperator
 
-ln -s zsh/zshrc ~/.zshrc
-ln -s vim/vimrc ~/.vimrc
-ln -s xinitrc ~/.xinitrc
-ln -s Xdefaults ~/.Xdefaults
-ln -s gitconfig ~/.gitconfig
+ln -s $dir/vimperator/vimperatorrc ~/.vimperatorrc
+ln -s $dir/zsh/zshrc ~/.zshrc
+ln -s $dir/vim/vimrc ~/.vimrc
+ln -s $dir/xinitrc ~/.xinitrc
+ln -s $dir/Xdefaults ~/.Xdefaults
+ln -s $dir/gitconfig ~/.gitconfig
 
 # Symlink all the custom themes
-ln -s zsh/themes/* zsh/oh-my-zsh/custom/
+ln -s $dir/zsh/themes/* zsh/oh-my-zsh/custom/

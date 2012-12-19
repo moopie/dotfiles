@@ -228,12 +228,12 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
-try
-  set switchbuf=useopen,usetab,newtab
+"try
+"  set switchbuf=useopen,usetab,newtab
   "" Always show the tab bar
   "set stal=2
-catch
-endtry
+"catch
+"endtry
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
