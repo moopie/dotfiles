@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 conf = $XDG_CONFIG_HOME
-dir = $PWD
+dir = $(pwd)
 
 ln -s $dir/awesome $conf/awesome
 ln -s $dir/fontconfig $conf/fontconfig

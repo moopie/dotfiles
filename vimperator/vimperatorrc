@@ -1,5 +1,10 @@
+" Leader on "," because it's better that way
 let mapleader=","
+" Switch between ; and : for easier life
 nnoremap ; :
+nnoremap : ;
+" Fix the tab close button
+map d i<c-w>
 
 " Options {{{1
 set runtimepath=~/.vimperator
