@@ -18,7 +18,7 @@ set incsearch
 set smartcase
 set focuscontent
 set visualbell
-set hintchars=HJKLASDFGYUIOPQWERTNMZXCVB
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
 
 colorscheme indigo
 highlight Bell display: none;
