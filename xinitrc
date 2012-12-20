@@ -31,12 +31,13 @@ setxkbmap \
     -option lv3:ralt_switch \
     -option terminate:ctrl_alt_bkspc
 
+# Cursor theme
+setroot -cursor_name Neutral
+
 feh --bg-fill ~/.wallpapers/current.jpg &
 
 urxvtd -q -o -f
 
-dropboxd &
-
-xsetroot -cursor_name Neutral
+#dropboxd &
 
 exec awesome
