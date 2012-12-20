@@ -20,6 +20,17 @@ fi
 xset r rate 180
 xset mouse 22/7 1
 
+# Keyboard layouts
+setxkbmap \
+    -layout us,il,ru \
+    -variant dvorak,,winkeys \
+    -option \
+    -option grp:caps_toggle \
+    -option grp_led:scroll \
+    -option compose:rctrl \
+    -option lv3:ralt_switch \
+    -option terminate:ctrl_alt_bkspc
+
 feh --bg-fill ~/.wallpapers/current.jpg &
 
 urxvtd -q -o -f
