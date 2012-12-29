@@ -34,7 +34,7 @@ setxkbmap \
 # Cursor theme
 setroot -cursor_name Neutral
 
-feh --bg-fill ~/.wallpapers/current.jpg &
+sh ~/.fehbg
 
 urxvtd -q -o -f
 

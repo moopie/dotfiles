@@ -1,12 +1,18 @@
-Xft.autohint: 0
+Xft.dpi:    95x94
 Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.hintstyle:  hintslight
+Xft.autohint: false
+Xft.hinting: true
+Xft.antialias: true
 Xft.rgba: rgb
 
-URxvt*font: xft:terminus:size=9
-URxvt*boldFont: xft:terminus:bold:size=9
+URxvt*font: xft:dina:size=9,Bitstream Vera Sans Mono:pixelsize=9
+URxvt*boldFont: xft:dina:bold:size=9,Bitstream Vera Sans Mono:pixelsize=9
+
+!URxvt*font: xft:Inconsolata-g:autohint=true:pixelsize=13
+!URxvt*boldFont: xft:Inconsolata-g:bold:autohint=true:pixelsize=13
+!URxvt*letterSpace: -1
+
 urxvt.termName: xterm-256color
 urxvt.scrollBar: false
 urxvt.imLocale: en_US.UTF-8
@@ -23,19 +29,24 @@ URxvt*internalBordercolor: #121212
 urxvt.cursorBlink: false
 !urxvt.cursorColor: #ff8939
 urxvt.cursorColor:  #aeafad
-!urxvt.cursorColor2: #121212
-!urxvt.colorBD: #857672
-!urxvt.colorIT: #bbbbbb
-!urxvt.colorUL: #999999
+urxvt.cursorColor2: #121212
+urxvt.colorBD: #857672
+urxvt.colorIT: #bbbbbb
+urxvt.colorUL: #4682B4
 urxvt.underlineColor: #999999
 urxvt.borderless: true
 URxvt*urgentOnBell: true
 
 !make links clickable
-URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.perl-ext-common: default,matcher,vtwheel,url-select
 URxvt.urlLauncher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
+URxvt.keysym.C-Delete:    perl:matcher:last
+URxvt.keysym.M-Delete:    perl:matcher:list
 
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 !Zenburn color-scheme
 !urxvt*background:  #3f3f3f
 !urxvt*foreground:  #dcdccc

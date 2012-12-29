@@ -27,7 +27,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 "" something else
 set cursorline
 set number
-set mouse=a
+"set mouse=a
 
 "" yankring
 let g:yankring_history_dir = "~/.vim/dump"

@@ -5,7 +5,7 @@
 theme = {}
 themedir = os.getenv("XDG_CONFIG_HOME") .. "/awesome/themes/default"
 
-theme.font          = "terminus 9"
+theme.font          = "Dina 9"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
