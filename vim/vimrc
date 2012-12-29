@@ -32,6 +32,8 @@ set number
 "" yankring
 let g:yankring_history_dir = "~/.vim/dump"
 
+let g:pydiction_location = "~/.vim/bundle/pydiction/complete-dict"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General

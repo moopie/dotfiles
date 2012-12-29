@@ -64,3 +64,9 @@
 [submodule "vim/bundle/easymotion"]
 	path = vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "vim/bundle/pyflakes-vim"]
+	path = vim/bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/pydiction"]
+	path = vim/bundle/pydiction
+	url = git://github.com/vim-scripts/Pydiction.git
