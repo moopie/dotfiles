@@ -12,3 +12,5 @@ ncmpcpp/error.log
 vim/.netrwhist
 vim/dump/*
 vimperator/info
+xmonad/*
+!xmonad/xmonad.hs
