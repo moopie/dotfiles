@@ -32,12 +32,14 @@ setxkbmap \
     -option terminate:ctrl_alt_bkspc
 
 # Cursor theme
-setroot -cursor_name Neutral
+xsetroot -cursor_name Neutral
 
 sh ~/.fehbg
 
 urxvtd -q -o -f
 
+xbindkeys
+
 #dropboxd &
 
-exec awesome
+exec xmonad

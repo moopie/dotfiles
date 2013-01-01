@@ -1,6 +1,3 @@
-"" mapleader
-let mapleader=","
-
 "" make vim better (c) some internet dude
 set nocompatible
 
@@ -18,7 +15,7 @@ autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 "" supertab
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 
 "" tagbar
 let g:tagbar_usearrows = 1
@@ -32,7 +29,8 @@ set number
 "" yankring
 let g:yankring_history_dir = "~/.vim/dump"
 
-let g:pydiction_location = "~/.vim/bundle/pydiction/complete-dict"
+"" pydiction
+"let g:pydiction_location = "~/.vim/bundle/pydiction/complete-dict"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -42,6 +40,7 @@ let g:pydiction_location = "~/.vim/bundle/pydiction/complete-dict"
 set history=1000
 
 " Enable filetype plugins
+filetype on
 filetype plugin on
 filetype indent on
 
@@ -50,7 +49,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-"let mapleader = ","
+let mapleader = ","
 "let g:mapleader = ","
 
 " Fast saving

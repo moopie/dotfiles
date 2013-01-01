@@ -1,17 +1,22 @@
-Xft.dpi:    95x94
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintslight
-Xft.autohint: false
-Xft.hinting: true
-Xft.antialias: true
-Xft.rgba: rgb
+!! Infinality sets XFT options
+!Xft.dpi:    95x94
+!Xft.lcdfilter:  lcddefault
+!Xft.hintstyle:  hintslight
+!Xft.autohint: false
+!Xft.hinting: true
+!Xft.antialias: true
+!Xft.rgba: rgb
 
-URxvt*font: xft:dina:size=9,Bitstream Vera Sans Mono:pixelsize=9
-URxvt*boldFont: xft:dina:bold:size=9,Bitstream Vera Sans Mono:pixelsize=9
+URxvt*font: xft:dina:pixelsize=9
+URxvt*boldFont: xft:dina:bold:pixelsize=9
 
-!URxvt*font: xft:Inconsolata-g:autohint=true:pixelsize=13
-!URxvt*boldFont: xft:Inconsolata-g:bold:autohint=true:pixelsize=13
+!URxvt*font: xft:Inconsolata-g:autohint=true:hinting=false:pixelsize=13
+!Rxvt*boldFont: xft:Inconsolata-g:bold:autohint=true:hinting=false:pixelsize=13
 !URxvt*letterSpace: -1
+
+!URxvt*font: xft:terminus:pixelsize=9
+!URxvt*boldFont: xtf:terminus:bold:pixelsize=9
+!URxvt*letterSpace: 1
 
 urxvt.termName: xterm-256color
 urxvt.scrollBar: false
