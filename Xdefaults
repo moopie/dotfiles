@@ -52,6 +52,13 @@ URxvt.keysym.M-Delete:    perl:matcher:list
 URxvt.keysym.M-u:    perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
+
+! xautolock screen locker
+xautolock.time: 15
+xautolock.corners: 000+
+xautolock.cornerdelay: 3
+xautolock.locker: gnome-screensaver-command --lock
+
 !Zenburn color-scheme
 !urxvt*background:  #3f3f3f
 !urxvt*foreground:  #dcdccc

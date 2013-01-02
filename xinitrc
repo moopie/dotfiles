@@ -32,13 +32,17 @@ setxkbmap \
     -option terminate:ctrl_alt_bkspc
 
 # Cursor theme
-xsetroot -cursor_name Neutral
+xsetroot -cursor_name left_ptr
 
 sh ~/.fehbg
 
 urxvtd -q -o -f
 
 xbindkeys
+
+xautolock &
+
+gnome-screensaver &
 
 #dropboxd &
 
