@@ -59,6 +59,6 @@
     m:0x0 + c:78
     Scroll_Lock
 
-"scrot %Y%m%d-%H.%M.%S.png -t 280x175 -e 'mv $f $m ~/'"
+"scrot %Y%m%d-%H.%M.%S.png -t 280x175 -e 'mv $f $m ~/screenshots/'"
     m:0x0 + c:107
     Print
