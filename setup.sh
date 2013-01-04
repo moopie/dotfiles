@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# This script will probably horribly fail since T never actually tried to run it
+
 conf = $XDG_CONFIG_HOME
 dir = $(pwd)
 
@@ -19,4 +21,4 @@ ln -s $dir/Xdefaults ~/.Xdefaults
 ln -s $dir/gitconfig ~/.gitconfig
 
 # Symlink all the custom themes
-ln -s $dir/zsh/themes/* zsh/oh-my-zsh/custom/
+ln -s $dir/zsh/themes/* $dir/zsh/oh-my-zsh/custom/

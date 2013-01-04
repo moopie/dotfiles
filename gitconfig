@@ -10,5 +10,8 @@
    	st = status
 	co = checkout
 	ci = commit
+	graph = log --graph --oneline --decorate
 [push]
 	default = simple
+[core]
+	editor = vim
