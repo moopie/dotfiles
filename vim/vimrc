@@ -1,6 +1,7 @@
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
+let g:mapleader = ","
 
 "" make vim better (c) some internet dude
 set nocompatible
@@ -140,6 +141,7 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=Consolas:9
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language

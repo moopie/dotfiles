@@ -7,8 +7,8 @@
 !Xft.antialias: true
 !Xft.rgba: rgb
 
-URxvt*font: xft:dina:pixelsize=9
-URxvt*boldFont: xft:dina:bold:pixelsize=9
+!URxvt*font: xft:dina:pixelsize=9
+!URxvt*boldFont: xft:dina:bold:pixelsize=9
 
 !URxvt*font: xft:Inconsolata-g:autohint=true:hinting=false:pixelsize=13
 !Rxvt*boldFont: xft:Inconsolata-g:bold:autohint=true:hinting=false:pixelsize=13
@@ -17,6 +17,10 @@ URxvt*boldFont: xft:dina:bold:pixelsize=9
 !URxvt*font: xft:terminus:pixelsize=9
 !URxvt*boldFont: xtf:terminus:bold:pixelsize=9
 !URxvt*letterSpace: 1
+
+URxvt*font: xft:consolas:size=9
+URxvt*boldFont: xft:consolas:bold:size=9
+URxvt*letterSpace: -1
 
 urxvt.termName: xterm-256color
 urxvt.scrollBar: false
