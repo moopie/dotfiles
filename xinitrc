@@ -34,6 +34,11 @@ setxkbmap \
 # Cursor theme
 xsetroot -cursor_name left_ptr
 
+# Xresources
+xrdb -merge ~/.Xresources
+# Colorscheme
+xrdb -merge ~/.xcolors/current
+
 sh ~/.fehbg
 
 urxvtd -q -o -f

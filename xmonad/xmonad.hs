@@ -6,3 +6,4 @@
      , modMask     = mod4Mask
      , borderWidth = 1
      }
+
