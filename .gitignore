@@ -5,12 +5,4 @@
 # # *.[oa]
 # # *~'
 
-irssi/config
-irssi/config.autosave
-irssi/away.log
 ncmpcpp/error.log
-vim/.netrwhist
-vim/dump/*
-vimperator/info
-xmonad/*
-!xmonad/xmonad.hs
