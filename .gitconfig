@@ -4,8 +4,8 @@
 	diff = auto
 	grep = auto
 [user]
-    name = platypus
-	email = platypus@lavabit.com
+	name = socks
+	email = stacktrace@lavabit.com
 [alias]
    	st = status
 	co = checkout
