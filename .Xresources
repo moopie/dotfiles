@@ -29,7 +29,7 @@ URxvt*font: xft:terminus:pixelsize=10
 URxvt*boldFont: xft:terminus:pixelsize=10
 
 ! Fix font space
-!URxvt*letterSpace: -3
+!URxvt*letterSpace: -2
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt

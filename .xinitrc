@@ -36,8 +36,6 @@ xsetroot -cursor_name left_ptr
 
 # Xresources
 xrdb -merge ~/.Xresources
-# Colorscheme
-xrdb -merge ~/.xcolors/current
 
 sh ~/.fehbg
 
@@ -51,4 +49,4 @@ gnome-screensaver &
 
 #dropboxd &
 
-exec xmonad
+exec awesome
