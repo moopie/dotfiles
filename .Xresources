@@ -38,7 +38,7 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          chromium-browser
+URxvt.urlLauncher:          chromium
 
 ! Cursor
 URxvt.cursorBlink:          true
