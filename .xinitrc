@@ -41,12 +41,6 @@ sh ~/.fehbg
 
 urxvtd -q -o -f
 
-xbindkeys
-
-xautolock &
-
-gnome-screensaver &
-
 #dropboxd &
 
 exec awesome
