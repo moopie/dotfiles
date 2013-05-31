@@ -1,8 +1,8 @@
 Xft.dpi:                    96
-Xft.antialias:              false
+Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
-Xft.hintstyle:              hintslight
+Xft.hintstyle:              hintmedium
 
 !-------------------------------------------------------------------------------
 !! URxvt settings
@@ -25,20 +25,24 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           true
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:terminus:pixelsize=10
-URxvt*boldFont: xft:terminus:pixelsize=10
+URxvt*font: xft:inconsolata-g:pixelsize=13
+URxvt*boldFont: xft:inconsolata-g:bold:pixelsize=13
 
 ! Fix font space
-!URxvt*letterSpace: -2
+URxvt*letterSpace: -1
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher
+URxvt.perl-ext-common:      default,matcher,url-select
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          chromium
+URxvt.urlLauncher:          /usr/bin/chromium
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.url-select.underline: true
+URxvt.url-select.launcher:   /usr/bin/chromium
+URxvt.colorUL: #4682B4
 
 ! Cursor
 URxvt.cursorBlink:          true

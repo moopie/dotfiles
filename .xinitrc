@@ -32,7 +32,7 @@ setxkbmap \
     -option terminate:ctrl_alt_bkspc
 
 # Cursor theme
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name Neutral
 
 # Xresources
 xrdb -merge ~/.Xresources

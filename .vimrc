@@ -32,6 +32,8 @@ set nobackup
 set noswapfile
 
 filetype plugin indent on
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
 if has('autocmd')
 	autocmd filetype python set expandtab
 endif
@@ -163,6 +165,9 @@ if has('autocmd')
 	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 endif
 let g:SuperTabDefaultCompletionType = 'context'
+
+" Ruby-vim for all the ruby goodness
+Bundle 'vim-ruby/vim-ruby'
 
 " Functions
 
