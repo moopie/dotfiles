@@ -90,7 +90,7 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
 
 " GUI
 if has("gui_running")
-	set guifont=Consolas\ 9
+	set guifont=inconsolata-g\ 9
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar"
