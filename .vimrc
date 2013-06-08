@@ -12,9 +12,9 @@ set backspace=indent,eol,start
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 set number        " always show line numbers
+set clipboard+=unnamed  " Yanks go on clipboard instead."
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
@@ -26,10 +26,51 @@ set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
-set visualbell           " don't beep
-set noerrorbells         " don't beep
 set nobackup
 set noswapfile
+
+set showmatch  " Show matching brackets.
+set matchtime=5  " Bracket blinking.
+set novisualbell  " No blinking
+set noerrorbells  " No noise.
+set laststatus=2  " Always show status line.
+" statusline {{{
+" " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" " format markers:
+" "   %< truncation point
+" "   %n buffer number
+" "   %f relative path to file
+" "   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
+" "   %r readonly flag [RO]
+" "   %y filetype [ruby]
+" "   %= split point for left and right justification
+" "   %-35. width specification
+" "   %l current line number
+" "   %L number of lines in buffer
+" "   %c current column number
+" "   %V current virtual column number (-n), if different from %c
+" "   %P percentage through buffer
+" "   %) end of width specification
+" }}}
+set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
+set vb t_vb= " disable any beeps or flashes on error
+set ruler  " Show ruler
+set showcmd " Display an incomplete command in the lower right corner of the Vim window
+set shortmess=atI " Shortens messages"
+
+set fo+=o " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set fo-=r " Do not automatically insert a comment leader after an enter
+set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)"
+
+" Folding
+set foldenable " Turn on folding
+set foldmethod=marker " Fold on the marker
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds "
+
+" Mouse
+set mouse-=a   " Disable mouse
+set mousehide  " Hide mouse after chars typed
 
 filetype plugin indent on
 syntax on             " Enable syntax highlighting
@@ -67,26 +108,6 @@ nmap <silent> ,/ :nohlsearch<CR>
 " Lets you to :w!! if you forgot to sudo into a file
 cmap w!! w !sudo tee % >/dev/null
 
-" Statusline
-set laststatus=2
-" statusline
-" " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-" " format markers:
-" "   %< truncation point
-" "   %n buffer number
-" "   %f relative path to file
-" "   %m modified flag [+] (modified), [-] (unmodifiable) or nothing
-" "   %r readonly flag [RO]
-" "   %y filetype [ruby]
-" "   %= split point for left and right justification
-" "   %-35. width specification
-" "   %l current line number
-" "   %L number of lines in buffer
-" "   %c current column number
-" "   %V current virtual column number (-n), if different from %c
-" "   %P percentage through buffer
-" "   %) end of width specification
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
 
 " GUI
 if has("gui_running")
@@ -101,7 +122,7 @@ if has("gui_running")
 endif
 
 " ctags
-set tags+=/home/platypus/.vim/tags
+set tags+=./tags;$HOME " walk directory tree upto $HOME looking for tags"
 
 "" Plugins
 
@@ -110,34 +131,58 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" Fugitive
 Bundle 'tpope/vim-fugitive'
 
-" Sparkup
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-" delimitMate
 Bundle 'Raimondi/delimitMate.git'
 
-" Closetag
 Bundle 'docunext/closetag.vim.git'
 
-" PyFlakes
+" Programming
 Bundle 'kevinw/pyflakes-vim.git'
+Bundle 'vim-scripts/javacomplete'
+" Ruby-vim for all the ruby goodness
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'SirVer/ultisnips'
+Bundle "jQuery"
+Bundle "rails.vim"
 
-" NERDTree
+" Lint
+Bundle 'godlygeek/tabular'
+Bundle 'hallettj/jslint.vim'
+Bundle 'walm/jshint.vim'
+
+" Syntax
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'scrooloose/syntastic'
+
+" Utility
+Bundle 'repeat.vim'
+Bundle 'surround.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'YankRing.vim'
+let g:yankring_history_dir = "~/.vim"
+
+" tComment
+Bundle "tComment"
+nnoremap // :TComment<CR>
+vnoremap // :TComment<CR>
+
 Bundle 'scrooloose/nerdtree'
 nnoremap <F3> :NERDTreeToggle<CR>
 if has('autocmd')
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
-" Tagbar
 Bundle 'majutsushi/tagbar.git'
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
-" CtrlP
 Bundle 'kien/ctrlp.vim'
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
@@ -153,21 +198,12 @@ if has("gui_running")
 	colorscheme Monokai
 endif
 
-" UltiSnips
-Bundle 'SirVer/ultisnips'
-
-" JavaComplete
-Bundle 'vim-scripts/javacomplete'
-
 " Supertab - always keep last for the autocomplete plugins
 Bundle 'ervandew/supertab'
 if has('autocmd')
 	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 endif
 let g:SuperTabDefaultCompletionType = 'context'
-
-" Ruby-vim for all the ruby goodness
-Bundle 'vim-ruby/vim-ruby'
 
 " Functions
 
