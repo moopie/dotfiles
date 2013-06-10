@@ -41,6 +41,6 @@ sh ~/.fehbg
 
 urxvtd -q -o -f
 
-#dropboxd &
+dropboxd &
 
 exec awesome

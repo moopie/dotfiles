@@ -2,6 +2,11 @@
 
 loadplugins '\.(js|penta)$'
 group user
+map -count -modes=n,v ; <count>:
+map -count -modes=n,v J <count>gT
+map -count -modes=n,v j -builtin <count>10j
+map -count -modes=n,v k -builtin <count>10k
+map -count -modes=n,v K <count>gt
 set defsearch=duckduckgo
 set hintkeys=pyfgcrlaoeuidhtnsqjkxbmwvz
 
