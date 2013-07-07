@@ -29,6 +29,9 @@ set title                " change the terminal's title
 set nobackup
 set noswapfile
 
+" Fish compatability
+set shell=/bin/bash
+
 set showmatch  " Show matching brackets.
 set matchtime=5  " Bracket blinking.
 set novisualbell  " No blinking
@@ -52,7 +55,7 @@ set laststatus=2  " Always show status line.
 " "   %P percentage through buffer
 " "   %) end of width specification
 " }}}
-set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
+"set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
 set vb t_vb= " disable any beeps or flashes on error
 set ruler  " Show ruler
 set showcmd " Display an incomplete command in the lower right corner of the Vim window
@@ -80,8 +83,7 @@ if has('autocmd')
 endif
 
 " Hilights whitespaces
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+"set list listchars=tab:>.,trail:.,extends:#,nbsp:.
 " Paste mode for pasting large amounts of text
 set pastetoggle=<F2>
 
@@ -140,7 +142,7 @@ Bundle 'Raimondi/delimitMate.git'
 Bundle 'docunext/closetag.vim.git'
 
 " Programming
-Bundle 'kevinw/pyflakes-vim.git'
+"Bundle 'kevinw/pyflakes-vim.git'
 Bundle 'vim-scripts/javacomplete'
 " Ruby-vim for all the ruby goodness
 Bundle 'vim-ruby/vim-ruby'
@@ -163,10 +165,7 @@ Bundle 'scrooloose/syntastic'
 " Utility
 Bundle 'repeat.vim'
 Bundle 'surround.vim'
-Bundle 'mileszs/ack.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'YankRing.vim'
-let g:yankring_history_dir = "~/.vim"
 
 " tComment
 Bundle "tComment"
@@ -183,20 +182,41 @@ Bundle 'majutsushi/tagbar.git'
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
-Bundle 'kien/ctrlp.vim'
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_user_command = 'find %s -type f'
-noremap <leader>b <Esc>:CtrlPBuffer<CR>
+" A plugin that replaces CtrlP, ACK, LustyJuggler and YankRing
+Bundle 'Shougo/unite.vim'
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#set_profile('files', 'smartcase', 1)
+call unite#custom#source('line,outline','matchers','matcher_fuzzy')
+
+let g:unite_data_directory='~/.vim/cache/unite'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable=1
+let g:unite_source_rec_max_cache_files=5000
+let g:unite_prompt='» '
+
+function! s:unite_settings()
+	nmap <buffer> Q <plug>(unite_exit)
+	nmap <buffer> <esc> <plug>(unite_exit)
+	imap <buffer> <esc> <plug>(unite_exit)
+endfunction
+autocmd FileType unite call s:unite_settings()
+
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <space>a :Unite grep:.<cr>
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+let g:unite_source_grep_command='ack'
+let g:unite_source_grep_default_opts='--no-heading --no-color -a'
+let g:unite_source_grep_recursive_opt=''
 
 " Monokai
 Bundle 'sickill/vim-monokai'
 if has("gui_running")
 	colorscheme Monokai
 endif
+Bundle 'Lokaltog/vim-powerline'
 
 " Supertab - always keep last for the autocomplete plugins
 Bundle 'ervandew/supertab'
