@@ -195,27 +195,35 @@ let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
 let g:unite_prompt='» '
 
-function! s:unite_settings()
-	nmap <buffer> Q <plug>(unite_exit)
-	nmap <buffer> <esc> <plug>(unite_exit)
-	imap <buffer> <esc> <plug>(unite_exit)
-endfunction
-autocmd FileType unite call s:unite_settings()
-
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <space>a :Unite grep:.<cr>
-nnoremap <space>y :Unite history/yank<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+"nnoremap <C-p> :Unite file_rec/async<cr>
+"nnoremap <space>a :Unite grep:.<cr>
+"nnoremap <space>y :Unite history/yank<cr>
+"nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <space>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <space>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <C-p> 	  :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <space>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <space>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <space>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
 let g:unite_source_grep_command='ack'
 let g:unite_source_grep_default_opts='--no-heading --no-color -a'
 let g:unite_source_grep_recursive_opt=''
 
+function! s:unite_settings()
+	nmap <buffer> Q <plug>(unite_exit)
+	nmap <buffer> <esc> <plug>(unite_exit)
+	imap <buffer> <esc> <plug>(unite_exit)
+	let b:SuperTabDisabled=1
+	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+autocmd FileType unite call s:unite_settings()
+
 " Monokai
 Bundle 'sickill/vim-monokai'
-if has("gui_running")
-	colorscheme Monokai
-endif
+colorscheme Monokai
+
 Bundle 'Lokaltog/vim-powerline'
 
 " Supertab - always keep last for the autocomplete plugins
