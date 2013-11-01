@@ -31,6 +31,9 @@ setxkbmap \
     -option lv3:ralt_switch \
     -option terminate:ctrl_alt_bkspc
 
+# Xbindkeys
+xbindkeys
+
 # Cursor theme
 xsetroot -cursor_name Neutral
 
@@ -40,7 +43,5 @@ xrdb -merge ~/.Xresources
 sh ~/.fehbg
 
 urxvtd -q -o -f
-
-owncloud &
 
 exec awesome

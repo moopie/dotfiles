@@ -6,13 +6,14 @@ let mapleader=","
 
 set hidden 	" hides buffers instead of closing them
 set nowrap	" don't wrap lines
+set expandtab " use spaces instead of tabs
 set tabstop=4	" a tab is 4 spaces
 set backspace=indent,eol,start
 		" allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 set number        " always show line numbers
-set clipboard+=unnamed  " Yanks go on clipboard instead."
+set clipboard+=unnamed  " Yanks go on clipboard instead.
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set ignorecase    " ignore case when searching
@@ -75,12 +76,14 @@ set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds "
 set mouse-=a   " Disable mouse
 set mousehide  " Hide mouse after chars typed
 
+" Hilights
 filetype plugin indent on
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
-if has('autocmd')
-	autocmd filetype python set expandtab
-endif
+" If python, use spaces instead of tabs
+" if has('autocmd')
+	" autocmd filetype python set expandtab
+" endif
 
 " Hilights whitespaces
 "set list listchars=tab:>.,trail:.,extends:#,nbsp:.
@@ -113,7 +116,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " GUI
 if has("gui_running")
-	set guifont=inconsolata-g\ 9
+	set guifont=inconsolata-g\ 8
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar"
@@ -222,7 +225,7 @@ autocmd FileType unite call s:unite_settings()
 
 " Monokai
 Bundle 'sickill/vim-monokai'
-colorscheme Monokai
+colorscheme monokai
 
 Bundle 'Lokaltog/vim-powerline'
 

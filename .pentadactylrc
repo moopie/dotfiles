@@ -1,17 +1,13 @@
-"hg6927
+"hg6968
 
 loadplugins '\.(js|penta)$'
 group user
-
-" First set the colorscheme, in case it modifies our custom settings
-colorscheme molokai
-
+highlight Hint font: bold 10px "Droid Sans Mono", monospace !important; margin: -.2ex; padding: 0 0 0 1px; outline: 1px solid rgba(0, 0, 0, .5); background: rgba(255, 248, 231, .8); color: black; text-transform: uppercase;
 map -count -modes=n,v ; <count>:
 map -count -modes=n,v J <count>gt
 map -count -modes=n,v j -builtin <count>10j
 map -count -modes=n,v k -builtin <count>10k
 map -count -modes=n,v K <count>gT
 set hintkeys=pyfgcrlaoeuidhtnsqjkxbmwvz
-highlight -a Hint text-transform: uppercase;
 
 " vim: set ft=pentadactyl:
