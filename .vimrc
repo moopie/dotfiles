@@ -31,13 +31,14 @@ set nobackup
 set noswapfile
 
 " Fish compatability
-set shell=/bin/bash
+set shell=/bin/zsh
 
 set showmatch  " Show matching brackets.
 set matchtime=5  " Bracket blinking.
 set novisualbell  " No blinking
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
+" We're using the powerline plugin now so no need for the status line
 " statusline {{{
 " " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " " format markers:
@@ -116,7 +117,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " GUI
 if has("gui_running")
-	set guifont=inconsolata-g\ 8
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar"
@@ -144,25 +144,14 @@ Bundle 'Raimondi/delimitMate.git'
 
 Bundle 'docunext/closetag.vim.git'
 
-" Programming
-"Bundle 'kevinw/pyflakes-vim.git'
-Bundle 'vim-scripts/javacomplete'
-" Ruby-vim for all the ruby goodness
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'SirVer/ultisnips'
-Bundle "jQuery"
-Bundle "rails.vim"
+Bundle 'fholgado/minibufexpl.vim'
+let g:miniBufExplorerAutoStart = 1
 
-" Lint
+" Programming
+Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
-Bundle 'hallettj/jslint.vim'
-Bundle 'walm/jshint.vim'
 
 " Syntax
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
 Bundle 'scrooloose/syntastic'
 
 " Utility
@@ -198,10 +187,6 @@ let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
 let g:unite_prompt='» '
 
-"nnoremap <C-p> :Unite file_rec/async<cr>
-"nnoremap <space>a :Unite grep:.<cr>
-"nnoremap <space>y :Unite history/yank<cr>
-"nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
 nnoremap <space>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <C-p> 	  :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
@@ -235,52 +220,3 @@ if has('autocmd')
 	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 endif
 let g:SuperTabDefaultCompletionType = 'context'
-
-" Functions
-
-" Autoimport in java
-
-noremap <F9> :call JavaInsertImport()<CR>
-function! JavaInsertImport()
-  exe "normal mz"
-  let cur_class = expand("<cword>")
-  try
-    if search('^\s*import\s.*\.' . cur_class . '\s*;') > 0
-      throw getline('.') . ": import already exist!"
-    endif
-    wincmd }
-    wincmd P
-    1
-    if search('^\s*public.*\s\%(class\|interface\)\s\+' . cur_class) > 0
-      1
-      if search('^\s*package\s') > 0
-        yank y
-      else
-        throw "Package definition not found!"
-      endif
-    else
-      throw cur_class . ": class not found!"
-    endif
-    wincmd p
-    normal! G
-    " insert after last import or in first line
-    if search('^\s*import\s', 'b') > 0
-      put y
-    else
-      1
-      put! y
-    endif
-    substitute/^\s*package/import/g
-    substitute/\s\+/ /g
-    exe "normal! 2ER." . cur_class . ";\<Esc>lD"
-  catch /.*/
-    echoerr v:exception
-  finally
-    " wipe preview window (from buffer list)
-    silent! wincmd P
-    if &previewwindow
-      bwipeout
-    endif
-    exe "normal! `z"
-  endtry
-endfunction

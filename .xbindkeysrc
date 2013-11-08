@@ -85,10 +85,10 @@
 "mpc toggle"
 	Mod4 + s
 
-"mpc vol +5"
+"mpc volume +5"
 	Mod4 + equal
 
-"mpc vol -5"
+"mpc volume -5"
 	Mod4 + minus
 
 ## File Manager
