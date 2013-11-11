@@ -148,12 +148,11 @@ Bundle 'docunext/closetag.vim.git'
 Bundle 'fholgado/minibufexpl.vim'
 let g:miniBufExplorerAutoStart = 1
 
-Bundle 'Shougo/neocomplcache.vim'
-" let g:neocomplcache_enable_at_startup = 1
-
 " General 
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
+Bundle 'myusuf3/numbers.vim.git'
+nnoremap <F3> :NumbersToggle<CR> 
 
 " Python
 Bundle 'klen/python-mode'
@@ -173,7 +172,7 @@ Bundle 'klen/python-mode'
 " [M            Jump on previous class or method (normal, visual, operator
 " modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
-let g:pymode_rope = 0 " Use jedi-vim plugin instead
+let g:pymode_rope = 0 " Use YouCompleteMe instead
 
 " Documentation
 let g:pymode_doc = 1
@@ -200,8 +199,6 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
-Bundle 'davidhalter/jedi-vim'
-
 " Go
 Bundle 'Blackrush/vim-gocode'
 
@@ -219,7 +216,7 @@ nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
 Bundle 'scrooloose/nerdtree'
-nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 if has('autocmd')
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
@@ -268,7 +265,9 @@ colorscheme monokai
 
 Bundle 'Lokaltog/vim-powerline'
 
-" Supertab - always keep last for the autocomplete plugins
-Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = 'context'
-set omnifunc=syntaxcomplete#Complete
+" YouCompleteMe, replaces all the completion plugins
+" Don't forget to compile
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
