@@ -1,17 +1,17 @@
 [color]
     status = auto
-	branch = auto
-	diff = auto
-	grep = auto
+    branch = auto
+    diff = auto
+    grep = auto
 [user]
-	name = Anton Amirian
-	email = moop@nnm.io
+    name = Anton Amirian
+    email = moop@nnm.io
 [alias]
-   	st = status
-	co = checkout
-	ci = commit
-	graph = log --graph --oneline --decorate
+    st = status
+    co = checkout
+    ci = commit
+    graph = log --graph --oneline --decorate
 [push]
-	default = simple
+    default = simple
 [core]
-	editor = vim
+    editor = vim
