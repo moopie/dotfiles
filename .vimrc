@@ -150,9 +150,12 @@ let g:miniBufExplorerAutoStart = 1
 Bundle 'Shougo/neocomplcache.vim'
 " let g:neocomplcache_enable_at_startup = 1
 
-" Programming
+" General 
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
+
+" Python
+Bundle 'klen/python-mode'
 
 " Go
 Bundle 'Blackrush/vim-gocode'
@@ -193,19 +196,19 @@ let g:unite_source_history_yank_enable=1
 let g:unite_source_rec_max_cache_files=5000
 let g:unite_prompt='» '
 
-nnoremap <space>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-nnoremap <space>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-nnoremap <C-p> 	  :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <space>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <space>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <space>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <space>t   :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <space>f   :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <C-p>      :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <space>o   :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <space>y   :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <space>b   :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
 let g:unite_source_grep_command='ack'
 let g:unite_source_grep_default_opts='--no-heading --no-color -a'
 let g:unite_source_grep_recursive_opt=''
 
 function! s:unite_settings()
-	nmap <buffer> Q <plug>(unite_exit)
+	nmap <buffer> Q     <plug>(unite_exit)
 	nmap <buffer> <esc> <plug>(unite_exit)
 	imap <buffer> <esc> <plug>(unite_exit)
 	let b:SuperTabDisabled=1
