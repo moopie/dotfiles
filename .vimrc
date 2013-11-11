@@ -147,9 +147,15 @@ Bundle 'docunext/closetag.vim.git'
 Bundle 'fholgado/minibufexpl.vim'
 let g:miniBufExplorerAutoStart = 1
 
+Bundle 'Shougo/neocomplcache.vim'
+" let g:neocomplcache_enable_at_startup = 1
+
 " Programming
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
+
+" Go
+Bundle 'Blackrush/vim-gocode'
 
 " Syntax
 Bundle 'scrooloose/syntastic'
@@ -216,7 +222,5 @@ Bundle 'Lokaltog/vim-powerline'
 
 " Supertab - always keep last for the autocomplete plugins
 Bundle 'ervandew/supertab'
-if has('autocmd')
-	autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-endif
 let g:SuperTabDefaultCompletionType = 'context'
+set omnifunc=syntaxcomplete#Complete

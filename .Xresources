@@ -1,24 +1,16 @@
+! Let infinality handle the Xft fonts
 !Xft.dpi:                    96
 !Xft.antialias:              true
 !Xft.rgba:                   rgb
 !Xft.hinting:                true
 !Xft.hintstyle:              hintmedium
 
-!-------------------------------------------------------------------------------
-!! URxvt settings
-!! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-!! More info at:
-!! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!!-------------------------------------------------------------------------------
-
 URxvt.depth:                32
 URxvt.geometry:             90x30
 URxvt.transparent:          false
 URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            50
+URxvt.saveLines:            500
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
@@ -26,13 +18,13 @@ URxvt.lineSpace:            0
 URxvt.allow_bold:           true
 
 ! Terminus
-!URxvt*font: xft:terminus:pixelsize=9
-!URxvt*boldFont: xft:terminus:bold:pixelsize=9
+!URxvt*font:                xft:terminus:pixelsize=9
+!URxvt*boldFont:            xft:terminus:bold:pixelsize=9
 
 ! Source Code Pro
-URxvt*font: xft:SourceCodePro:pixelsize=11
-URxvt*boldFont: xft:SourceCodePro:bold:pixelsize=11
-URxvt*letterSpace: -1
+URxvt*font:                 xft:SourceCodePro:pixelsize=11
+URxvt*boldFont:             xft:SourceCodePro:bold:pixelsize=11
+URxvt*letterSpace:          -1
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
@@ -41,12 +33,11 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher,url-select
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          /usr/bin/chromium
-URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.urlLauncher:          /usr/bin/firefox
+URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.url-select.underline: true
-!URxvt.url-select.launcher:   /usr/bin/chromium
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.colorUL: #4682B4
+URxvt.url-select.launcher:  /usr/bin/firefox
+URxvt.colorUL:              #4682B4
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -56,30 +47,30 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-Rxvt.foreground  : #d0d0d0
-Rxvt.background  : #1c1c1c
+Rxvt.foreground:            #d0d0d0
+Rxvt.background:            #1c1c1c
 
 !black
- URxvt.color0:  #333333
- URxvt.color8:  #666666
+ URxvt.color0:              #333333
+ URxvt.color8:              #666666
 !red
- URxvt.color1:  #A94952
- URxvt.color9:  #ED6975
+ URxvt.color1:              #A94952
+ URxvt.color9:              #ED6975
 !green
- URxvt.color2:  #83A949
- URxvt.color10: #B8ED69
+ URxvt.color2:              #83A949
+ URxvt.color10:             #B8ED69
 !yellow
- URxvt.color3:  #A99F49
- URxvt.color11: #EDE169
+ URxvt.color3:              #A99F49
+ URxvt.color11:             #EDE169
 !blue
- URxvt.color4:  #4983A9
- URxvt.color12: #69B8ED
+ URxvt.color4:              #4983A9
+ URxvt.color12:             #69B8ED
 !magenta
- URxvt.color5:  #A94983
- URxvt.color13: #ED69B8
+ URxvt.color5:              #A94983
+ URxvt.color13:             #ED69B8
 !cyan
- URxvt.color6:  #49A99F
- URxvt.color14: #69EDE1
+ URxvt.color6:              #49A99F
+ URxvt.color14:             #69EDE1
 !white
- URxvt.color7:  #AAAAAA
- URxvt.color15: #CCCCCC
+ URxvt.color7:              #AAAAAA
+ URxvt.color15:             #CCCCCC
