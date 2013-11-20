@@ -1,4 +1,4 @@
-" This must be first, because it changes other options as side effect
+"This must be first, because it changes other options as side effect
 set nocompatible
 
 " Change the mapleader from \ to ,
@@ -118,6 +118,8 @@ cmap w!! w !sudo tee % >/dev/null
 
 " GUI
 if has("gui_running")
+    set anti enc=utf-8
+    set guifont=Source\ Code\ Pro\ 8
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar"
@@ -225,6 +227,9 @@ Bundle 'majutsushi/tagbar.git'
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 
+" ack, for use with unite
+Bundle 'mileszs/ack.vim'
+
 " A plugin that replaces CtrlP, ACK, LustyJuggler and YankRing
 Bundle 'Shougo/unite.vim'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -241,11 +246,12 @@ let g:unite_prompt='» '
 nnoremap <space>t   :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
 nnoremap <space>f   :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <C-p>      :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <space>o   :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+" nnoremap <space>o   :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <space>/   :<C-u>Unite -no-split -buffer-name=grep    grep:.<cr>
 nnoremap <space>y   :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <space>b   :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
-let g:unite_source_grep_command='ack'
+let g:unite_source_grep_command='Ack'
 let g:unite_source_grep_default_opts='--no-heading --no-color -a'
 let g:unite_source_grep_recursive_opt=''
 
@@ -259,9 +265,9 @@ function! s:unite_settings()
 endfunction
 autocmd FileType unite call s:unite_settings()
 
-" Monokai
-Bundle 'sickill/vim-monokai'
-colorscheme monokai
+" Colorschemes
+Bundle 'flazz/vim-colorschemes'
+colorscheme jellybeans
 
 Bundle 'Lokaltog/vim-powerline'
 
