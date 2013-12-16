@@ -93,7 +93,9 @@ filetype on           " Enable filetype detection
 set pastetoggle=<F2>
 
 " Shortcut mappings
-nnoremap ; :
+" While this is a useful mapping, it sort of ruins it for the vims
+" that don't have this line in their vimrc
+"nnoremap ; :
 
 
 " Use Q for formatting the current paragraph (or selection)
@@ -153,8 +155,6 @@ let g:miniBufExplorerAutoStart = 1
 " General 
 Bundle 'SirVer/ultisnips'
 Bundle 'godlygeek/tabular'
-Bundle 'myusuf3/numbers.vim.git'
-nnoremap <F3> :NumbersToggle<CR> 
 
 " Python
 Bundle 'klen/python-mode'
@@ -202,7 +202,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 " Go
-Bundle 'Blackrush/vim-gocode'
+" Bundle 'Blackrush/vim-gocode'
 
 " Syntax
 Bundle 'scrooloose/syntastic'
@@ -274,6 +274,7 @@ Bundle 'Lokaltog/vim-powerline'
 " YouCompleteMe, replaces all the completion plugins
 " Don't forget to compile
 Bundle 'Valloric/YouCompleteMe'
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
-set completeopt-=preview
+let g:ycm_auto_trigger = 0
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_confirm_extra_conf = 0
+" set completeopt-=preview
