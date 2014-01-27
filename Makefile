@@ -3,10 +3,12 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent
+all: dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent submodules
 
 dirs:
 	$(MKDIR) ${HOME}/.config
+	$(MKDIR) ${HOME}/.local
+	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
 	$(LN) $(DOTFILES)/Xresources ${HOME}/.Xresources
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
@@ -16,7 +18,7 @@ xorg:
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 _zsh:
-	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.oh-my-zsh
+	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
 	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 _vim:
 	$(MKDIR) ${HOME}/.vim
@@ -35,3 +37,6 @@ rtorrent:
 	$(MKDIR) ${HOME}/Torrents
 	$(MKDIR) ${HOME}/Downloads
 	$(LN) $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
+submodules:
+	git submodule init
+	git submodule update --recursive

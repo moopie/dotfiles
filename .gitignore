@@ -17,3 +17,7 @@ ranger/__pycache__
 vim/*
 !vim/bundle/vundle
 !vim/vimrc
+
+xmonad/*
+!xmonad/xmonad.hs
+!xmonad/xmobarrc

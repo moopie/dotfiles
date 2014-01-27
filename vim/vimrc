@@ -29,9 +29,10 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set nobackup
 set noswapfile
-
-" Fish compatability
-set shell=/bin/zsh
+set scrolloff=3
+set encoding=utf8
+set autochdir
+set autoread
 
 set showmatch  " Show matching brackets.
 set matchtime=5  " Bracket blinking.

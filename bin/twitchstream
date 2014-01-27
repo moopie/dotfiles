@@ -1,0 +1,43 @@
+#!/usr/bin/env sh
+
+#
+# Livestreaming with FFMPEG for Twitch.tv
+#
+
+STREAM_KEY=$(cat ~/.twitchkey)
+URL="rtmp://live.twitch.tv/app/$STREAM_KEY"
+INRES="1920x1080"
+OUTRES="1280x720"
+FPS="30"
+QUAL="medium"
+
+# -f x11grab       forces input to be from x11grab
+# -s "$INRES"      sets a specific image size, relying on the variable $INRES
+# -r "$FPS"        sets framerate to be the value equal to $FPS
+# -i :0.0          gets input, in this case its pulling in screen :0.0 from x11
+# -b:a 128k        sets audio bitrate to 128k.
+# -f alsa          forces audio input to be from alsa
+# -ac 2            sets audio channels to 2
+# -i pulse         gets input from pulse
+# -c:v libx264     sets video codec to libx264
+# -crf 23          sets the ffmpeg constant rate factor to 23 (the default)
+# -preset "$QUAL"  sets the preset compression quality and speed. possible presets are:
+#                      ultrafast, superfast, veryfast, faster
+#                      fast, medium, slow, slower, veryslow
+# -s "$OUTRES"     specifies size of image
+# -c:a libmp3lame  sets audio codec to use libmp3lame
+# -ar 44100        sets audio rate to 44100 hz
+# -threads 0       sets cpu threads to start, 0 autostarts threads based on cpu cores
+# -pix_fmt yuv420p sets pixel format to Y'UV420p. Otherwise by default Y'UV444 is used and is incompatible with twitch
+# -f flv "$URL"    forces format to flv, and outputs to the twitch RTMP url 
+
+if [ -z $STREAM_KEY ]; then
+    echo "Please write your twitch stream key into $HOME/.twitchkey"
+    echo "For more information visit http://www.twitch.tv/dashboard"
+else
+    ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 \
+        -f alsa -ac 2 -i pulse \
+        -c:v libx264 -crf 23 -preset "$QUAL" -s "$OUTRES" \
+        -c:a libmp3lame -ar 44100 -b:a 128k -threads 0 -pix_fmt yuv420p \
+        -f flv "$URL"
+fi

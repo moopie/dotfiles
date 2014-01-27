@@ -3,7 +3,7 @@ tion file
 # GPL v2.0 applies
 
 # Set terminal
-Terminal = urxvt
+Terminal = urxvtc
 TermExec = ${Terminal} -e
 AlwaysInTerm = ssh telnet ftp lynx mc vi vim pine centericq perldoc man
 
@@ -45,8 +45,8 @@ URL_paci = ${TermExec} 'pacman -S %s'
 URL_pacs = ${TermExec} 'pacman -Ss %s'
 
 # extension handlers
-EXT:doc,rtf = AbiWord %s
-EXT:txt,cc,cpp,h,java,html,htm,epl,tex,latex,js,css,xml,xsl,am,php,css,js,py,rb = gedit %s
+EXT:doc,rtf = libreoffice --writer %s
+EXT:txt,cc,cpp,h,java,html,htm,epl,tex,latex,js,css,xml,xsl,am,php,css,js,py,rb = gvim %s
 EXT:mpeg,mpg,avi,mkv,flv = vlc %s
 EXT:mp3,ogg,m4a,wmv,wma = vlc %s
 EXT:ps = gv %s
