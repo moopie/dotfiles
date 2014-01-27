@@ -1,8 +1,4 @@
 #!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
     for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -52,5 +48,8 @@ urxvtd -q -o -f
 tmux new -d -s dev
 tmux new -d -s music ncmpcpp
 
+# Our little status bar
+xmobar ~/.xmonad/xmobarrc &
+
 # Here we go...
-exec awesome
+exec xmonad
