@@ -3,7 +3,7 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent submodules
+all: submodules dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent
 
 dirs:
 	$(MKDIR) ${HOME}/.config
