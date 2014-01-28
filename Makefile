@@ -7,8 +7,8 @@ all: submodules dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent
 
 dirs:
 	$(MKDIR) ${HOME}/.config
-	$(MKDIR) ${HOME}/.local/bin
-	$(LN) $(DOTFILES)/bin/twitchstream/twitchstream ${HOME}/.local/bin/twitchstream
+	$(MKDIR) ${HOME}/.local
+	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
 	$(LN) $(DOTFILES)/Xresources ${HOME}/.Xresources
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
