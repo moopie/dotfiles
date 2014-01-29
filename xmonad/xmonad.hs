@@ -17,9 +17,10 @@
 
 import XMonad
 import XMonad.Hooks.DynamicLog
-import Data.Monoid
-import System.Exit
+import XMonad.Hooks.EwmhDesktops
 
+import System.Exit
+import Data.Monoid
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -252,7 +253,7 @@ myManageHook = composeAll
 -- It will add EWMH event handling to your custom event hooks by
 -- combining them with ewmhDesktopsEventHook.
 --
-myEventHook = mempty
+myEventHook = fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging

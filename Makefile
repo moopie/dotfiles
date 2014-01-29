@@ -3,14 +3,14 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: submodules dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent
+all: dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent submodules
 
 dirs:
 	$(MKDIR) ${HOME}/.config
 	$(MKDIR) ${HOME}/.local
 	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
-	$(LN) $(DOTFILES)/Xresources ${HOME}/.Xresources
+	$(LN) $(DOTFILES)/xresources ${HOME}/.Xresources
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
 	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc

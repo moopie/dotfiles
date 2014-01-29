@@ -49,7 +49,7 @@ tmux new -d -s dev
 tmux new -d -s music ncmpcpp
 
 # Our little status bar
-xmobar ~/.xmonad/xmobarrc &
+xmobar ~/.xmonad/xmobar.hs &
 
 # Here we go...
 exec xmonad

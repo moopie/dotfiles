@@ -5,6 +5,13 @@
 #
 
 STREAM_KEY=$(cat $HOME/.twitchkey)
+
+if [ -z $STREAM_KEY ]; then
+    echo "Please write your twitch stream key into $HOME/.twitchkey"
+    echo "You can get your stream key from http://www.twitch.tv/broadcast/dashboard/streamkey"
+    exit 1
+fi
+
 URL="rtmp://live.twitch.tv/app/$STREAM_KEY"
 INRES="1920x1080"
 OUTRES="1280x720"
@@ -31,14 +38,8 @@ QUAL="medium"
 # -pix_fmt yuv420p sets pixel format to Y'UV420p. Otherwise by default Y'UV444 is used and is incompatible with twitch
 # -f flv "$URL"    forces format to flv, and outputs to the twitch RTMP url 
 
-if [ -z $STREAM_KEY ]; then
-    echo "Please write your twitch stream key into $HOME/.twitchkey"
-    echo "For more information visit http://www.twitch.tv/dashboard"
-else
-    ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 \
-           -f alsa -ac 2 -i pulse \
-           -c:v libx264 -crf 23 -preset "$QUAL" -s "$OUTRES" \
-           -c:a libmp3lame -ar 44100 -b:a 128k -threads 0 -pix_fmt yuv420p \
-           -f flv "$URL"
-fi
-
+ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 \
+       -f alsa -ac 2 -i pulse \
+       -c:v libx264 -crf 23 -preset "$QUAL" -s "$OUTRES" \
+       -c:a libmp3lame -ar 44100 -b:a 128k -threads 0 -pix_fmt yuv420p \
+       -f flv "$URL"
