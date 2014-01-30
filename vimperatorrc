@@ -48,5 +48,5 @@ noremap U :undo<Space>
 cmap <C-d> <Tab>
 cmap <C-n> <Tab>
 cmap <C-p> <S-Tab>
-" Jump from selection in visual mode http://memo.officebrook.net/20090803.html#p01
+" Jump from selection in visual mode
 vmap <silent> <C-g> y<Esc><Esc>P

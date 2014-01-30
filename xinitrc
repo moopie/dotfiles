@@ -45,6 +45,7 @@ sh ~/.fehbg
 urxvtd -q -o -f
 
 # Tmux sessions
+tmux new -d -s irc weechat-curses
 tmux new -d -s dev
 tmux new -d -s music ncmpcpp
 

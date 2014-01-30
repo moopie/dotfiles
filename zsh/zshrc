@@ -2,7 +2,7 @@
 ZSH=$HOME/.config/oh-my-zsh
 
 # Use theme from $ZSH/themes/
-ZSH_THEME="robbyrussell"
+ZSH_THEME="dieter"
 
 # Disable bi-weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
@@ -12,7 +12,7 @@ plugins=(git virtualenv common-aliases colored-man extract)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Customs
 
 for dir in \
     /usr/local/sbin \
