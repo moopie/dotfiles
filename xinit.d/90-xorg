@@ -1,5 +1,16 @@
 #!/usr/bin/env sh
 
+# Keyboard layouts
+setxkbmap \
+    -layout us,il,ru \
+    -variant dvorak,,winkeys \
+    -option \
+    -option grp:caps_toggle \
+    -option grp_led:scroll \
+    -option compose:rctrl \
+    -option lv3:ralt_switch \
+    -option terminate:ctrl_alt_bkspc
+
 # Use xbindkeys for all the hotkeys that don't require to be set up with a WM
 # like applications and other things (check ~/.xbindkeysrc for the full list)
 xbindkeys

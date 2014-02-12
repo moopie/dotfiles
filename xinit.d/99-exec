@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-# Our little status bar     
+# Our little status bar
 xmobar ~/.xmonad/xmobar.hs &
-                            
-# Start xmonad           
+
+# Here we go...
 exec xmonad
