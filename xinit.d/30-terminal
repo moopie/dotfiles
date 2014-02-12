@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 # Urxvt daemon, for faster urxvt   
 urxvtd -q -o -f &
                                    
