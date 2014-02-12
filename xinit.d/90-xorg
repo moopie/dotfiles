@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Use xbindkeys for all the hotkeys that don't require to be set up with a WM
+# like applications and other things (check ~/.xbindkeysrc for the full list)
+xbindkeys
+
+# Cursor theme (requires xcursor-neutral)
+xsetroot -cursor_name Neutral
+
+# Merge the custom Xresources settings with the default ones
+xrdb -merge ~/.Xresources

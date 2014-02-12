@@ -3,26 +3,29 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: dirs xorg _xmonad _zsh _vim tmux vimperator git _ranger rtorrent submodules
+all: locals xorg _xmonad vimperator rtorrent bin headless
 
-dirs:
-	$(MKDIR) ${HOME}/.config
+headless: locals _zsh _vim tmux git submodules
+
+locals:
 	$(MKDIR) ${HOME}/.local
+bin:
 	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
 	$(LN) $(DOTFILES)/xresources ${HOME}/.Xresources
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
-	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
+	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
+	$(LNF) $(DOTFILES)/xinit.d ${HOME}/.config/xinit.d
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 _zsh:
+	$(MKDIR) ${HOME}/.config
 	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
 	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 _vim:
-	$(MKDIR) ${HOME}/.vim
-	$(LNF) $(DOTFILES)/vim/bundle ${HOME}/.vim/bundle
+	$(LNF) $(DOTFILES)/vim ${HOME}/.vim
 	$(LN) $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
 tmux:
 	$(LN) $(DOTFILES)/tmux.conf ${HOME}/.tmux.conf
@@ -30,8 +33,6 @@ vimperator:
 	$(LN) $(DOTFILES)/vimperatorrc ${HOME}/.vimperatorrc
 git:
 	$(LN) $(DOTFILES)/gitconfig ${HOME}/.gitconfig
-_ranger:
-	$(LNF) $(DOTFILES)/ranger ${HOME}/.config/ranger
 rtorrent:
 	$(MKDIR) ${HOME}/.rtorrent/session
 	$(MKDIR) ${HOME}/Torrents

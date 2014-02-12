@@ -8,12 +8,6 @@
 ncmpcpp/error.log
 ncmpcpp/artists
 
-ranger/bookmarks
-ranger/history
-ranger/tagged
-ranger/scope.sh
-ranger/__pycache__
-
 vim/*
 !vim/bundle/vundle
 !vim/vimrc

@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# Keyboard and mouse rate; increases their responsiveness 
+xset r rate 180                                           
+xset mouse 22/7 1                                         
+                                                          
+# Keyboard layouts                                        
+# Switch layouts by pressing the capslock
+setxkbmap \                                               
+    -layout us,il,ru \                                    
+    -variant dvorak,,winkeys \                            
+    -option \                                             
+    -option grp:caps_toggle \                             
+    -option grp_led:scroll \                              
+    -option compose:rctrl \                               
+    -option lv3:ralt_switch \
+    -option terminate:ctrl_alt_bkspc 

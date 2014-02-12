@@ -39,7 +39,7 @@ set matchtime=5     " Bracket blinking.
 set novisualbell    " No blinking
 set noerrorbells    " No noise.
 set laststatus=2    " Always show status line.
-" We're using the powerline plugin now so no need for the status line
+
 " statusline {{{
 " " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " " format markers:
@@ -59,6 +59,7 @@ set laststatus=2    " Always show status line.
 " "   %) end of width specification
 " }}}
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
+
 set vb t_vb=        " disable any beeps or flashes on error
 set ruler           " Show ruler
 set showcmd         " Display an incomplete command in the lower right corner of the Vim window

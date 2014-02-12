@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Automatically loads the last wallpaper that was set up with feh
+sh ~/.fehbg &
