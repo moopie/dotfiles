@@ -3,12 +3,13 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: locals xorg _xmonad vimperator rtorrent bin headless
+all: locals xorg _xmonad vimperator bin headless
 
 headless: locals _zsh _vim tmux git submodules
 
 locals:
 	$(MKDIR) ${HOME}/.local
+	$(MKDIR) ${HOME}/.config
 bin:
 	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
@@ -17,11 +18,10 @@ xorg:
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
 	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
-	$(LNF) $(DOTFILES)/xinit.d ${HOME}/.config/xinit.d
+	$(LNF) $(DOTFILES)/xinitrc.d ${HOME}/.config/xinitrc.d
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 _zsh:
-	$(MKDIR) ${HOME}/.config
 	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
 	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 _vim:
@@ -33,11 +33,6 @@ vimperator:
 	$(LN) $(DOTFILES)/vimperatorrc ${HOME}/.vimperatorrc
 git:
 	$(LN) $(DOTFILES)/gitconfig ${HOME}/.gitconfig
-rtorrent:
-	$(MKDIR) ${HOME}/.rtorrent/session
-	$(MKDIR) ${HOME}/Torrents
-	$(MKDIR) ${HOME}/Downloads
-	$(LN) $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
 submodules:
 	git submodule init
 	git submodule update --recursive

@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-# For all the torrenting needs
-# default port is 58846
-deluged -p 58846
-
-# Also start the web interface
-deluge-web -p 8000 -f

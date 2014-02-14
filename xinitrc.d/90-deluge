@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# For all the torrenting needs
+deluged -p 58846 && deluge-web -p 8112 -f

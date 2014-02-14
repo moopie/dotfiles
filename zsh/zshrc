@@ -24,7 +24,7 @@ for dir in \
     $HOME/android-studio/bin \
     $HOME/android-studio/sdk/platform-tools
 ; do
-    if [[ -d $dir ]]; then path+=$dir; fi
+    if [[ -d "$dir" ]]; then path+="$dir"; fi
 done
 
 # Add go to the path if it exists
