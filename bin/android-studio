@@ -7,8 +7,9 @@ if [ ! -d $STUDIO ]; then
     exit 1
 fi
 
-# Fix for JAVA stuff
+# Make fonts look at least half-decent
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# Fix for tiling window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 $STUDIO/bin/studio.sh

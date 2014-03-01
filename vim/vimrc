@@ -40,7 +40,7 @@ set novisualbell    " No blinking
 set noerrorbells    " No noise.
 set laststatus=2    " Always show status line.
 
-" statusline {{{
+" statusline
 " " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " " format markers:
 " "   %< truncation point
@@ -57,7 +57,6 @@ set laststatus=2    " Always show status line.
 " "   %V current virtual column number (-n), if different from %c
 " "   %P percentage through buffer
 " "   %) end of width specification
-" }}}
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%))
 
 set vb t_vb=        " disable any beeps or flashes on error

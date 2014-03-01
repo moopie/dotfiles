@@ -1,9 +1,4 @@
 #!/usr/bin/env sh
 
 # Urxvt daemon, for faster urxvt   
-urxvtd -q -o -f &
-                                   
-# Tmux sessions                    
-tmux new -d -s irc weechat-curses &
-tmux new -d -s dev &
-tmux new -d -s music ncmpcpp &
+urxvtd -q -o -f

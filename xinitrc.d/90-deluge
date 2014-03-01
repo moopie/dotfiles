@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 
-# For all the torrenting needs
-deluged -p 58846 && deluge-web -p 8112 -f
+# Start the deluge daemon
+deluged -p 58846
+
+# Also start the web interface
+deluge-web -p 8112 -f

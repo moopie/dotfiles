@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Tmux sessions
+tmux new -d -s irc weechat-curses
+tmux new -d -s music ncmpcpp
+tmux new -d -s dev

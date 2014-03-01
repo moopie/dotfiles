@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
 
-# Our little status bar
-xmobar ~/.xmonad/xmobar.hs &
-
-# Here we go...
+# WM
 exec xmonad
