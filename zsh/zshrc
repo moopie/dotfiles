@@ -20,9 +20,10 @@ for dir in \
     /usr/bin \
     /usr/bin/core_perl \
     $HOME/.local/bin \
-    $HOME/.gem/ruby/2.0.0/bin \
+    $HOME/.gem/ruby/2.1.0/bin \
+    $HOME/.cabal/bin \
     $HOME/android-studio/bin \
-    $HOME/android-studio/sdk/platform-tools
+    $HOME/android-studio/sdk/platform-tools \
 ; do
     if [[ -d "$dir" ]]; then path+="$dir"; fi
 done

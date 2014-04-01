@@ -79,7 +79,7 @@ set mouse-=a   " Disable mouse
 set mousehide  " Hide mouse after chars typed
 
 " Hilights
-filetype plugin indent on
+filetype indent plugin on
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 
@@ -193,6 +193,19 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+" node
+Bundle 'pangloss/vim-javascript"'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'nathanaelkane/vim-indent-guides'
+au! BufNewFile,BufRead *.jade setf jade
+Bundle 'myhere/vim-nodejs-complete'
+
+" css
+Bundle 'groenewege/vim-less'
+au! BufNewFile,BufRead *.less setf less 
+Bundle 'hail2u/vim-css3-syntax'
+
 " Syntax
 Bundle 'scrooloose/syntastic'
 
@@ -253,13 +266,10 @@ autocmd FileType unite call s:unite_settings()
 
 " Colorschemes
 Bundle 'flazz/vim-colorschemes'
-colorscheme jellybeans
+colorscheme molokai 
 
 Bundle 'Lokaltog/vim-powerline'
 
 " YouCompleteMe, replaces all the completion plugins
 " Don't forget to compile
 Bundle 'Valloric/YouCompleteMe'
-let g:ycm_auto_trigger = 0
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_confirm_extra_conf = 0

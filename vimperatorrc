@@ -1,3 +1,5 @@
+" vi: set ft=vim :
+
 " Options {{{1
 set runtimepath=~/.vimperator
 set titlestring="Mozilla Firefox"

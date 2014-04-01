@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-# Start the deluge daemon
-deluged -p 58846
-
-# Also start the web interface
-deluge-web -p 8112 -f
