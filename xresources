@@ -8,6 +8,7 @@ URxvt.loginShell:           true
 URxvt.saveLines:            500
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
+URxvt.termName:             xterm-256color
 
 ! Colors for bold/underlined/italic text
 URxvt.colorIT:              #87af5f
@@ -41,30 +42,41 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-Rxvt.foreground:            #d0d0d0
-Rxvt.background:            #1c1c1c
+!-------------------------------------------------------------------------------
+! Colors
 
-!black
-URxvt.color0:              #333333
-URxvt.color8:              #666666
-!red
-URxvt.color1:              #A94952
-URxvt.color9:              #ED6975
-!green
-URxvt.color2:              #83A949
-URxvt.color10:             #B8ED69
-!yellow
-URxvt.color3:              #A99F49
-URxvt.color11:             #EDE169
-!blue
-URxvt.color4:              #4983A9
-URxvt.color12:             #69B8ED
-!magenta
-URxvt.color5:              #A94983
-URxvt.color13:             #ED69B8
-!cyan
-URxvt.color6:              #49A99F
-URxvt.color14:             #69EDE1
-!white
-URxvt.color7:              #AAAAAA
-URxvt.color15:             #CCCCCC
+*background: #181818
+*foreground: #c0c0c0
+*cursorColor: #93a1a1
+
+!! black dark/light
+*color0: #121212
+*color8: #2e3436
+
+!! red dark/light
+*color1: #a35b66
+*color9: #ab6b74
+
+!! green dark/light
+*color2: #99ab6f
+*color10: #acb972
+
+!! yellow dark/light
+*color3: #ca9733
+*color11: #ccaa69
+
+!! blue dark/light
+*color4: #495d6e
+*color12: #687987
+
+!! magenta dark/light
+*color5: #825969
+*color13: #977381
+
+!! cyan dark/light
+*color6: #839191
+*color14: #98a4a4
+
+!! white dark/light
+*color7: #e0e0e0
+color15: #e5e5e5
