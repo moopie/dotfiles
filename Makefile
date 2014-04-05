@@ -19,7 +19,8 @@ xorg:
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
 	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
-	$(LNF) $(DOTFILES)/xinitrc.d ${HOME}/.config/xinitrc.d
+	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xsession
+	$(LNF) $(DOTFILES)/urxvt ${HOME}/.urxvt
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 _zsh:
@@ -28,7 +29,6 @@ _zsh:
 _vim:
 	$(LNF) $(DOTFILES)/vim ${HOME}/.vim
 	$(LN) $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
-	@echo nodejs dev
 	$(LN) $(DOTFILES)/jshintrc ${HOME}/.jshintrc
 tmux:
 	$(LN) $(DOTFILES)/tmux.conf ${HOME}/.tmux.conf

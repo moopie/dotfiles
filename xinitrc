@@ -9,7 +9,7 @@ execdir () {
     fi
 }
 
-execdir /etc/X11/xinit/xinitrc.d 
+execdir /etc/X11/xinit/xinitrc 
 
 # If using nvidia, execute some stuff that supposedly improves performance
 # https://wiki.archlinux.org/index.php/Nvidia#GUI:_nvidia-settings
@@ -56,7 +56,7 @@ sh ~/.fehbg
 xbindkeys
 
 # Cursor theme (requires xcursor-neutral)
-xsetroot -cursor_name Neutral
+xsetroot -cursor_name neutral
 
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources

@@ -206,6 +206,9 @@ Bundle 'groenewege/vim-less'
 au! BufNewFile,BufRead *.less setf less 
 Bundle 'hail2u/vim-css3-syntax'
 
+" haskell
+Bundle 'dag/vim2hs'
+
 " Syntax
 Bundle 'scrooloose/syntastic'
 
