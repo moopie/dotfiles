@@ -18,8 +18,7 @@ xorg:
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
-	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xinitrc
-	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xsession
+	$(LN) $(DOTFILES)/xinitrc ${HOME}/.xprofile
 	$(LNF) $(DOTFILES)/urxvt ${HOME}/.urxvt
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
