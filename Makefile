@@ -5,13 +5,13 @@ MKDIR = mkdir -p
 
 all: locals xorg _xmonad vimperator bin headless
 
-headless: locals _zsh _vim tmux git update
+headless: locals _bin _zsh _vim tmux git update
 
 locals:
 	$(MKDIR) ${HOME}/.local
 	$(MKDIR) ${HOME}/.config
 	$(LN) $(DOTFILES)/profile ${HOME}/.profile
-bin:
+_bin:
 	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
 	$(LN) $(DOTFILES)/xresources ${HOME}/.Xresources

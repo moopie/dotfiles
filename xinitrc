@@ -9,7 +9,7 @@ execdir () {
     fi
 }
 
-execdir /etc/X11/xinit/xinitrc 
+execdir /etc/X11/xinit/xinitrc.d
 
 # If using nvidia, execute some stuff that supposedly improves performance
 # https://wiki.archlinux.org/index.php/Nvidia#GUI:_nvidia-settings
@@ -35,18 +35,10 @@ setxkbmap \
 
 # Urxvt daemon, for faster urxvt   
 urxvtd -q -o -f
-#!/usr/bin/env sh
 
 # Tmux sessions
-tmux new -d -s irc weechat-curses
-tmux new -d -s music ncmpcpp
+tmux new -d -s irc weechat
 tmux new -d -s dev
-
-# Start the deluge daemon
-deluged -p 58846
-
-# Also start the web interface
-deluge-web -p 8112 -f
 
 # Automatically loads the last wallpaper that was set up with feh
 sh ~/.fehbg
@@ -57,6 +49,13 @@ xbindkeys
 
 # Cursor theme (requires xcursor-neutral)
 xsetroot -cursor_name neutral
+
+# Java settings
+
+# Make fonts look at least half-decent
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+# Fix for tiling window managers
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources
