@@ -48,7 +48,7 @@ sh ~/.fehbg
 xbindkeys
 
 # Cursor theme (requires xcursor-neutral)
-xsetroot -cursor_name neutral
+xsetroot -cursor_name Neutral
 
 # Java settings
 
@@ -59,6 +59,3 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources
-
-# WM
-exec xmonad
