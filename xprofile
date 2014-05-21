@@ -37,7 +37,6 @@ setxkbmap \
 urxvtd -q -o -f
 
 # Tmux sessions
-tmux new -d -s irc weechat
 tmux new -d -s dev
 
 # Automatically loads the last wallpaper that was set up with feh
@@ -56,6 +55,9 @@ xsetroot -cursor_name Neutral
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 # Fix for tiling window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# pyrnotify for ssh notifications
+python2 ~/.local/bin/pyrnotify.py 4321 &
 
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources

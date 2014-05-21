@@ -19,20 +19,20 @@ for dir in \
     /usr/local/bin \
     /usr/bin \
     /usr/bin/core_perl \
+    $HOME/go/bin \
     $HOME/.local/bin \
     $HOME/.gem/ruby/2.1.0/bin \
     $HOME/.cabal/bin \
     $HOME/android-studio/bin \
     $HOME/android-studio/sdk/platform-tools \
 ; do
-    if [[ -d "$dir" ]]; then path+="$dir"; fi
+    if [[ -d "$dir" ]]; then 
+        if [[ "$dir" == "$HOME/go/bin" ]]; then
+            export GOPATH=$HOME/go
+        fi
+        path+="$dir" 
+    fi
 done
-
-# Add go to the path if it exists
-if [[ -d $HOME/go ]]; then
-    export GOPATH=$HOME/go
-    path+=$GOPATH/bin
-fi
 
 # Remove duplicates from $PATH
 typeset -U PATH

@@ -130,26 +130,86 @@ set tags+=./tags;$HOME " walk directory tree upto $HOME looking for tags"
 
 " let Vundle manage Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
 
-Bundle 'tpope/vim-fugitive'
+Plugin 'gmarik/vundle'
 
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-fugitive'
 
-Bundle 'Raimondi/delimitMate.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Bundle 'docunext/closetag.vim.git'
+Plugin 'Raimondi/delimitMate.git'
 
-Bundle 'fholgado/minibufexpl.vim'
-let g:miniBufExplorerAutoStart = 1
+Plugin 'docunext/closetag.vim.git'
+
+Plugin 'fholgado/minibufexpl.vim'
 
 " General 
-Bundle 'SirVer/ultisnips'
-Bundle 'godlygeek/tabular'
+Plugin 'SirVer/ultisnips'
+Plugin 'godlygeek/tabular'
 
 " Python
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
+
+" node
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'nathanaelkane/vim-indent-guides'
+au! BufNewFile,BufRead *.jade setf jade
+Plugin 'myhere/vim-nodejs-complete'
+
+" css
+Plugin 'groenewege/vim-less'
+au! BufNewFile,BufRead *.less setf less 
+Plugin 'hail2u/vim-css3-syntax'
+
+" haskell
+Plugin 'dag/vim2hs'
+
+" Go
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'Blackrush/vim-gocode.git'
+
+" Rust
+Plugin 'wting/rust.vim'
+
+" Syntax
+Plugin 'scrooloose/syntastic'
+
+" Utility
+Plugin 'repeat.vim'
+Plugin 'surround.vim'
+Plugin 'Lokaltog/vim-easymotion'
+
+" tComment
+Plugin 'tComment'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'majutsushi/tagbar.git'
+
+" ag, the silver searcher
+Plugin 'rking/ag.vim'
+
+" A plugin that replaces CtrlP, ACK, LustyJuggler and YankRing
+Plugin 'Shougo/unite.vim'
+
+" Colorschemes
+Plugin 'flazz/vim-colorschemes'
+
+Plugin 'Lokaltog/vim-powerline'
+
+" YouCompleteMe, replaces all the completion plugins
+" Don't forget to compile
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
+
+" MiniBufExpl
+let g:miniBufExplorerAutoStart = 1
+
+" Python
 " Python-mode
 " Activate rope
 " Keys:
@@ -193,50 +253,21 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
-" node
-Bundle 'pangloss/vim-javascript"'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'nathanaelkane/vim-indent-guides'
-au! BufNewFile,BufRead *.jade setf jade
-Bundle 'myhere/vim-nodejs-complete'
-
-" css
-Bundle 'groenewege/vim-less'
-au! BufNewFile,BufRead *.less setf less 
-Bundle 'hail2u/vim-css3-syntax'
-
-" haskell
-Bundle 'dag/vim2hs'
-
-" Syntax
-Bundle 'scrooloose/syntastic'
-
-" Utility
-Bundle 'repeat.vim'
-Bundle 'surround.vim'
-Bundle 'Lokaltog/vim-easymotion'
-
-" tComment
-Bundle "tComment"
+" TComment
 nnoremap // :TComment<CR>
 vnoremap // :TComment<CR>
 
-Bundle 'scrooloose/nerdtree'
+" NerdTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 if has('autocmd')
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
-Bundle 'majutsushi/tagbar.git'
+" Tagbar
 let g:tagbar_usearrows = 1
+
 nnoremap <leader>l :TagbarToggle<CR>
-
-" ag, the silver searcher
-Bundle 'rking/ag.vim'
-
-" A plugin that replaces CtrlP, ACK, LustyJuggler and YankRing
-Bundle 'Shougo/unite.vim'
+" Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#set_profile('files', 'smartcase', 1)
@@ -267,12 +298,5 @@ function! s:unite_settings()
 endfunction
 autocmd FileType unite call s:unite_settings()
 
-" Colorschemes
-Bundle 'flazz/vim-colorschemes'
-colorscheme molokai 
-
-Bundle 'Lokaltog/vim-powerline'
-
-" YouCompleteMe, replaces all the completion plugins
-" Don't forget to compile
-Bundle 'Valloric/YouCompleteMe'
+" Colorscheme
+colorscheme jellybeans

@@ -22,6 +22,7 @@ xorg:
 	$(LNF) $(DOTFILES)/urxvt ${HOME}/.urxvt
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
+	$(LNF) $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc
 _zsh:
 	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
 	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
