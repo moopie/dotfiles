@@ -20,6 +20,7 @@ xorg:
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
 	$(LN) $(DOTFILES)/xprofile ${HOME}/.xprofile
 	$(LNF) $(DOTFILES)/urxvt ${HOME}/.urxvt
+	$(LNF) $(DOTFILES)/zathurarc ${HOME}/.zathurarc
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 	$(LNF) $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc

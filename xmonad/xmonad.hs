@@ -2,6 +2,8 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ICCCMFocus
+import XMonad.Hooks.SetWMName
 
 import System.Exit
 import Data.Monoid
@@ -252,7 +254,7 @@ myEventHook = fullscreenEventHook
 -- It will add EWMH logHook actions to your custom log hook by
 -- combining it with ewmhDesktopsLogHook.
 --
-myLogHook = return ()
+myLogHook = takeTopFocus
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -268,7 +270,7 @@ myLogHook = return ()
 -- It will add initialization of EWMH support to your custom startup
 -- hook by combining it with ewmhDesktopsStartup.
 --
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -282,7 +284,7 @@ main = xmonad =<< xmobar defaults
 --
 -- No need to modify this.
 --
-defaults = defaultConfig {
+defaults = ewmh defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,

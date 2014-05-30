@@ -23,8 +23,8 @@ for dir in \
     $HOME/.local/bin \
     $HOME/.gem/ruby/2.1.0/bin \
     $HOME/.cabal/bin \
-    $HOME/android-studio/bin \
-    $HOME/android-studio/sdk/platform-tools \
+    $HOME/android-sdks/platform-tools \
+    $HOME/android-sdks/tools \
 ; do
     if [[ -d "$dir" ]]; then 
         if [[ "$dir" == "$HOME/go/bin" ]]; then
