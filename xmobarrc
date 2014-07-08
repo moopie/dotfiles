@@ -12,8 +12,16 @@ Config { font = "xft:terminus:size=9"
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ,  Run BatteryP ["BAT0"]
+                        [ "-t", "<acstatus><watts> (<left>%)"
+                        , "-L", "10", "-H", "80", "-p", "3"
+                        , "--", "-O", "<fc=green>On</fc> - ", "-i", ""
+                        , "-L", "-15", "-H", "-5"
+                        , "-l", "red", "-m", "blue", "-h", "green"
+                        ]
+                        600
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %enp7s0% }{ <fc=#ee9a00>%date%</fc>| %LLSD% | %uname%"
+       , template = "%cpu% | %memory% * %swap% | %enp7s0% }{ <fc=#ee9a00>%date%</fc> | %LLSD% | %batteryp% | %uname%"
        }

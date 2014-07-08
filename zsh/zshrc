@@ -2,7 +2,7 @@
 ZSH=$HOME/.config/oh-my-zsh
 
 # Use theme from $ZSH/themes/
-ZSH_THEME="dieter"
+ZSH_THEME="robbyrussell"
 
 # Disable bi-weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"

@@ -1,10 +1,18 @@
 import XMonad
+
+-- Hooks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ICCCMFocus
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageHelpers
 
+-- Layout
+import XMonad.Layout.NoBorders
+import qualified XMonad.Layout.Fullscreen as F
+
+-- Etc
 import System.Exit
 import Data.Monoid
 import qualified XMonad.StackSet as W
@@ -192,7 +200,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = smartBorders $ avoidStruts (tiled ||| Mirror tiled) ||| noBorders (F.fullscreenFull Full)
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
@@ -226,6 +234,7 @@ myManageHook = composeAll
     , className =? "Gimp"                     --> doFloat
     , resource  =? "desktop_window"           --> doIgnore
     , resource  =? "kdesktop"                 --> doIgnore
+    , isFullscreen                            --> doFullFloat
     ]
 
 ------------------------------------------------------------------------

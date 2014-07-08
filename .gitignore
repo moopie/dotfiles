@@ -5,12 +5,16 @@
 # # *.[oa]
 # # *~'
 
+!.gitkeep
+
 ncmpcpp/error.log
 ncmpcpp/artists
 
 vim/*
+vim/tmp/*
 !vim/bundle/vundle
 !vim/vimrc
+!vim/tmp/.gitkeep
 
 xmonad/*
 !xmonad/xmonad.hs
