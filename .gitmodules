@@ -7,3 +7,6 @@
 [submodule "urxvt-perls"]
 	path = urxvt/ext
 	url = https://github.com/muennich/urxvt-perls
+[submodule "vim/bundle/neobundle.vim"]
+	path = vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
