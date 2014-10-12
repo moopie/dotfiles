@@ -12,7 +12,7 @@ ncmpcpp/artists
 
 vim/*
 vim/tmp/*
-!vim/bundle/vundle
+!vim/bundle/neobundle.vim
 !vim/vimrc
 !vim/tmp/.gitkeep
 
