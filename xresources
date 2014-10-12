@@ -18,8 +18,8 @@ URxvt.colorUL:              #87afd7
 ! Fonts
 URxvt.allow_bold:           true
 
-URxvt*font:                 xft:SourceCodePro:pixelsize=11
-URxvt*boldFont:             xft:SourceCodePro:bold:pixelsize=11
+URxvt*font:                 xft:Source Code Pro:pixelsize=11
+URxvt*boldFont:             xft:Source Code Pro:bold:pixelsize=11
 URxvt*letterSpace:          -1
 
 ! Scrollbar

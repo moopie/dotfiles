@@ -27,11 +27,14 @@ setxkbmap \
     -layout us,il,ru \
     -variant dvorak,,winkeys \
     -option \
-    -option grp:caps_toggle \
+    -option grp:alt_shift_toggle \
     -option grp_led:scroll \
     -option compose:rctrl \
     -option lv3:ralt_switch \
     -option terminate:ctrl_alt_bkspc
+
+# Switch caps and escape around
+xmodmap ~/.xmodmap
 
 # Urxvt daemon, for faster urxvt   
 urxvtd -q -o -f
@@ -48,6 +51,9 @@ xbindkeys
 
 # Cursor theme (requires xcursor-neutral)
 xsetroot -cursor_name Neutral
+
+# Start the transmission daemon
+transmission-daemon
 
 # Java settings
 

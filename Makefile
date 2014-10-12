@@ -16,6 +16,7 @@ _bin:
 xorg:
 	$(LN) $(DOTFILES)/xresources ${HOME}/.Xresources
 	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
+	$(LN) $(DOTFILES)/xmodmap ${HOME}/.xmodmap
 	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
 	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
 	$(LN) $(DOTFILES)/xprofile ${HOME}/.xprofile

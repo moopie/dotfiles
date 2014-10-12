@@ -20,9 +20,9 @@ for dir in \
     /usr/bin \
     /usr/bin/core_perl \
     $HOME/go/bin \
+    $HOME/.cabal/bin \
     $HOME/.local/bin \
     $HOME/.gem/ruby/2.1.0/bin \
-    $HOME/.cabal/bin \
     $HOME/android-sdks/platform-tools \
     $HOME/android-sdks/tools \
 ; do
@@ -38,3 +38,6 @@ done
 typeset -U PATH
 
 export EDITOR=vim
+
+# Commands
+pyhelp() { python -c "help($@)"; }
