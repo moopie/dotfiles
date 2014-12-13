@@ -2,7 +2,7 @@
 
 " Options {{{1
 set runtimepath=~/.vimperator
-set titlestring="Mozilla Firefox"
+set titlestring=""
 set messages=100
 set verbose=1
 set defsearch=google
@@ -24,31 +24,14 @@ let mapleader = ","
 highlight Bell display: none; 
 
 " move
-noremap j 3j
-noremap k 3k
-noremap J <C-d>
-noremap K <C-u>
+noremap j 6j
+noremap k 6k
+noremap J gT
+noremap K gt
 set scroll=7
-
-" select next/previous tab
-noremap <C-l> gt
-noremap <C-h> gT
-noremap <C-j> gt
-noremap <C-k> gT
-noremap <C-w>l gt
-noremap <C-w>h gT
-
-" move current tab left/right
-map <S-Right> :tablast<CR>
-map <S-Left> :tabfirst<CR>
-"map <C-L> :tabmove! +1<CR>
-"map <C-H> :tabmove! -1<CR>
 
 " undo list
 noremap U :undo<Space>
-" ex mode
-cmap <C-d> <Tab>
-cmap <C-n> <Tab>
-cmap <C-p> <S-Tab>
+
 " Jump from selection in visual mode
 vmap <silent> <C-g> y<Esc><Esc>P

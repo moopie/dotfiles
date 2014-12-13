@@ -3,7 +3,7 @@ LN = ln -fs
 LNF = ln -fsn # for folders
 MKDIR = mkdir -p
 
-all: locals xorg _xmonad vimperator bin headless
+all: locals xorg _xmonad vimperator bin rtorrent headless
 
 headless: locals _bin _zsh _vim tmux git update
 
@@ -25,6 +25,10 @@ xorg:
 _xmonad:
 	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
 	$(LNF) $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc
+rtorrent:
+	$(MKDIR) ${HOME}/.rtorrent/sessions
+	$(MKDIR) ${HOME}/Torrents
+	$(LNF) $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
 _zsh:
 	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
 	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
