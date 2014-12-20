@@ -167,6 +167,7 @@ NeoBundle 'godlygeek/tabular'
 
 " haskell
 NeoBundle 'dag/vim2hs'
+NeoBundle 'lukerandall/haskellmode-vim'
 
 " Syntax
 NeoBundle 'scrooloose/syntastic'
