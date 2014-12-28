@@ -76,7 +76,7 @@ set mousehide  " Hide mouse after chars typed
 " GUI
 if has("gui_running")
     set anti enc=utf-8
-    set guifont=Source\ Code\ Pro\ 9
+    set guifont=Consolas 9
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar"
@@ -336,7 +336,7 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 
 NeoBundle 'OrangeT/vim-csharp'
 
-NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'fholgado/minibufexpl.vim'
 
 call neobundle#end()
 
