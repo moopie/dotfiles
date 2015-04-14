@@ -5,23 +5,27 @@ echo.
 echo.
 
 choco install -y^
+ chocolateygui^
+ vim^
  git.install^
  googlechrome^
  notepadplusplus.install^
+ sublimetext3^
  firefox^
  7zip.install^
  vlc^
  autohotkey.portable^
  filezilla^
  putty^
+ kitty.portable^
  python^
  python2^
- vim^
  virtualbox^
  paint.net^
  wget^
  curl^
  conemu^
+ cmder^
  winscp^
  wireshark^
  winmerge^
@@ -36,6 +40,8 @@ choco install -y^
  launchy^
  sumatrapdf^
  cmake^
- yeoman^
  imgburn^
- rdcman
+ rdcman^
+ everything^
+ cmake^
+ windirstat

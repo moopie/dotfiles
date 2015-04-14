@@ -190,6 +190,15 @@ NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'ctrlp'
 
+NeoBundle 'majutsushi/tagbar'
+
+NeoBundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+NeoBundle 'honza/vim-snippets'
+
 call neobundle#end()
 
 " set syntax on after neobundle does it's thing

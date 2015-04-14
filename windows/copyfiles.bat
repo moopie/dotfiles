@@ -11,6 +11,6 @@ xcopy /S /I "%dotfiles%\vim" "%UserProfile%\.vim"
 xcopy "%dotfiles%\vim\vimrc" "%UserProfile%\.vimrc"
 
 :: Copy AutoHotkey
-@xcopy "%dotfiles%\windows\AutoHotkey.ahk" "%HOMEDRIVE%%HOMEPATH%\Start Menu\Programs\Startup\AutoHotkey.ahk"
+xcopy "%dotfiles%\windows\AutoHotkey.ahk" "%HOMEDRIVE%%HOMEPATH%\Start Menu\Programs\Startup\AutoHotkey.ahk"
 
 exit
