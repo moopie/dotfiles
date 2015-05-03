@@ -1,4 +1,4 @@
-@recho off
+@echo off
 
 echo Installing applications...
 echo.
