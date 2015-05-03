@@ -36,7 +36,6 @@ choco install -y^
  virtualclonedrive^
  classic-shell^
  mingw^
- baretail^
  launchy^
  sumatrapdf^
  cmake^
