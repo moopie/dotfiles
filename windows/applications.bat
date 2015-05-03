@@ -6,15 +6,17 @@ echo.
 
 choco install -y^
  chocolateygui^
+ clink^
+ conemu^
  vim^
- git.install^
+ git^
  googlechrome^
- notepadplusplus.install^
+ notepadplusplus^
  sublimetext3^
  firefox^
- 7zip.install^
+ 7zip^
  vlc^
- autohotkey.portable^
+ autohotkey^
  filezilla^
  putty^
  kitty.portable^
@@ -24,8 +26,7 @@ choco install -y^
  paint.net^
  wget^
  curl^
- conemu^
- cmder^
+ ag^
  winscp^
  wireshark^
  winmerge^
@@ -33,7 +34,6 @@ choco install -y^
  greenshot^
  linqpad4^
  virtualclonedrive^
- autohotkey.install^
  classic-shell^
  mingw^
  baretail^
