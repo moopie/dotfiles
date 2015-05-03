@@ -1,4 +1,4 @@
-@echo off
+@reecho off
 
 echo Installing applications...
 echo.
@@ -29,10 +29,9 @@ choco install -y^
  ag^
  winscp^
  wireshark^
- winmerge^
+ kdiff3^
  vagrant^
  greenshot^
- linqpad4^
  virtualclonedrive^
  classic-shell^
  mingw^
@@ -44,4 +43,5 @@ choco install -y^
  rdcman^
  everything^
  cmake^
- windirstat
+ windirstat^
+ glogg
