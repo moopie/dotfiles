@@ -1,4 +1,4 @@
-@reecho off
+@recho off
 
 echo Installing applications...
 echo.
@@ -10,6 +10,7 @@ choco install -y^
  conemu^
  vim^
  git^
+ gittfs^
  googlechrome^
  notepadplusplus^
  sublimetext3^
@@ -44,4 +45,5 @@ choco install -y^
  everything^
  cmake^
  windirstat^
- glogg
+ glogg^
+ nmap
