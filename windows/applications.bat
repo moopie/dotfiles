@@ -8,7 +8,6 @@ choco install -y^
  chocolateygui^
  clink^
  conemu^
- vim^
  git^
  gittfs^
  googlechrome^
