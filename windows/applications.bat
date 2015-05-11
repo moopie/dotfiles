@@ -9,7 +9,6 @@ choco install -y^
  clink^
  conemu^
  git^
- gittfs^
  googlechrome^
  notepadplusplus^
  sublimetext3^
@@ -20,7 +19,6 @@ choco install -y^
  filezilla^
  putty^
  kitty.portable^
- python^
  python2^
  virtualbox^
  paint.net^

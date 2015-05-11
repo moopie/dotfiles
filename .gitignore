@@ -10,11 +10,11 @@
 ncmpcpp/error.log
 ncmpcpp/artists
 
-vim/*
 vim/tmp/*
-!vim/bundle/neobundle.vim
-!vim/vimrc
 !vim/tmp/.gitkeep
+vim/backup/*
+!vim/backup/.gitkeep
+vim/plugged/*
 
 xmonad/*
 !xmonad/xmonad.hs

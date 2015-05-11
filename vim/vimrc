@@ -124,82 +124,61 @@ nnoremap <c-f> :Ag<space>
 
 "" Plugins
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+Plug 'tpope/vim-fugitive'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-"let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundle 'docunext/closetag.vim.git'
+Plug 'docunext/closetag.vim'
 
 " Syntax
-NeoBundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " Utility
-NeoBundle 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
-NeoBundle 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " NERDCommenter
-NeoBundle 'scrooloose/nerdcommenter.git'
+Plug 'scrooloose/nerdcommenter'
 
-NeoBundle 'scrooloose/nerdtree'
-nnoremap <F2> :NERDTreeToggle<CR>
+Plug 'scrooloose/nerdtree'
+nnoremap <leader>t :NERDTreeToggle<CR>
 if has('autocmd')
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 endif
 
 " ag, the silver searcher
-NeoBundle 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 " Colorschemes
-NeoBundle 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 
-NeoBundle 'Lokaltog/vim-powerline'
+Plug 'Lokaltog/vim-powerline'
 
-NeoBundle 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nnoremap <space>b :CtrlPBuffer<CR>
 
-NeoBundle 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch'
 
-NeoBundle 'fholgado/minibufexpl.vim'
+Plug 'fholgado/minibufexpl.vim'
 
-NeoBundle 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'ctrlp'
 
-NeoBundle 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
-NeoBundle 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-NeoBundle 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
-call neobundle#end()
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
 
 " set syntax on after neobundle does it's thing
 filetype plugin indent on
