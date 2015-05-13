@@ -8,6 +8,9 @@ if has('win32')
     set t_Co=256
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+
+    " set rtp for windows because it is not set to the place we want
+    set rtp+=~/.vim/
 endif
 
 " Change the mapleader from \ to ,
@@ -42,7 +45,6 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set scrolloff=3
 set encoding=utf8
-set autochdir
 set autoread
 
 set showmatch       " Show matching brackets.
@@ -158,7 +160,8 @@ Plug 'Lokaltog/vim-powerline'
 Plug 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-nnoremap <space>b :CtrlPBuffer<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>p :CtrlPMixed<CR>
 
 Plug 'tpope/vim-dispatch'
 
@@ -166,22 +169,69 @@ Plug 'fholgado/minibufexpl.vim'
 
 Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui = 'ctrlp'
-autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
-autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
-autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
-autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
-autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
-"finds members in the current buffer
-autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
-" cursor can be anywhere on the line containing an issue
-autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
-autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
-autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
-autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
-"navigate up by method/property/field
-autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
-"navigate down by method/property/field
-autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+" Get Code Issues and syntax errors
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+
+" Bindings
+augroup omnisharp_commands
+    autocmd!
+    " Synchronous build (blocks Vim)
+    "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
+    " Builds can also run asynchronously with vim-dispatch installed
+    autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
+    " automatic syntax check on events (TextChanged requires Vim 7.4)
+    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+
+    "The following commands are contextual, based on the current cursor position.
+
+    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+    "finds members in the current buffer
+    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
+    " cursor can be anywhere on the line containing an issue
+    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
+    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
+    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
+    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+    "navigate up by method/property/field
+    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+    "navigate down by method/property/field
+    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+
+augroup END
+
+" Contextual code actions (requires CtrlP or unite.vim)
+nnoremap <leader><space> :OmniSharpGetCodeActions<cr>
+" Run code actions with text selected in visual mode to extract method
+vnoremap <leader><space> :call OmniSharp#GetCodeActions('visual')<cr>
+
+" rename with dialog
+nnoremap <leader>nm :OmniSharpRename<cr>
+nnoremap <F2> :OmniSharpRename<cr>
+" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+nnoremap <leader>rl :OmniSharpReloadSolution<cr>
+nnoremap <leader>cf :OmniSharpCodeFormat<cr>
+" Load the current .cs file to the nearest project
+nnoremap <leader>tp :OmniSharpAddToProject<cr>
+
+" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
+nnoremap <leader>ss :OmniSharpStartServer<cr>
+nnoremap <leader>sp :OmniSharpStopServer<cr>
+
+" Add syntax highlighting for types and interfaces
+nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 
 Plug 'OrangeT/vim-csharp'
 
