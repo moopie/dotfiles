@@ -39,21 +39,14 @@ xmodmap ~/.xmodmap
 # Urxvt daemon, for faster urxvt   
 urxvtd -q -o -f
 
-# Tmux sessions
-tmux new -d -s dev
-
 # Automatically loads the last wallpaper that was set up with feh
 sh ~/.fehbg
-
-# Use xbindkeys for all the hotkeys that don't require to be set up with a WM
-# like applications and other things (check ~/.xbindkeysrc for the full list)
-xbindkeys
 
 # Cursor theme (requires xcursor-neutral)
 xsetroot -cursor_name Neutral
 
-# Start the transmission daemon
-transmission-daemon
+# Merge the custom Xresources settings with the default ones
+xrdb -merge ~/.Xresources
 
 # Java settings
 
@@ -62,5 +55,3 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 # Fix for tiling window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Merge the custom Xresources settings with the default ones
-xrdb -merge ~/.Xresources
