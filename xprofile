@@ -48,6 +48,9 @@ xsetroot -cursor_name Neutral
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources
 
+# Emacs server
+emacs -daemon
+
 # Java settings
 
 # Make fonts look at least half-decent
