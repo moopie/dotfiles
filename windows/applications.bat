@@ -5,8 +5,6 @@ echo.
 echo.
 
 choco install -y^
- chocolateygui^
- clink^
  conemu^
  git^
  googlechrome^
@@ -14,13 +12,12 @@ choco install -y^
  sublimetext3^
  firefox^
  7zip^
- vlc^
+ mpv^
  autohotkey^
  filezilla^
  putty^
  kitty.portable^
  python2^
- virtualbox^
  paint.net^
  wget^
  curl^
@@ -28,10 +25,8 @@ choco install -y^
  winscp^
  wireshark^
  kdiff3^
- vagrant^
  greenshot^
  virtualclonedrive^
- classic-shell^
  mingw^
  launchy^
  sumatrapdf^
@@ -40,6 +35,5 @@ choco install -y^
  rdcman^
  everything^
  cmake^
- windirstat^
  glogg^
  nmap
