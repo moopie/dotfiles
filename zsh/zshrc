@@ -45,7 +45,4 @@ pyhelp() { python -c "help($@)"; }
 # Alias
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 
-alias emacscli='emacsclient -t -c'
-
-#alias lives='livestreamer --player-passthrough hls --default-stream best -p mpv'
-alias lives='livestreamer --default-stream best -p mpv'
+alias livestreamer='livestreamer --default-stream best -p mpv'
