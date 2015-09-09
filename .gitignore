@@ -5,16 +5,10 @@
 # # *.[oa]
 # # *~'
 
-!.gitkeep
+vim/plugins
 
 ncmpcpp/error.log
 ncmpcpp/artists
-
-vim/tmp/*
-!vim/tmp/.gitkeep
-vim/backup/*
-!vim/backup/.gitkeep
-vim/plugged/*
 
 xmonad/*
 !xmonad/xmonad.hs

@@ -31,8 +31,6 @@ _zsh:
 	ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 _vim:
 	ln -fsn $(DOTFILES)/vim ${HOME}/.vim
-	mkdir -p ${HOME}/.vim/tmp
-	mkdir -p ${HOME}/.vim/backup
 	ln -fs $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
 	ln -fs $(DOTFILES)/jshintrc ${HOME}/.jshintrc
 tmux:
