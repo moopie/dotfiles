@@ -7,7 +7,6 @@ headless: locals shell editor tmux git rtorrent update
 locals:
 	mkdir -p ${HOME}/.local
 	mkdir -p ${HOME}/.config
-	ln -fs $(DOTFILES)/profile ${HOME}/.profile
 xorg:
 	ln -fs $(DOTFILES)/xresources ${HOME}/.Xresources
 	ln -fs $(DOTFILES)/xmodmap ${HOME}/.xmodmap
