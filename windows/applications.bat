@@ -34,6 +34,5 @@ choco install -y^
  imgburn^
  rdcman^
  everything^
- cmake^
  glogg^
  nmap
