@@ -5,7 +5,6 @@ set runtimepath=~/.vimperator
 set titlestring=""
 set messages=100
 set verbose=1
-set defsearch=google
 set toolbars=noaddons,nobookmarks,nomenu,tabs
 set complete=slS
 set history=1000
@@ -19,7 +18,10 @@ set focuscontent
 set visualbell
 set hintchars=hjklasdfgyiopqwertnmzxcvb
 
-let mapleader = ","
+let mapleader=","
+
+" Search engine
+set defsearch=duckduckgo
 
 highlight Bell display: none; 
 

@@ -41,3 +41,8 @@ export EDITOR=vim
 
 # Commands
 pyhelp() { python -c "help($@)"; }
+
+# Alias
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+
+alias livestreamer='livestreamer --default-stream best -p mpv'

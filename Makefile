@@ -1,50 +1,44 @@
 DOTFILES := $(shell pwd)
-LN = ln -fs
-LNF = ln -fsn # for folders
-MKDIR = mkdir -p
 
-all: locals xorg _xmonad vimperator bin rtorrent headless
+all: locals xorg _xmonad vimperator bin headless
 
-headless: locals _bin _zsh _vim tmux git weechat update
+headless: locals _bin _zsh _vim tmux git rtorrent update
 
 locals:
-	$(MKDIR) ${HOME}/.local
-	$(MKDIR) ${HOME}/.config
-	$(LN) $(DOTFILES)/profile ${HOME}/.profile
+	mkdir -p ${HOME}/.local
+	mkdir -p ${HOME}/.config
+	ln -fs $(DOTFILES)/profile ${HOME}/.profile
 _bin:
-	$(LNF) $(DOTFILES)/bin ${HOME}/.local/bin
+	ln -fsn $(DOTFILES)/bin ${HOME}/.local/bin
 xorg:
-	$(LN) $(DOTFILES)/xresources ${HOME}/.Xresources
-	$(LN) $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
-	$(LN) $(DOTFILES)/xmodmap ${HOME}/.xmodmap
-	$(LN) $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
-	$(LNF) $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
-	$(LN) $(DOTFILES)/xprofile ${HOME}/.xprofile
-	$(LNF) $(DOTFILES)/urxvt ${HOME}/.urxvt
-	$(LNF) $(DOTFILES)/zathurarc ${HOME}/.zathurarc
+	ln -fs $(DOTFILES)/xresources ${HOME}/.Xresources
+	ln -fs $(DOTFILES)/xbindkeysrc ${HOME}/.xbindkeysrc
+	ln -fs $(DOTFILES)/xmodmap ${HOME}/.xmodmap
+	ln -fs $(DOTFILES)/gmrunrc ${HOME}/.gmrunrc
+	ln -fsn $(DOTFILES)/ncmpcpp ${HOME}/.ncmpcpp
+	ln -fs $(DOTFILES)/xprofile ${HOME}/.xprofile
+	ln -fsn $(DOTFILES)/urxvt ${HOME}/.urxvt
+	ln -fsn $(DOTFILES)/zathurarc ${HOME}/.zathurarc
 _xmonad:
-	$(LNF) $(DOTFILES)/xmonad ${HOME}/.xmonad
-	$(LNF) $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc
+	ln -fsn $(DOTFILES)/xmonad ${HOME}/.xmonad
+	ln -fsn $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc
 rtorrent:
-	$(MKDIR) ${HOME}/.rtorrent/sessions
-	$(MKDIR) ${HOME}/Torrents
-	$(LNF) $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
+	mkdir -p ${HOME}/.rtorrent/sessions
+	mkdir -p ${HOME}/Torrents
+	ln -fsn $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
 _zsh:
-	$(LNF) $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
-	$(LN) $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
+	ln -fsn $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
+	ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 _vim:
-	$(LNF) $(DOTFILES)/vim ${HOME}/.vim
-	$(LN) $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
-	$(LN) $(DOTFILES)/jshintrc ${HOME}/.jshintrc
+	ln -fsn $(DOTFILES)/vim ${HOME}/.vim
+	ln -fs $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
+	ln -fs $(DOTFILES)/jshintrc ${HOME}/.jshintrc
 tmux:
-	$(LN) $(DOTFILES)/tmux.conf ${HOME}/.tmux.conf
+	ln -fs $(DOTFILES)/tmux.conf ${HOME}/.tmux.conf
 vimperator:
-	$(LN) $(DOTFILES)/vimperatorrc ${HOME}/.vimperatorrc
+	ln -fs $(DOTFILES)/vimperatorrc ${HOME}/.vimperatorrc
 git:
-	$(LN) $(DOTFILES)/gitconfig ${HOME}/.gitconfig
-weechat:
-	$(MKDIR) ${HOME}/.weechat
-	$(LN) $(DOTFILES)/weechat/weechat.conf ${HOME}/.weechat/weechat.conf
+	ln -fs $(DOTFILES)/gitconfig ${HOME}/.gitconfig
 update:
 	git submodule init
 	git submodule update --recursive
