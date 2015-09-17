@@ -32,6 +32,7 @@ vimperator:
 	ln -fs $(DOTFILES)/vimperatorrc ${HOME}/.vimperatorrc
 git:
 	ln -fs $(DOTFILES)/gitconfig ${HOME}/.gitconfig
+	ln -fs $(DOTFILES)/gitignore_global ${HOME}/.gitignore_global
 update:
 	git submodule init
 	git submodule update --recursive

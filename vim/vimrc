@@ -20,7 +20,7 @@ if has("gui_running")
     if has('win32')
         set guifont=Consolas:h9
     else
-        set guifont=Inconsolata\ 13
+        set guifont=Inconsolata\ 10
     endif
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
