@@ -1,1 +1,11 @@
+# intellij
 .idea
+
+# vim
+*~
+*.swp
+*.swo
+
+# emacs
+\#*\#
+.\#*
