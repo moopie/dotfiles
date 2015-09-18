@@ -12,7 +12,10 @@ xcopy "%dotfiles%\vim\vimrc" "%UserProfile%\.vimrc"
 
 :: Bash and etc
 xcopy "%dotfiles%\bashrc" "%UserProfile%\.bashrc"
-xcopy "%dotfiles%\inputrc" "%UserProfile%\.inputrc"
+
+:: git
+xcopy "%dotfiles%\gitconfig" "%UserProfile%\.gitconfig"
+xcopy "%dotfiles%\gitignore_global" "%UserProfile%\.gitignore_global"
 
 :: Copy AutoHotkey
 xcopy "%dotfiles%\windows\AutoHotkey.ahk" "%HOMEDRIVE%%HOMEPATH%\Start Menu\Programs\Startup\AutoHotkey.ahk"
