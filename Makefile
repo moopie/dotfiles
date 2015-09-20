@@ -20,8 +20,9 @@ rtorrent:
 	mkdir -p ${HOME}/Torrents
 	ln -fsn $(DOTFILES)/rtorrent.rc ${HOME}/.rtorrent.rc
 shell:
-	ln -fsn $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.config/oh-my-zsh
-	ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
+	ln -fs $(DOTFILES)/bash/bashrc ${HOME}/.bashrc
+	ln -fs $(DOTFILES)/bash/alias ${HOME}/.bash_alias
+	ln -fs $(DOTFILES)/bash/ps1 ${HOME}/.bash_ps1
 editor:
 	ln -fsn $(DOTFILES)/vim ${HOME}/.vim
 	ln -fs $(DOTFILES)/vim/vimrc ${HOME}/.vimrc

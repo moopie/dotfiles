@@ -9,3 +9,7 @@
 # emacs
 \#*\#
 .\#*
+
+# sublime text
+*.sublime-project
+*.sublime-workspace

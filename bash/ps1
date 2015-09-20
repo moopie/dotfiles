@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# wrap in a function to allow local variables
+set_ps1() {
+
+    # Reset
+    local CReset="\[\033[0m\]" # Text Reset
+
+    # Regular Colors
+    local Black="\[\033[0;30m\]"  # Black
+    local Red="\[\033[0;31m\]"    # Red
+    local Green="\[\033[0;32m\]"  # Green
+    local Yellow="\[\033[0;33m\]" # Yellow
+    local Blue="\[\033[0;34m\]"   # Blue
+    local Purple="\[\033[0;35m\]" # Purple
+    local Cyan="\[\033[0;36m\]"   # Cyan
+    local White="\[\033[0;37m\]"  # White
+
+    source /usr/share/git/completion/git-prompt.sh
+
+    local user=$(whoami)
+    if [ $user = 'root' ]; then
+        user_color="$Red"
+    else
+        user_color="$Blue"
+    fi
+
+    export PS1="$user_color\u$White@$Green\h $Cyan\w$CReset"
+
+    if command -v __git_ps1 >/dev/null 2>&1; then
+        # GIT_PS1_SHOWDIRTYSTATE=true
+        # GIT_PS1_SHOWUNTRACKEDFILES=true
+        GIT_PS1_SHOWUPSTREAM="auto"
+        # GIT_PS1_SHOWCOLORHINTS=true
+        PS1=$PS1'$(__git_ps1 "  \[\033[01;37m\]%s\[\033[00m\]") '
+    fi
+}
+
+set_ps1
