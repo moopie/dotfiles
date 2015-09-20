@@ -8,6 +8,7 @@
     branch = auto
     diff = auto
     grep = auto
+    ui = auto
 [user]
     name = Anton Amirian
     email = extuessl@gmail.com
