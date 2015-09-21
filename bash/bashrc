@@ -17,6 +17,10 @@ HISTFILESIZE=10000
 # always limit man to 80 characters wide
 export MANWIDTH=80
 
+# less options
+export LESS="-i" # smart case search
+LESS="$LESS -y3" # scroll by 3 lines
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
