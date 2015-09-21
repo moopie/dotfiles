@@ -20,8 +20,6 @@ set_ps1() {
         source /usr/share/git/completion/git-prompt.sh
     fi
 
-    PS1_CHOMP_LENGTH=120
-
     local user=$(whoami)
     if [ $user = 'root' ]; then
         user_color="$Red"
@@ -44,7 +42,8 @@ set_ps1() {
     fi
 
     PS1="$PS1$CReset"
-    PS1="$PS1 \$ "
+    PS1="$PS1\n"
+    PS1="$PS1\$ "
 
     export PS1
 }

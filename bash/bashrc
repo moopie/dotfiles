@@ -31,10 +31,6 @@ shopt -s checkwinsize
 # automatically change dirs
 shopt -s autocd
 
-# inputrc config
-bind "set show-all-if-ambiguous on"
-bind "set completion-ignore-case on"
-
 # make less more friendly for non-text input files, see lesspipe(1)
 for f in \
     /usr/bin/lesspipe \
@@ -69,4 +65,5 @@ fi
 tabs 4 > /dev/null
 
 export EDITOR=vim
+export PAGER=less
 

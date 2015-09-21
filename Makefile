@@ -23,6 +23,7 @@ shell:
 	ln -fs $(DOTFILES)/bash/bashrc ${HOME}/.bashrc
 	ln -fs $(DOTFILES)/bash/alias ${HOME}/.bash_alias
 	ln -fs $(DOTFILES)/bash/ps1 ${HOME}/.bash_ps1
+	ln -fs $(DOTFILES)/bash/inputrc ${HOME}/.inputrc
 editor:
 	ln -fsn $(DOTFILES)/vim ${HOME}/.vim
 	ln -fs $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
