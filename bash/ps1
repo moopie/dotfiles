@@ -44,16 +44,9 @@ set_ps1() {
     fi
 
     PS1="$PS1$CReset"
-
-    if [ "${#PS1}" -ge "$PS1_CHOMP_LENGTH" ]; then
-        PS1="$PS1\n "
-    else
-        PS1="$PS1 "
-    fi
-
-    PS1="$PS1\$ "
+    PS1="$PS1 \$ "
 
     export PS1
 }
 
-export PROMPT_COMMAND=set_ps1
+set_ps1
