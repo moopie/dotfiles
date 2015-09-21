@@ -31,6 +31,14 @@ set_ps1() {
     PS1="$PS1$user_color\u@\h " # username@host
     PS1="$PS1$Cyan\w"           # Path
 
+    # Debian-specific chroot variable
+    if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+        debian_chroot=$(cat /etc/debian_chroot)
+    fi
+    if [ ! -z "$debian_chroot" ]; then
+        PS1="${debian_chroot:+($debian_chroot)} $PS1"
+    fi
+
     # Bash prompt
     if command -v __git_ps1 >/dev/null 2>&1; then
         GIT_PS1_SHOWDIRTYSTATE=true

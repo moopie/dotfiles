@@ -92,7 +92,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
 " Plugins that only work on unix
-if has("unix")
+if has('unix')
     " Autocompletion
     Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 end
