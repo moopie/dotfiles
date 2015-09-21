@@ -25,15 +25,20 @@ set_ps1() {
         user_color="$Blue"
     fi
 
-    export PS1="$user_color\u$White@$Green\h $Cyan\w$CReset"
+    export PS1="$user_color\u$White@$Green\h $Cyan\w"
 
+    # bash prompt
     if command -v __git_ps1 >/dev/null 2>&1; then
         GIT_PS1_SHOWDIRTYSTATE=true
         GIT_PS1_SHOWUNTRACKEDFILES=true
         GIT_PS1_SHOWUPSTREAM="auto"
         GIT_PS1_SHOWCOLORHINTS=true
-        PS1=$PS1'$(__git_ps1 " (%s)") '
+        PS1="$PS1""$Yellow"
+        PS1="$PS1"'$(__git_ps1 " (%s)")'
     fi
+
+    PS1="$PS1""$CReset"
+    PS1="$PS1"' \$ '
 }
 
 set_ps1
