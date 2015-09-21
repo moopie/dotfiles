@@ -45,7 +45,7 @@ done
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
 # Alias definitions.
@@ -53,12 +53,12 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/.bash_alias ]; then
-    . ~/.bash_alias
+    source ~/.bash_alias
 fi
 
 # PS1 config
 if [ -f ~/.bash_ps1 ]; then
-    . ~/.bash_ps1
+    source ~/.bash_ps1
 fi
 
 # set tab width
