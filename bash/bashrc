@@ -18,7 +18,9 @@ HISTFILESIZE=10000
 export MANWIDTH=80
 
 # less options
-export LESS="-i" # smart case search
+# check to make sure we don't override system-set $LESS
+[ -z "$LESS" ] && export LESS
+LESS="$LESS -i"  # smart case search
 LESS="$LESS -y3" # scroll by 3 lines
 
 # check the window size after each command and, if necessary,
