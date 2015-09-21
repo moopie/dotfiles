@@ -16,29 +16,44 @@ set_ps1() {
     local Cyan="\[\033[0;36m\]"   # Cyan
     local White="\[\033[0;37m\]"  # White
 
-    source /usr/share/git/completion/git-prompt.sh
+    if [ -e /usr/share/git/completion/git-prompt.sh ]; then
+        source /usr/share/git/completion/git-prompt.sh
+    fi
+
+    PS1_CHOMP_LENGTH=120
 
     local user=$(whoami)
     if [ $user = 'root' ]; then
         user_color="$Red"
     else
-        user_color="$Blue"
+        user_color="$Green"
     fi
 
-    export PS1="$user_color\u$White@$Green\h $Cyan\w"
+    PS1=""
+    PS1="$PS1$user_color\u@\h " # username@host
+    PS1="$PS1$Cyan\w"           # Path
 
-    # bash prompt
+    # Bash prompt
     if command -v __git_ps1 >/dev/null 2>&1; then
         GIT_PS1_SHOWDIRTYSTATE=true
         GIT_PS1_SHOWUNTRACKEDFILES=true
         GIT_PS1_SHOWUPSTREAM="auto"
         GIT_PS1_SHOWCOLORHINTS=true
-        PS1="$PS1""$Yellow"
+        PS1="$PS1$Yellow"
         PS1="$PS1"'$(__git_ps1 " (%s)")'
     fi
 
-    PS1="$PS1""$CReset"
-    PS1="$PS1"' \$ '
+    PS1="$PS1$CReset"
+
+    if [ "${#PS1}" -ge "$PS1_CHOMP_LENGTH" ]; then
+        PS1="$PS1\n "
+    else
+        PS1="$PS1 "
+    fi
+
+    PS1="$PS1\$ "
+
+    export PS1
 }
 
-set_ps1
+export PROMPT_COMMAND=set_ps1
