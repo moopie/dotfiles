@@ -1,8 +1,8 @@
 DOTFILES := $(shell pwd)
 
-all: headless xorg _xmonad vimperator
+all: headless xorg _xmonad vimperator update
 
-headless: locals shell editor tmux git rtorrent update
+headless: locals shell editor tmux git rtorrent
 
 locals:
 	mkdir -p ${HOME}/.local
