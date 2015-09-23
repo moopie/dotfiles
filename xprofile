@@ -21,20 +21,19 @@ fi
 xset r rate 180                                           
 xset mouse 22/7 1                                         
                                                           
-# Keyboard layouts                                        
-# Switch layouts by pressing the capslock
+# Keyboard settings
+# Configure 3 layouts
+# Switch between layouts using alt-shift
+# Light the scroll LED depending on layout
+# Use right control as the compose key
+# Swap escape and capslock
 setxkbmap \
     -layout us,il,ru \
     -variant dvorak,,winkeys \
-    -option \
     -option grp:alt_shift_toggle \
     -option grp_led:scroll \
     -option compose:rctrl \
-    -option lv3:ralt_switch \
-    -option terminate:ctrl_alt_bkspc
-
-# Switch caps and escape around
-xmodmap ~/.xmodmap
+    -option caps:swapescape
 
 # Urxvt daemon, for faster urxvt   
 urxvtd -q -o -f
