@@ -9,7 +9,6 @@ locals:
 	mkdir -p ${HOME}/.config
 xorg:
 	ln -fs $(DOTFILES)/xresources ${HOME}/.Xresources
-	ln -fs $(DOTFILES)/xmodmap ${HOME}/.xmodmap
 	ln -fs $(DOTFILES)/xprofile ${HOME}/.xprofile
 	ln -fsn $(DOTFILES)/urxvt ${HOME}/.urxvt
 rtorrent:
