@@ -20,7 +20,7 @@ export MANWIDTH=80
 # less options
 # check to make sure we don't override system-set $LESS
 [ -z "$LESS" ] && export LESS
-LESS="$LESS -R"  # parse ANSI codes
+LESS="$LESS -R"  # parse ANSI codes, git requires this
 LESS="$LESS -i"  # smart case search
 LESS="$LESS -y3" # scroll by 3 lines
 
@@ -60,9 +60,6 @@ fi
 if [ -f ~/.bash_ps1 ]; then
     source ~/.bash_ps1
 fi
-
-# set tab width
-tabs 4 > /dev/null
 
 export EDITOR=vim
 export PAGER=less
