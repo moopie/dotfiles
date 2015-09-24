@@ -10,9 +10,5 @@ vim/plugins
 ncmpcpp/error.log
 ncmpcpp/artists
 
-xmonad/*
-!xmonad/xmonad.hs
-!xmonad/xmobar.hs
-
 urxvt/*
 !urxvt/ext
