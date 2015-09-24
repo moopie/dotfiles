@@ -1,15 +1,8 @@
 $include /etc/inputrc
 
-# Don't show ^C when force exiting a program
-set echo-control-characters off
-
 # Ignore case for tab completion
 set completion-ignore-case On
 
 # Instantly show tab completion matches
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
-
-# Enable searching
-"\e[A":history-search-backward
-"\e[B":history-search-forward

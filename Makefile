@@ -1,6 +1,6 @@
 DOTFILES := $(shell pwd)
 
-all: headless xorg _xmonad vimperator update
+all: headless xorg vimperator update
 
 headless: locals shell editor tmux git rtorrent
 
@@ -12,9 +12,6 @@ xorg:
 	ln -fs $(DOTFILES)/xmodmap ${HOME}/.xmodmap
 	ln -fs $(DOTFILES)/xprofile ${HOME}/.xprofile
 	ln -fsn $(DOTFILES)/urxvt ${HOME}/.urxvt
-_xmonad:
-	ln -fsn $(DOTFILES)/xmonad ${HOME}/.xmonad
-	ln -fsn $(DOTFILES)/xmobarrc ${HOME}/.xmobarrc
 rtorrent:
 	mkdir -p ${HOME}/.rtorrent/sessions
 	mkdir -p ${HOME}/Torrents
