@@ -39,7 +39,7 @@ set showmatch       " Show matching brackets
 set ruler
 
 " Highlight 80th column
-set colorcolumn=80
+set colorcolumn=81
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Tabs & Spaces
