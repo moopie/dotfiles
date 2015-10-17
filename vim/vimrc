@@ -2,6 +2,8 @@
 set nocompatible
 set background=dark
 
+let mapleader=","
+
 " Windows specific stuff
 if has('win32')
     behave mswin
@@ -20,7 +22,7 @@ if has("gui_running")
     if has('win32')
         set guifont=Consolas:h9
     else
-        set guifont=Inconsolata\ 10
+        set guifont=SourceCodePro\ 9
     endif
     set guioptions-=m  " Remove menu bar
     set guioptions-=T  " Remove toolbar
@@ -32,11 +34,27 @@ endif
 
 " Properties
 set number          " Show line numbers
-set encoding=utf8
+set encoding=utf8   " Use UTF8 everywhere
 set showcmd         " Display an incomplete command in the lower right corner of the Vim window
 set shortmess=atI   " Shortens messages
 set showmatch       " Show matching brackets
-set ruler
+set cmdheight=2     " Cmd line should take 2 lines
+set ruler           " Show ruler
+set cursorline      " Highlight current line
+set lazyredraw      " Redraw only when we need to
+set laststatus=2    " Always show status line
+
+" Project-specific vimrc
+set exrc            " Enable external vimrc
+set secure          " Prevent external vimrc from using dangerous commands
+
+" Invisible chars
+set listchars=tab:▸\ ,eol:¬,trail:·
+
+" Command menu autocompletion
+set wildmenu                    " Enable it
+set wildignorecase              " Who needs case anyways
+set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 80th column
 set colorcolumn=81
@@ -67,29 +85,117 @@ set novisualbell    " No blinking
 set noerrorbells    " No noise.
 set vb t_vb=        " Disable any beeps or flashes on error
 
+" Folding
+set foldenable          " Enable folding
+set foldmethod=indent   " Fold by indent
+set foldlevelstart=20   " Don't automatically fold opened files
+
 " Mouse
-set mouse-=a   " Disable mouse
-set mousehide  " Hide mouse after chars typed
+set mouse=a     " Disable mouse
+set mousehide   " Hide mouse after chars typed
+
+" Functions
+
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber
+    else
+        set relativenumber
+    endif
+endfunc
+
+function! ListToggle()
+    if(&list == 1)
+        set nolist
+    else
+        set list
+    endif
+endfunc
 
 " Mappings
+
+" Activate NumberToggle
+nmap <silent> <leader>n :call NumberToggle()<CR>
+
+" Activate ListToggle
+nmap <silent> <leader>l :call ListToggle()<CR>
+
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
+" Window movement
+nmap <C-H> <C-W>h
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
+nmap <C-L> <C-W>l
+
 " Plugins
 call plug#begin('~/.vim/plugins')
+
+" Utility
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
+Plug 'Shougo/vimproc.vim'
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts=1
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char='┆'
+let g:indentLine_color_term=239
+let g:indentLine_color_gui='#A4E57E'
+
+" Project management
+Plug 'scrooloose/nerdtree'
+nmap <leader>o :NERDTreeToggle<CR>
+Plug 'Shougo/unite.vim'
+nmap <C-P> :Unite file_rec<CR>
+nmap <leader>b :Unite buffer<CR>
+Plug 'mileszs/ack.vim'
+if executable('ag') " Use ag when available
+    let g:ackprg='ag --vimgrep'
+endif
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Emmet
+" Undo history
+Plug 'sjl/gundo.vim'
+nmap <leader>u :GundoToggle<CR>
+let g:gundo_width=60
+let g:gundo_right=1
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Comments
+Plug 'scrooloose/nerdcommenter'
+
+" Linter
+Plug 'scrooloose/syntastic'
+
+" Tagbar
+Plug 'majutsushi/tagbar'
+nmap <leader>t :TagbarToggle<CR>
+
+" Languages
+
+" HTML
 Plug 'mattn/emmet-vim'
 
-" File browser
-Plug 'scrooloose/nerdtree'
+" Python
+Plug 'davidhalter/jedi-vim'
 
-" Commenting stuff
-Plug 'scrooloose/nerdcommenter'
+" CSharp
+Plug 'OrangeT/vim-csharp'
+Plug 'OmniSharp/omnisharp-vim'
+
+" C/C++
+Plug 'vim-scripts/a.vim'
+
+" JavaScript
+Plug 'pangloss/vim-javascript'
 
 " Plugins that only work on unix
 if has('unix')

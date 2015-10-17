@@ -1,3 +1,5 @@
+# Editors
+
 # intellij
 .idea
 
@@ -5,6 +7,7 @@
 *~
 *.swp
 *.swo
+.vimrc
 
 # emacs
 \#*\#
@@ -13,3 +16,8 @@
 # sublime text
 *.sublime-project
 *.sublime-workspace
+
+# Languages
+
+# Python
+.ropeproject

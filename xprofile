@@ -22,14 +22,16 @@ xset r rate 180
 xset mouse 22/7 1                                         
                                                           
 # Keyboard settings
-# Configure 3 layouts
-# Switch between layouts using alt-shift
-# Light the scroll LED depending on layout
-# Use right control as the compose key
-# Swap escape and capslock
+# -layout us,il,ru      Configure 3 layouts
+# -option ''            Reset all previously set options
+# grp:alt_shift_toggle  Switch between layouts using alt-shift
+# grp_led:scroll        Light the scroll LED depending on layout
+# compose:rctrl         Use right control as the compose key
+# caps:swapescape       Swap escape and capslock
 setxkbmap \
     -layout us,il,ru \
     -variant dvorak,,winkeys \
+    -option '' \
     -option grp:alt_shift_toggle \
     -option grp_led:scroll \
     -option compose:rctrl \
@@ -39,7 +41,7 @@ setxkbmap \
 urxvtd -q -o -f
 
 # Automatically loads the last wallpaper that was set up with feh
-sh ~/.fehbg
+[ -e ~/.fehbg ] && sh ~/.fehbg
 
 # Cursor theme (requires xcursor-neutral)
 xsetroot -cursor_name Neutral

@@ -6,17 +6,17 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # some ls aliases
-alias ls='ls --group-directories-first --color=auto -Fh'
-alias ll='ls -l'
-alias la='ls -lA'
-alias l='ll'
+alias ls='ls --color'
+alias l='ls -lFh'
+alias ll='l'
+alias la='l -lA'
 
 # file and dir stuff
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias rm='rm -I --preserve-root'
+alias rm='rm -Iv --preserve-root'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
