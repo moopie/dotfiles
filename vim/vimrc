@@ -52,9 +52,9 @@ set secure          " Prevent external vimrc from using dangerous commands
 set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Command menu autocompletion
-set wildmenu                    " Enable it
-set wildignorecase              " Who needs case anyways
-set wildmode=list:longest,full  " Wildmenu display options
+set wildmenu                " Enable it
+set wildignorecase          " Who needs case anyways
+set wildmode=list:full,full " Wildmenu display options
 
 " Highlight 80th column
 set colorcolumn=81
@@ -178,6 +178,11 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 nmap <leader>t :TagbarToggle<CR>
 
+" Autocompletion
+Plug 'Valloric/YouCompleteMe', {
+\    'do': './install.py --omnisharp-completer'
+\}
+
 " Languages
 
 " HTML
@@ -195,12 +200,6 @@ Plug 'vim-scripts/a.vim'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
-
-" Plugins that only work on unix
-if has('unix')
-    " Autocompletion
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
-end
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
