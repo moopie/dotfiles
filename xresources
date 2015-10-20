@@ -23,8 +23,12 @@ URxvt.colorUL:              #87afd7
 URxvt.allow_bold:           true
 
 URxvt*font:                 xft:Source Code Pro:regular:pixelsize=11, \
+                            xft:Inconsolata:regular:pixelsize=13, \
+                            xft:DejaVu Sans Mono:regular:pixelsize=11, \
                             xft:Symbola:pixelsize=9:antialias=false
 URxvt*boldFont:             xft:Source Code Pro:bold:pixelsize=11, \
+                            xft:Inconsolata:bold:pixelsize=13, \
+                            xft:DejaVu Sans Mono:bold:pixelsize=11, \
                             xft:Symbola:pixelsize=9:antialias=false
 URxvt*letterSpace:          -1
 

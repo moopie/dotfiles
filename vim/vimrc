@@ -30,6 +30,7 @@ if has("gui_running")
     set guioptions-=l
     set guioptions-=b
     set guioptions-=L
+    au GUIEnter * set vb t_vb=
 endif
 
 " Properties
@@ -139,7 +140,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts=1
 Plug 'Yggdroot/indentLine'
-let g:indentLine_char='|'
 let g:indentLine_color_term=239
 let g:indentLine_color_gui='#A4E57E'
 
