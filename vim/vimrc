@@ -57,7 +57,7 @@ set wildmenu                " Enable it
 set wildignorecase          " Who needs case anyways
 set wildmode=list:full,full " Wildmenu display options
 
-" Highlight 80th column
+" Highlight 81th column
 set colorcolumn=81
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
@@ -83,7 +83,7 @@ set directory=~/.vim/temp
 
 " No annoyances
 set novisualbell    " No blinking
-set noerrorbells    " No noise.
+set noerrorbells    " No noise
 set vb t_vb=        " Disable any beeps or flashes on error
 
 " Folding
@@ -133,7 +133,7 @@ nmap <C-L> <C-W>l
 " Plugins
 call plug#begin('~/.vim/plugins')
 
-" Utility
+" General
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
