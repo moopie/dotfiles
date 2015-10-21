@@ -142,6 +142,7 @@ let g:airline_powerline_fonts=1
 Plug 'Yggdroot/indentLine'
 let g:indentLine_color_term=239
 let g:indentLine_color_gui='#A4E57E'
+Plug 'Raimondi/delimitMate'
 
 " Project management
 Plug 'scrooloose/nerdtree'
@@ -200,6 +201,7 @@ Plug 'vim-scripts/a.vim'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
