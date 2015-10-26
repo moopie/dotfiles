@@ -139,9 +139,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'bling/vim-airline'
 let g:airline_powerline_fonts=1
-Plug 'Yggdroot/indentLine'
-let g:indentLine_color_term=239
-let g:indentLine_color_gui='#A4E57E'
 Plug 'Raimondi/delimitMate'
 
 " Project management
@@ -181,7 +178,9 @@ nmap <leader>t :TagbarToggle<CR>
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', {
-\    'do': './install.py --omnisharp-completer'
+\    'do': './install.py'
+\               . ' --omnisharp-completer'
+\               . ' --clang-completer'
 \}
 
 " Languages
@@ -202,6 +201,10 @@ Plug 'vim-scripts/a.vim'
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'burnettk/vim-angular'
+
+" SQL
+Plug 'vim-scripts/SQLComplete.vim'
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
