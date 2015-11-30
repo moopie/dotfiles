@@ -22,7 +22,6 @@ export MANWIDTH=80
 [ -z "$LESS" ] && export LESS
 LESS="$LESS -R"  # parse ANSI codes, git requires this
 LESS="$LESS -i"  # smart case search
-LESS="$LESS -y3" # scroll by 3 lines
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

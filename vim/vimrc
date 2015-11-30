@@ -1,5 +1,6 @@
 "This must be first, because it changes other options as side effect
 set nocompatible
+
 set background=dark
 
 let mapleader=","
@@ -39,11 +40,11 @@ set encoding=utf8   " Use UTF8 everywhere
 set showcmd         " Display an incomplete command in the lower right corner of the Vim window
 set shortmess=atI   " Shortens messages
 set showmatch       " Show matching brackets
-set cmdheight=2     " Cmd line should take 2 lines
 set ruler           " Show ruler
 set cursorline      " Highlight current line
 set lazyredraw      " Redraw only when we need to
-set laststatus=2    " Always show status line
+set laststatus=0    " Don't show the status
+set nowrap          " Don't wrap the lines
 
 " Project-specific vimrc
 set exrc            " Enable external vimrc
@@ -53,9 +54,9 @@ set secure          " Prevent external vimrc from using dangerous commands
 set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Command menu autocompletion
-set wildmenu                " Enable it
-set wildignorecase          " Who needs case anyways
-set wildmode=list:full,full " Wildmenu display options
+set wildmenu                    " Enable it
+set wildignorecase              " Who needs case anyways
+set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 81th column
 set colorcolumn=81
@@ -82,9 +83,9 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/temp
 
 " No annoyances
-set novisualbell    " No blinking
-set noerrorbells    " No noise
-set vb t_vb=        " Disable any beeps or flashes on error
+set novisualbell        " No blinking
+set noerrorbells        " No noise
+set vb t_vb=            " Disable any beeps or flashes on error
 
 " Folding
 set foldenable          " Enable folding
@@ -92,8 +93,8 @@ set foldmethod=indent   " Fold by indent
 set foldlevelstart=20   " Don't automatically fold opened files
 
 " Mouse
-set mouse=a     " Disable mouse
-set mousehide   " Hide mouse after chars typed
+set mouse=a             " Disable mouse
+set mousehide           " Hide mouse after chars typed
 
 " Functions
 
@@ -137,16 +138,14 @@ call plug#begin('~/.vim/plugins')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
-Plug 'bling/vim-airline'
-let g:airline_powerline_fonts=1
 Plug 'Raimondi/delimitMate'
 
 " Project management
 Plug 'scrooloose/nerdtree'
 nmap <leader>o :NERDTreeToggle<CR>
-Plug 'Shougo/unite.vim'
-nmap <C-P> :Unite file_rec<CR>
-nmap <leader>b :Unite buffer<CR>
+Plug 'ctrlpvim/ctrlp.vim'
+nmap <C-P> :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
 Plug 'mileszs/ack.vim'
 if executable('ag') " Use ag when available
     let g:ackprg='ag --vimgrep'
@@ -190,6 +189,8 @@ Plug 'mattn/emmet-vim'
 
 " Python
 Plug 'davidhalter/jedi-vim'
+Plug 'nvie/vim-flake8'
+let python_highlight_all=1
 
 " CSharp
 Plug 'OrangeT/vim-csharp'
