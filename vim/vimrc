@@ -203,6 +203,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'burnettk/vim-angular'
+Plug 'ternjs/tern_for_vim'
 
 " SQL
 Plug 'vim-scripts/SQLComplete.vim'
