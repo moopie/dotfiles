@@ -43,8 +43,11 @@ set showmatch       " Show matching brackets
 set ruler           " Show ruler
 set cursorline      " Highlight current line
 set lazyredraw      " Redraw only when we need to
-set laststatus=0    " Don't show the status
+set laststatus=2    " Don't show the status
 set nowrap          " Don't wrap the lines
+
+" Clipboard
+set clipboard=unnamed,unnamedplus
 
 " Project-specific vimrc
 set exrc            " Enable external vimrc
@@ -59,7 +62,7 @@ set wildignorecase              " Who needs case anyways
 set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 81th column
-set colorcolumn=81
+let &colorcolumn="81,".join(range(121,999),",")
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Tabs & Spaces
@@ -139,21 +142,26 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'Raimondi/delimitMate'
+Plug 'kshenoy/vim-signature'
 
-" Project management
+" Status line
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts=1
+
+" File browsing
 Plug 'scrooloose/nerdtree'
 nmap <leader>o :NERDTreeToggle<CR>
 Plug 'ctrlpvim/ctrlp.vim'
 nmap <C-P> :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
-Plug 'mileszs/ack.vim'
-if executable('ag') " Use ag when available
-    let g:ackprg='ag --vimgrep'
-endif
+
+" Better grep
+Plug 'rking/ag.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'gregsexton/gitv'
 
 " Undo history
 Plug 'sjl/gundo.vim'
@@ -183,6 +191,14 @@ Plug 'Valloric/YouCompleteMe', {
 \}
 
 " Languages
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Haskell
+Plug 'eagletmt/ghcmod-Vim'
+Plug 'eagletmt/neco-ghc'
+Plug 'dag/vim2hs'
 
 " HTML
 Plug 'mattn/emmet-vim'
