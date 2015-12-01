@@ -3,22 +3,22 @@ set nocompatible
 
 set background=dark
 
-let mapleader=","
+map <space> <leader>
 
 " Windows specific stuff
 if has('win32')
     behave mswin
     set term=xterm
     set t_Co=256
-    let &t_AB="\e[48;5;%dm"
-    let &t_AF="\e[38;5;%dm"
+    let &t_AB='\e[48;5;%dm'
+    let &t_AF='\e[38;5;%dm'
 
     " set rtp for windows because it is not set to the place we want
     set rtp+=~/.vim/
 endif
 
 " GUI
-if has("gui_running")
+if has('gui_running')
     set anti enc=utf-8
     if has('win32')
         set guifont=Consolas:h9
@@ -62,7 +62,7 @@ set wildignorecase              " Who needs case anyways
 set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 81th column
-let &colorcolumn="81,".join(range(121,999),",")
+let &colorcolumn='81,'.join(range(121,999),',')
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Tabs & Spaces
@@ -152,7 +152,7 @@ let g:airline_powerline_fonts=1
 Plug 'scrooloose/nerdtree'
 nmap <leader>o :NERDTreeToggle<CR>
 Plug 'ctrlpvim/ctrlp.vim'
-nmap <C-P> :CtrlP<CR>
+nmap <leader>p :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 
 " Better grep
