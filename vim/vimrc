@@ -149,8 +149,7 @@ Plug 'bling/vim-airline'
 let g:airline_powerline_fonts=1
 
 " File browsing
-Plug 'scrooloose/nerdtree'
-nmap <leader>o :NERDTreeToggle<CR>
+Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 nmap <leader>p :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
@@ -170,8 +169,11 @@ let g:gundo_width=60
 let g:gundo_right=1
 
 " Snippets
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 " Comments
 Plug 'scrooloose/nerdcommenter'
@@ -200,8 +202,9 @@ Plug 'eagletmt/ghcmod-Vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'dag/vim2hs'
 
-" HTML
+" Markup
 Plug 'mattn/emmet-vim'
+Plug 'tmhedberg/matchit'
 
 " Python
 Plug 'davidhalter/jedi-vim'
