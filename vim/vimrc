@@ -31,6 +31,7 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=b
     set guioptions-=L
+    set guioptions-=e
     au GUIEnter * set vb t_vb=
 endif
 
@@ -99,31 +100,13 @@ set foldlevelstart=20   " Don't automatically fold opened files
 set mouse=a             " Disable mouse
 set mousehide           " Hide mouse after chars typed
 
-" Functions
+" Key Bindings
 
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set norelativenumber
-    else
-        set relativenumber
-    endif
-endfunc
+" Toggle relative number mode
+nmap <silent> <leader>n :set relativenumber!<CR>
 
-function! ListToggle()
-    if(&list == 1)
-        set nolist
-    else
-        set list
-    endif
-endfunc
-
-" Mappings
-
-" Activate NumberToggle
-nmap <silent> <leader>n :call NumberToggle()<CR>
-
-" Activate ListToggle
-nmap <silent> <leader>l :call ListToggle()<CR>
+" Toggle invisible characters
+nmap <silent> <leader>l :set list!<CR>
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
@@ -133,6 +116,11 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+
+" Mirror tmux
+nmap <silent> <leader>" :split<CR>
+nmap <silent> <leader>% :vsplit<CR>
+nmap <silent> <leader>o <C-W>w
 
 " Plugins
 call plug#begin('~/.vim/plugins')
@@ -162,9 +150,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 
-" Undo history
+" Yanks and Undo
+Plug 'vim-scripts/YankRing.vim'
+nmap <silent> <leader>y :YRShow<CR>
 Plug 'sjl/gundo.vim'
-nmap <leader>u :GundoToggle<CR>
+nmap <silent> <leader>u :GundoToggle<CR>
 let g:gundo_width=60
 let g:gundo_right=1
 
@@ -205,6 +195,7 @@ Plug 'dag/vim2hs'
 " Markup
 Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
+Plug 'othree/xml.vim'
 
 " Python
 Plug 'davidhalter/jedi-vim'
@@ -219,10 +210,10 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'vim-scripts/a.vim'
 
 " JavaScript
+Plug 'ternjs/tern_for_vim', { 'do': './npm install' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'burnettk/vim-angular'
-Plug 'ternjs/tern_for_vim'
 
 " SQL
 Plug 'vim-scripts/SQLComplete.vim'
