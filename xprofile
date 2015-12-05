@@ -22,7 +22,7 @@ xset r rate 180
 xset mouse 22/7 1                                         
                                                           
 # Keyboard settings
-# -layout us,il,ru      Configure 3 layouts
+# -layout us,il,ru      Configure layouts
 # -option ''            Reset all previously set options
 # grp:alt_shift_toggle  Switch between layouts using alt-shift
 # grp_led:scroll        Light the scroll LED depending on layout
@@ -48,9 +48,6 @@ xsetroot -cursor_name Neutral
 
 # Merge the custom Xresources settings with the default ones
 xrdb -merge ~/.Xresources
-
-# Emacs server
-emacs -daemon
 
 # Java settings
 

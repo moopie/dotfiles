@@ -5,9 +5,6 @@
 # # *.[oa]
 # # *~'
 
-vim/plugins
-vim/.netrwhist
-
 ncmpcpp/error.log
 ncmpcpp/artists
 

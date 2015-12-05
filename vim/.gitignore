@@ -1,0 +1,12 @@
+# plugins
+bundle
+
+# plugin files
+doc
+
+# cache
+bak
+tmp
+
+# files
+.netrwhist
