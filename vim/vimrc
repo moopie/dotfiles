@@ -152,7 +152,7 @@ Plug 'gregsexton/gitv'
 
 " Yanks and Undo
 Plug 'vim-scripts/YankRing.vim'
-let g:yankring_history_dir='~/.vim/doc/'
+let g:yankring_history_dir='~/.vim/doc'
 nmap <silent> <leader>y :YRShow<CR>
 Plug 'sjl/gundo.vim'
 nmap <silent> <leader>u :GundoToggle<CR>
