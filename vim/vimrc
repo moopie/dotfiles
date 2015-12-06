@@ -44,8 +44,12 @@ set showmatch       " Show matching brackets
 set ruler           " Show ruler
 set cursorline      " Highlight current line
 set lazyredraw      " Redraw only when we need to
-set laststatus=2    " Don't show the status
+set laststatus=2    " Show the statusline
 set nowrap          " Don't wrap the lines
+
+" Don't autoselect first item in omnicomplete, show if only one item (for preview)
+" Remove preview if you don't want to see any documentation whatsoever
+set completeopt=longest,menuone,preview
 
 " Clipboard
 set clipboard=unnamed,unnamedplus
@@ -206,6 +210,9 @@ let python_highlight_all=1
 " CSharp
 Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
+let g:OmniSharp_selector_ui='ctrlp'
+let g:OmniSharp_server_type='roslyn'
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
 " C/C++
 Plug 'vim-scripts/a.vim'
