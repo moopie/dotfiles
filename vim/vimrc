@@ -143,7 +143,8 @@ let g:airline_powerline_fonts=1
 " File browsing
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
-nmap <leader>p :CtrlP<CR>
+nmap <leader>p :CtrlPMixed<CR>
+nmap <leader>e :CtrlP<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 
 " Better grep
