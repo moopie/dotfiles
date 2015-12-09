@@ -62,7 +62,7 @@ set exrc            " Enable external vimrc
 set secure          " Prevent external vimrc from using dangerous commands
 
 " Invisible chars
-set listchars=tab:▸\ ,trail:·
+set listchars=tab:▸\ ,
 set list
 
 " Command menu autocompletion
