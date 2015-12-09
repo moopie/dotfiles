@@ -46,6 +46,9 @@ set cursorline      " Highlight current line
 set lazyredraw      " Redraw only when we need to
 set laststatus=2    " Show the statusline
 set nowrap          " Don't wrap the lines
+set splitbelow      " Split below the current window
+set splitright      " Split right of the current window
+set hidden          " Don't ask to save when leaving the buffer
 
 " Don't autoselect first item in omnicomplete, show if only one item (for preview)
 " Remove preview if you don't want to see any documentation whatsoever
@@ -237,3 +240,4 @@ filetype plugin indent on
 syntax on " Enable syntax highlighting
 
 colorscheme jellybeans
+
