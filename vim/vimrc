@@ -62,7 +62,8 @@ set exrc            " Enable external vimrc
 set secure          " Prevent external vimrc from using dangerous commands
 
 " Invisible chars
-set listchars=tab:▸\ ,eol:¬,trail:·
+set listchars=tab:▸\ ,trail:·
+set list
 
 " Command menu autocompletion
 set wildmenu                    " Enable it
@@ -111,9 +112,6 @@ set mousehide           " Hide mouse after chars typed
 
 " Toggle relative number mode
 nmap <silent> <leader>n :set relativenumber!<CR>
-
-" Toggle invisible characters
-nmap <silent> <leader>l :set list!<CR>
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
