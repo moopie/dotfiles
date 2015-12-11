@@ -152,6 +152,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'kshenoy/vim-signature'
 
 " File browsing
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 nmap <leader>p :CtrlPMixed<CR>
