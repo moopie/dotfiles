@@ -35,6 +35,10 @@ if has('gui_running')
     au GUIEnter * set vb t_vb=
 endif
 
+" Neovim specific stuff
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " Properties
 set number          " Show line numbers
 set encoding=utf8   " Use UTF8 everywhere
@@ -49,7 +53,7 @@ set splitbelow      " Split below the current window
 set splitright      " Split right of the current window
 set hidden          " Don't ask to save when leaving the buffer
 set autoread        " Automatically reload file on external changes
-set scrolloff=5     " Keep lines above/below the cursor while scrolling
+set relativenumber  " Show relative numbers in relation to the cursor
 
 " Statusline
 set laststatus=2                            " Always show the statusline
@@ -124,9 +128,6 @@ set mousehide           " Hide mouse after chars typed
 
 " Key Bindings
 
-" Toggle relative number mode
-nmap <silent> <leader>n :set relativenumber!<CR>
-
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
@@ -153,6 +154,19 @@ Plug 'kshenoy/vim-signature'
 
 " File browsing
 Plug 'scrooloose/nerdtree'
+nmap <silent> <leader>a :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
+let g:NERDTreeIndicatorMapCustom = {
+\    "Modified"  : "✹",
+\    "Staged"    : "✚",
+\    "Untracked" : "✭",
+\    "Renamed"   : "➜",
+\    "Unmerged"  : "═",
+\    "Deleted"   : "✖",
+\    "Dirty"     : "✗",
+\    "Clean"     : "✔︎",
+\    "Unknown"   : "?"
+\}
 Plug 'tpope/vim-vinegar'
 Plug 'ctrlpvim/ctrlp.vim'
 nmap <leader>p :CtrlPMixed<CR>
@@ -171,7 +185,7 @@ Plug 'gregsexton/gitv'
 Plug 'vim-scripts/YankRing.vim'
 let g:yankring_history_dir='~/.vim/doc'
 nmap <silent> <leader>y :YRShow<CR>
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 nmap <silent> <leader>u :GundoToggle<CR>
 let g:gundo_width=60
 let g:gundo_right=1
@@ -188,7 +202,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " Linter
 Plug 'scrooloose/syntastic'
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
 
 " Formatter
 Plug 'Chiel92/vim-autoformat'
@@ -199,9 +213,7 @@ nmap <leader>t :TagbarToggle<CR>
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', {
-\    'do': './install.py'
-\               . ' --omnisharp-completer'
-\               . ' --clang-completer'
+\   'do': './install.py --omnisharp-completer --clang-completer'
 \}
 
 " Languages
@@ -213,16 +225,12 @@ Plug 'rust-lang/rust.vim'
 Plug 'eagletmt/ghcmod-Vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'dag/vim2hs'
+let g:haskell_conceal=0
 
-" Markup
+" Frontend
 Plug 'mattn/emmet-vim'
-Plug 'tmhedberg/matchit'
-Plug 'othree/xml.vim'
-
-" Python
-Plug 'davidhalter/jedi-vim'
-Plug 'nvie/vim-flake8'
-let python_highlight_all=1
+Plug 'Valloric/MatchTagAlways'
+Plug 'gorodinskiy/vim-coloresque'
 
 " CSharp
 Plug 'OrangeT/vim-csharp'
@@ -236,11 +244,12 @@ Plug 'vim-scripts/a.vim'
 " JavaScript
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'burnettk/vim-angular'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/javascript-libraries-syntax.vim'
+let g:used_javascript_libs='angularjs'
 
-" SQL
-Plug 'vim-scripts/SQLComplete.vim'
+" DB
+Plug 'vim-scripts/dbext.vim'
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
