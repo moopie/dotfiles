@@ -1,6 +1,4 @@
-"This must be first, because it changes other options as side effect
 set nocompatible
-
 set background=dark
 
 map <space> <leader>
@@ -41,6 +39,7 @@ endif
 
 " Properties
 set number          " Show line numbers
+set relativenumber  " Show relative numbers in relation to the cursor
 set encoding=utf8   " Use UTF8 everywhere
 set showcmd         " Display an incomplete command in the lower right corner of the Vim window
 set shortmess=atI   " Shortens messages
@@ -53,7 +52,6 @@ set splitbelow      " Split below the current window
 set splitright      " Split right of the current window
 set hidden          " Don't ask to save when leaving the buffer
 set autoread        " Automatically reload file on external changes
-set relativenumber  " Show relative numbers in relation to the cursor
 
 " Statusline
 set laststatus=2                            " Always show the statusline
@@ -253,6 +251,7 @@ Plug 'vim-scripts/dbext.vim'
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -260,5 +259,5 @@ call plug#end()
 filetype plugin indent on
 syntax on " Enable syntax highlighting
 
-colorscheme jellybeans
+colorscheme gruvbox
 

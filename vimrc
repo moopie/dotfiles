@@ -49,11 +49,10 @@ set foldenable          " Enable folding
 set foldmethod=indent   " Fold by indent
 set foldlevelstart=20   " Don't automatically fold opened files
 
-" Mouse
-set mouse=a             " Configure mouse
-set mousehide           " Hide mouse after chars typed
-
 " Key Bindings
+
+" Leader
+map <leader> <space>
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
