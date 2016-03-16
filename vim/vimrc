@@ -1,4 +1,11 @@
-set nocompatible
+" Neovim compatability
+if has('nvim')
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+else
+    set nocompatible
+endif
+
 set background=dark
 
 map <space> <leader>
@@ -33,10 +40,6 @@ if has('gui_running')
     au GUIEnter * set vb t_vb=
 endif
 
-" Neovim specific stuff
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 " Properties
 set number          " Show line numbers
 set relativenumber  " Show relative numbers in relation to the cursor
@@ -47,7 +50,6 @@ set showmatch       " Show matching brackets
 set ruler           " Show ruler
 set cursorline      " Highlight current line
 set lazyredraw      " Redraw only when we need to
-set nowrap          " Don't wrap the lines
 set splitbelow      " Split below the current window
 set splitright      " Split right of the current window
 set hidden          " Don't ask to save when leaving the buffer
@@ -87,7 +89,7 @@ set wildignorecase              " Who needs case anyways
 set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 81th column
-let &colorcolumn='81,'.join(range(121,999),',')
+let &colorcolumn='81'
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Tabs & Spaces
@@ -235,6 +237,35 @@ Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_selector_ui='ctrlp'
 let g:OmniSharp_server_type='roslyn'
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+
+    autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
+
+    " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+
+    "show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+
+    "The following commands are contextual, based on the current cursor position.
+
+    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+    "finds members in the current buffer
+    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
+    " cursor can be anywhere on the line containing an issue
+    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
+    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
+    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
+    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+augroup END
 
 " C/C++
 Plug 'vim-scripts/a.vim'
@@ -259,5 +290,5 @@ call plug#end()
 filetype plugin indent on
 syntax on " Enable syntax highlighting
 
-colorscheme gruvbox
+colorscheme jellybeans
 

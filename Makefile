@@ -21,8 +21,8 @@ shell:
 	ln -fs $(DOTFILES)/bash/ps1 ${HOME}/.bash_ps1
 	ln -fs $(DOTFILES)/bash/inputrc ${HOME}/.inputrc
 editor:
-	ln -fsn $(DOTFILES)/nvim ${HOME}/.config/nvim
-	ln -fs $(DOTFILES)/vimrc ${HOME}/.vimrc
+	ln -fsn $(DOTFILES)/vim ${HOME}/.vim
+	ln -fs $(DOTFILES)/vim/vimrc ${HOME}/.vimrc
 tmux:
 	ln -fs $(DOTFILES)/tmux.conf ${HOME}/.tmux.conf
 vimperator:
