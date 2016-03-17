@@ -145,7 +145,7 @@ nmap <silent> <leader>% :vsplit<CR>
 nmap <silent> <leader>o <C-W>w
 
 " Plugins
-call plug#begin('~/.vim/bundle')
+call plug#begin($VIMDIR.'/bundle')
 
 " General
 Plug 'tpope/vim-surround'
