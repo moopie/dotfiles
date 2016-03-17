@@ -1,8 +1,10 @@
 " Neovim compatability
 if has('nvim')
+    let $VIMDIR=$HOME.'/.config/nvim'
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 else
+    let $VIMDIR=$HOME.'/.vim'
     set nocompatible
 endif
 
@@ -109,8 +111,8 @@ set incsearch     " Show search matches as you type
 " Autosave
 set swapfile
 set backup
-set backupdir=~/.vim/bak
-set directory=~/.vim/tmp
+set backupdir=$VIMDIR/bak
+set directory=$VIMDIR/tmp
 
 " No annoyances
 set novisualbell        " No blinking
@@ -157,15 +159,15 @@ Plug 'scrooloose/nerdtree'
 nmap <silent> <leader>a :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
-\    "Modified"  : "✹",
-\    "Staged"    : "✚",
-\    "Untracked" : "✭",
-\    "Renamed"   : "➜",
-\    "Unmerged"  : "═",
-\    "Deleted"   : "✖",
-\    "Dirty"     : "✗",
-\    "Clean"     : "✔︎",
-\    "Unknown"   : "?"
+\    'Modified'  : '✹',
+\    'Staged'    : '✚',
+\    'Untracked' : '✭',
+\    'Renamed'   : '➜',
+\    'Unmerged'  : '═',
+\    'Deleted'   : '✖',
+\    'Dirty'     : '✗',
+\    'Clean'     : '✔︎',
+\    'Unknown'   : '?'
 \}
 Plug 'ctrlpvim/ctrlp.vim'
 nmap <leader>p :CtrlPMixed<CR>
@@ -182,7 +184,7 @@ Plug 'gregsexton/gitv'
 
 " Yanks and Undo
 Plug 'vim-scripts/YankRing.vim'
-let g:yankring_history_dir='~/.vim/doc'
+let g:yankring_history_dir=$VIMDIR.'/doc'
 nmap <silent> <leader>y :YRShow<CR>
 Plug 'simnalamburt/vim-mundo'
 nmap <silent> <leader>u :GundoToggle<CR>
@@ -239,9 +241,6 @@ let g:OmniSharp_server_type='roslyn'
 augroup omnisharp_commands
     autocmd!
 
-    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
-
     autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
 
     " Automatically add new cs files to the nearest project on save
@@ -274,7 +273,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs='angularjs'
+let g:used_javascript_libs='angularjs,jquery,react'
 
 " DB
 Plug 'vim-scripts/dbext.vim'
