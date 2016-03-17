@@ -187,6 +187,8 @@ Plug 'vim-scripts/YankRing.vim'
 let g:yankring_history_dir=$VIMDIR.'/doc'
 nmap <silent> <leader>y :YRShow<CR>
 Plug 'simnalamburt/vim-mundo'
+set undofile
+set undodir=$VIMDIR/undo
 nmap <silent> <leader>u :GundoToggle<CR>
 let g:gundo_width=60
 let g:gundo_right=1
