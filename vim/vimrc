@@ -21,7 +21,7 @@ if has('win32')
     let &t_AF='\e[38;5;%dm'
 
     " set rtp for windows because it is not set to the place we want
-    set rtp+=~/.vim/
+    set rtp+=$HOME/.vim/
 endif
 
 " GUI
