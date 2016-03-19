@@ -154,6 +154,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'Raimondi/delimitMate'
 Plug 'kshenoy/vim-signature'
 
+" Orgmode
+Plug 'jceb/vim-orgmode'
+
 " File browsing
 Plug 'scrooloose/nerdtree'
 nmap <silent> <leader>a :NERDTreeToggle<CR>
@@ -216,8 +219,12 @@ nmap <leader>t :TagbarToggle<CR>
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', {
-\   'do': './install.py --omnisharp-completer --clang-completer'
+\   'do': './install.py --omnisharp-completer --clang-completer --tern-completer'
 \}
+nmap <leader>gd :YcmCompleter GoToDefinition<CR>
+nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
+nmap <leader>gt :YcmCompleter GetType<CR>
+nmap <leader>gi :YcmCompleter GetDoc<CR>
 
 " Languages
 
@@ -238,40 +245,26 @@ Plug 'gorodinskiy/vim-coloresque'
 " CSharp
 Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
-let g:OmniSharp_selector_ui='ctrlp'
-let g:OmniSharp_server_type='roslyn'
+let g:OmniSharp_selector_ui = 'ctrlp'
 augroup omnisharp_commands
     autocmd!
 
-    autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
+    " Builds can also run asynchronously with vim-dispatch installed
+    autocmd FileType cs nmap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
 
     " Automatically add new cs files to the nearest project on save
     autocmd BufWritePost *.cs call OmniSharp#AddToProject()
 
-    "show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-
     "The following commands are contextual, based on the current cursor position.
 
-    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
-    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
-    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
-    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
-    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
-    "finds members in the current buffer
-    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
-    " cursor can be anywhere on the line containing an issue
-    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
-    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
-    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
-    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+    " finds usages
+    autocmd FileType cs nmap <leader>fu :OmniSharpFindUsages<cr>
 augroup END
 
 " C/C++
 Plug 'vim-scripts/a.vim'
 
 " JavaScript
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
