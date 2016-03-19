@@ -26,7 +26,8 @@ endif
 
 " GUI
 if has('gui_running')
-    set anti enc=utf-8
+    set antialias
+    set encoding=utf-8
     if has('win32')
         set guifont=Consolas:h9
     else
@@ -91,7 +92,7 @@ set wildignorecase              " Who needs case anyways
 set wildmode=list:longest,full  " Wildmenu display options
 
 " Highlight 81th column
-let &colorcolumn='81'
+let &colorcolumn='80'
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
 " Tabs & Spaces
