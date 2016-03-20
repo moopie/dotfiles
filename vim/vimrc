@@ -68,7 +68,6 @@ set hidden              " Don't ask to save when leaving the buffer
 set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
 set clipboard+=unnamed  " Share clipboard with system clipboard
-set autochdir           " Automatically change directory to current file
 
 " Statusline
 set laststatus=2                            " Always show the statusline
