@@ -67,7 +67,7 @@ set splitright          " Split right of the current window
 set hidden              " Don't ask to save when leaving the buffer
 set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
-set clipboard+=unnamed  " Share clipboard with system clipboard
+set clipboard=unnamed   " Share clipboard with system clipboard
 
 " Statusline
 set laststatus=2                            " Always show the statusline
@@ -99,9 +99,10 @@ set wildmenu                    " Enable it
 set wildignorecase              " Who needs case anyways
 set wildmode=list:longest,full  " Wildmenu display options
 
-" Highlight 81th column
-let &colorcolumn='80,120'
-hi ColorColumn guibg=#2d2d2d ctermbg=246
+" Highlight columns
+highlight ColorColumn guibg=#2d2d2d ctermbg=Magenta
+call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
@@ -162,9 +163,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'Raimondi/delimitMate'
 Plug 'kshenoy/vim-signature'
-
-" Orgmode
-Plug 'jceb/vim-orgmode'
 
 " File browsing
 Plug 'scrooloose/nerdtree'
@@ -228,7 +226,7 @@ nmap <leader>t :TagbarToggle<CR>
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', {
-\   'do': './install.py --omnisharp-completer --clang-completer --tern-completer'
+\   'do': './install.py --omnisharp-completer --tern-completer'
 \}
 nmap <leader>gd :YcmCompleter GoToDefinition<CR>
 nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
@@ -278,9 +276,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs='angularjs,jquery,react'
-
-" DB
-Plug 'vim-scripts/dbext.vim'
 
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
