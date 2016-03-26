@@ -121,8 +121,8 @@ set shiftwidth=4  " Number of spaces to use for autoindenting
 set smarttab      " Insert tabs on the start of a line according to shiftwidth, not tabstop
 
 augroup filetype_specific
-  au!
-  au FileType make :setlocal ts=4 sts=4 sw=4 noet
+    au!
+    au FileType make :setlocal ts=4 sts=4 sw=4 noet
 augroup END
 
 " Search
@@ -131,7 +131,7 @@ set smartcase     " Ignore case if search pattern is all lowercase, case-sensiti
 set hlsearch      " Highlight search terms
 set incsearch     " Show search matches as you type
 
-" Backups 
+" Backups
 set swapfile
 set backup
 set backupdir=$VIMDIR/bak
@@ -261,19 +261,17 @@ Plug 'hail2u/vim-css3-syntax'
 " CSharp
 Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
-let g:OmniSharp_selector_ui = 'ctrlp'
+let g:OmniSharp_selector_ui='ctrlp'
 augroup omnisharp_commands
     autocmd!
 
-    " Builds can also run asynchronously with vim-dispatch installed
+    " Asynchronous builds with vim-dispatch
     autocmd FileType cs nmap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
 
     " Automatically add new cs files to the nearest project on save
     autocmd BufWritePost *.cs call OmniSharp#AddToProject()
 
-    "The following commands are contextual, based on the current cursor position.
-
-    " finds usages
+    " Finds usages
     autocmd FileType cs nmap <leader>fu :OmniSharpFindUsages<cr>
 augroup END
 
