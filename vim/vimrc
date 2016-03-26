@@ -56,8 +56,6 @@ endif
 set number              " Line numbers
 set nornu               " Relative numbers in relation to the cursor
 set encoding=utf8       " Use UTF8 everywhere
-set showcmd             " Display an incomplete command in the lower right corner of the Vim window
-set shortmess=atI       " Shortens messages
 set showmatch           " Show matching brackets
 set ruler               " Show ruler
 set cursorline          " Highlight current line
@@ -69,7 +67,10 @@ set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
 set clipboard=unnamed   " Share clipboard with system clipboard
 
-" Statusline
+" Status and commandline
+set showcmd                                 " Display an incomplete command (lower right corner)
+set shortmess=atI                           " Shortens messages
+set cmdheight=1                             " Height of the command line
 set laststatus=2                            " Always show the statusline
 set statusline=%<%f\                        " Filename
 set statusline+=%w%h%m%r                    " Options
@@ -95,9 +96,16 @@ set listchars=tab:▸\ ,
 set list
 
 " Command menu autocompletion
-set wildmenu                    " Enable it
-set wildignorecase              " Who needs case anyways
-set wildmode=list:longest,full  " Wildmenu display options
+set wildmenu                                     " Enable it
+set wildignorecase                               " Who needs case anyways
+set wildmode=list:longest,full                   " Wildmenu display options
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit"
 
 " Highlight columns
 highlight ColorColumn guibg=#2d2d2d ctermbg=Magenta
@@ -111,6 +119,11 @@ set autoindent    " Always set autoindenting on
 set copyindent    " Copy the previous indentation on autoindenting
 set shiftwidth=4  " Number of spaces to use for autoindenting
 set smarttab      " Insert tabs on the start of a line according to shiftwidth, not tabstop
+
+augroup filetype_specific
+  au!
+  au FileType make :setlocal ts=4 sts=4 sw=4 noet
+augroup END
 
 " Search
 set ignorecase    " Ignore case when searching
@@ -161,7 +174,6 @@ call plug#begin($VIMDIR.'/bundle')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
-Plug 'Raimondi/delimitMate'
 Plug 'kshenoy/vim-signature'
 
 " File browsing
@@ -190,12 +202,8 @@ Plug 'rking/ag.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'gregsexton/gitv'
 
-" Yanks and Undo
-Plug 'vim-scripts/YankRing.vim'
-let g:yankring_history_dir=$VIMDIR.'/doc'
-nmap <silent> <leader>y :YRShow<CR>
+" Undo
 Plug 'simnalamburt/vim-mundo'
 set undofile
 set undodir=$VIMDIR/undo
@@ -248,6 +256,7 @@ let g:haskell_conceal=0
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'gorodinskiy/vim-coloresque'
+Plug 'hail2u/vim-css3-syntax'
 
 " CSharp
 Plug 'OrangeT/vim-csharp'
