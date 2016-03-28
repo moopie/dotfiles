@@ -42,30 +42,25 @@ if has('gui_running')
     else
         set guifont=SourceCodePro\ 9
     endif
-    set guioptions-=m  " Remove menu bar
-    set guioptions-=T  " Remove toolbar
-    set guioptions-=r  " Remove right-hand scroll bar
-    set guioptions-=l
-    set guioptions-=b
-    set guioptions-=L
-    set guioptions-=e
+    set guioptions=a  " Clipboard selection
+    set guioptions+=c " Console dialogs
     au GUIEnter * set vb t_vb=
 endif
 
 " Properties
 set number              " Line numbers
-set nornu               " Relative numbers in relation to the cursor
+set norelativenumber    " Relative numbers in relation to the cursor
 set encoding=utf8       " Use UTF8 everywhere
 set showmatch           " Show matching brackets
 set ruler               " Show ruler
-set cursorline          " Highlight current line
+set nocursorline        " Highlight current line
 set lazyredraw          " Redraw only when we need to
 set splitbelow          " Split below the current window
 set splitright          " Split right of the current window
 set hidden              " Don't ask to save when leaving the buffer
 set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
-set clipboard=unnamed   " Share clipboard with system clipboard
+set clipboard+=unnamed  " Share clipboard with system clipboard
 
 " Status and commandline
 set showcmd                                 " Display an incomplete command (lower right corner)
@@ -75,8 +70,8 @@ set laststatus=2                            " Always show the statusline
 set statusline=%<%f\                        " Filename
 set statusline+=%w%h%m%r                    " Options
 set statusline+=%{fugitive#statusline()}    " Git Hotness
-set statusline+=\ [%{&ff}/%Y]               " filetype
-set statusline+=\ [%{getcwd()}]             " current dir
+set statusline+=\ [%{&ff}/%Y]               " Filetype
+set statusline+=\ [%{getcwd()}]             " Current dir
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -101,16 +96,15 @@ set wildignorecase                               " Who needs case anyways
 set wildmode=list:longest,full                   " Wildmenu display options
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " Binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled object files
+set wildignore+=*.spl                            " Compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit"
 
 " Highlight columns
 highlight ColorColumn guibg=#2d2d2d ctermbg=Magenta
 call matchadd('ColorColumn', '\%81v', 100)
-call matchadd('ColorColumn', '\%121v', 100)
 
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
