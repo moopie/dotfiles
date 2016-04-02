@@ -28,6 +28,9 @@ if has('win32')
     " Set file formats
     set fileformats=dos,unix
 
+    " Make yanking work with windows clipboard
+    set clipboard+=unnamedplus
+
     " set rtp for windows because it is not set to the place we want
     set rtp+=$HOME/.vim/
 else
@@ -103,8 +106,9 @@ set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit"
 
 " Highlight columns
-highlight ColorColumn guibg=#2d2d2d ctermbg=Magenta
+highlight ColorColumn guibg=#2d2d2d ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%121v', 100)
 
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
@@ -116,7 +120,7 @@ set smarttab      " Insert tabs on the start of a line according to shiftwidth, 
 
 augroup filetype_specific
     au!
-    au FileType make :setlocal ts=4 sts=4 sw=4 noet
+    au FileType make :setlocal ts=8 sw=8 sts=0 noet
 augroup END
 
 " Search
@@ -281,6 +285,7 @@ let g:used_javascript_libs='angularjs,jquery,react'
 " Colorschemes
 Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -288,8 +293,6 @@ call plug#end()
 filetype plugin indent on
 syntax on " Enable syntax highlighting
 
-colorscheme jellybeans
-if &t_Co > 2
-    let g:jellybeans_use_lowcolor_black=0
-endif
+let base16colorspace=256
+colorscheme base16-default
 
