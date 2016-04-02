@@ -110,6 +110,14 @@ highlight ColorColumn guibg=#2d2d2d ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%121v', 100)
 
+" Highlight trailing spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
 set tabstop=4     " A tab is 4 spaces
