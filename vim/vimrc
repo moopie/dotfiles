@@ -211,8 +211,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Undo
 Plug 'simnalamburt/vim-mundo'
-set undofile
-set undodir=$VIMDIR/undo
 nmap <silent> <leader>u :MundoToggle<CR>
 let g:mundo_width=60
 let g:mundo_right=1
