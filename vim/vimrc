@@ -106,7 +106,7 @@ set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit"
 
 " Highlight columns
-highlight ColorColumn guibg=#2d2d2d ctermbg=magenta
+highlight ColorColumn guibg=magenta ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%121v', 100)
 
