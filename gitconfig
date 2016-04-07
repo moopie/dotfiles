@@ -17,8 +17,6 @@
     tool = meld
 [merge]
     tool = meld
-[pull]
-    ff = only
 [push]
     default = current
 [url "git@github.com:"]
