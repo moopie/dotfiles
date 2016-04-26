@@ -10,8 +10,6 @@ endif
 
 set background=dark
 
-map <space> <leader>
-
 " Windows specific stuff
 if has('win32')
     if !has('gui_running')
@@ -55,35 +53,11 @@ set number              " Line numbers
 set norelativenumber    " Relative numbers in relation to the cursor
 set encoding=utf8       " Use UTF8 everywhere
 set showmatch           " Show matching brackets
-set ruler               " Show ruler
 set nocursorline        " Highlight current line
 set lazyredraw          " Redraw only when we need to
-set splitbelow          " Split below the current window
-set splitright          " Split right of the current window
-set hidden              " Don't ask to save when leaving the buffer
 set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
 set clipboard+=unnamed  " Share clipboard with system clipboard
-
-" Status and commandline
-set showcmd                                 " Display an incomplete command (lower right corner)
-set shortmess=atI                           " Shortens messages
-set cmdheight=1                             " Height of the command line
-set laststatus=2                            " Always show the statusline
-set statusline=%<%f\                        " Filename
-set statusline+=%w%h%m%r                    " Options
-set statusline+=%{fugitive#statusline()}    " Git Hotness
-set statusline+=\ [%{&ff}/%Y]               " Filetype
-set statusline+=\ [%{getcwd()}]             " Current dir
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%     " Right aligned file nav info
-let g:syntastic_enable_signs=1
-
-" Don't autoselect first item in omnicomplete, show if only one item (for preview)
-" Remove preview if you don't want to see any documentation whatsoever
-set completeopt=longest,menuone,preview
 
 " Project-specific vimrc
 set exrc            " Enable external vimrc
@@ -92,31 +66,6 @@ set secure          " Prevent external vimrc from using dangerous commands
 " Invisible chars
 set listchars=tab:▸\ ,
 set list
-
-" Command menu autocompletion
-set wildmenu                                     " Enable it
-set wildignorecase                               " Who needs case anyways
-set wildmode=list:longest,full                   " Wildmenu display options
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " Binary images
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled object files
-set wildignore+=*.spl                            " Compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit"
-
-" Highlight columns
-highlight ColorColumn guibg=magenta ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-call matchadd('ColorColumn', '\%121v', 100)
-
-" Highlight trailing spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
@@ -148,59 +97,19 @@ set novisualbell        " No blinking
 set noerrorbells        " No noise
 set vb t_vb=            " Disable any beeps or flashes on error
 
-" Folding
-set foldenable          " Enable folding
-set foldmethod=indent   " Fold by indent
-set foldlevelstart=20   " Don't automatically fold opened files
-
 " Mouse
-set mouse=a             " Configure mouse
-set mousehide           " Hide mouse after chars typed
+set mouse=              " Configure mouse
 
 " Key Bindings
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" Window movement
-nmap <C-H> <C-W>h
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-L> <C-W>l
-
-" Mirror tmux
-nmap <silent> <leader>" :split<CR>
-nmap <silent> <leader>% :vsplit<CR>
-nmap <silent> <leader>o <C-W>w
-
 " Plugins
 call plug#begin($VIMDIR.'/bundle')
 
 " General
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
-Plug 'kshenoy/vim-signature'
-
-" File browsing
-Plug 'scrooloose/nerdtree'
-nmap <silent> <leader>a :NERDTreeToggle<CR>
-Plug 'Xuyuanp/nerdtree-git-plugin'
-let g:NERDTreeIndicatorMapCustom = {
-\    'Modified'  : '✹',
-\    'Staged'    : '✚',
-\    'Untracked' : '✭',
-\    'Renamed'   : '➜',
-\    'Unmerged'  : '═',
-\    'Deleted'   : '✖',
-\    'Dirty'     : '✗',
-\    'Clean'     : '✔︎',
-\    'Unknown'   : '?'
-\}
-Plug 'ctrlpvim/ctrlp.vim'
-nmap <leader>p :CtrlPMixed<CR>
-nmap <leader>e :CtrlP<CR>
-nmap <leader>b :CtrlPBuffer<CR>
 
 " Better ack
 Plug 'rking/ag.vim'
@@ -208,33 +117,6 @@ Plug 'rking/ag.vim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
-" Undo
-Plug 'simnalamburt/vim-mundo'
-nmap <silent> <leader>u :MundoToggle<CR>
-let g:mundo_width=60
-let g:mundo_right=1
-
-" Snippets
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-" Comments
-Plug 'scrooloose/nerdcommenter'
-
-" Linter
-Plug 'scrooloose/syntastic'
-let g:syntastic_cs_checkers=['syntax', 'semantic', 'issues']
-
-" Formatter
-Plug 'Chiel92/vim-autoformat'
-
-" Tagbar
-Plug 'majutsushi/tagbar'
-nmap <leader>t :TagbarToggle<CR>
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', {
@@ -265,7 +147,6 @@ Plug 'hail2u/vim-css3-syntax'
 " CSharp
 Plug 'OrangeT/vim-csharp'
 Plug 'OmniSharp/omnisharp-vim'
-let g:OmniSharp_selector_ui='ctrlp'
 augroup omnisharp_commands
     autocmd!
 
