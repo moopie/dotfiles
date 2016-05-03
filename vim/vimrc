@@ -8,64 +8,13 @@ else
     set nocompatible
 endif
 
-set background=dark
-
-" Windows specific stuff
-if has('win32')
-    if !has('gui_running')
-        set term=xterm
-        set t_Co=256
-        let &t_AB='\e[48;5;%dm'
-        let &t_AF='\e[38;5;%dm'
-        imap <Esc>[62~ <C-X><C-E>
-        imap <Esc>[63~ <C-X><C-Y>
-        nmap <Esc>[62~ <C-E>
-        nmap <Esc>[63~ <C-Y>
-    endif
-
-    " Set file formats
-    set fileformats=dos,unix
-
-    " Make yanking work with windows clipboard
-    set clipboard+=unnamedplus
-
-    " set rtp for windows because it is not set to the place we want
-    set rtp+=$HOME/.vim/
-else
-    set fileformats=unix,dos,mac
-endif
-
-" GUI
-if has('gui_running')
-    set antialias
-    if has('win32')
-        set guifont=Consolas:h9
-    else
-        set guifont=SourceCodePro\ 9
-    endif
-    set guioptions=a  " Clipboard selection
-    set guioptions+=c " Console dialogs
-    au GUIEnter * set vb t_vb=
-endif
-
 " Properties
-set number              " Line numbers
-set norelativenumber    " Relative numbers in relation to the cursor
 set encoding=utf8       " Use UTF8 everywhere
 set showmatch           " Show matching brackets
-set nocursorline        " Highlight current line
 set lazyredraw          " Redraw only when we need to
 set autoread            " Automatically reload file on external changes
 set report=0            " Don't hide messages
-set clipboard+=unnamed  " Share clipboard with system clipboard
-
-" Project-specific vimrc
-set exrc            " Enable external vimrc
-set secure          " Prevent external vimrc from using dangerous commands
-
-" Invisible chars
-set listchars=tab:▸\ ,
-set list
+set clipboard=unnamed   " Share clipboard with system clipboard
 
 " Tabs & Spaces
 set expandtab     " Use spaces instead of tabs
@@ -97,82 +46,16 @@ set novisualbell        " No blinking
 set noerrorbells        " No noise
 set vb t_vb=            " Disable any beeps or flashes on error
 
-" Mouse
-set mouse=              " Configure mouse
-
 " Key Bindings
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" Plugins
 call plug#begin($VIMDIR.'/bundle')
 
-" General
-Plug 'tpope/vim-dispatch'
-
-" Better ack
-Plug 'rking/ag.vim'
-
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" Autocompletion
-Plug 'Valloric/YouCompleteMe', {
-\   'do': './install.py --omnisharp-completer --tern-completer'
-\}
-nmap <leader>gd :YcmCompleter GoToDefinition<CR>
-nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
-nmap <leader>gt :YcmCompleter GetType<CR>
-nmap <leader>gi :YcmCompleter GetDoc<CR>
-
-" Languages
-
-" Rust
-Plug 'rust-lang/rust.vim'
-
-" Haskell
-Plug 'eagletmt/ghcmod-Vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'dag/vim2hs'
-let g:haskell_conceal=0
-
-" Frontend
-Plug 'mattn/emmet-vim'
-Plug 'Valloric/MatchTagAlways'
-Plug 'gorodinskiy/vim-coloresque'
-Plug 'hail2u/vim-css3-syntax'
-
-" CSharp
-Plug 'OrangeT/vim-csharp'
-Plug 'OmniSharp/omnisharp-vim'
-augroup omnisharp_commands
-    autocmd!
-
-    " Asynchronous builds with vim-dispatch
-    autocmd FileType cs nmap <F5> :wa!<cr>:OmniSharpBuildAsync<cr>
-
-    " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
-
-    " Finds usages
-    autocmd FileType cs nmap <leader>fu :OmniSharpFindUsages<cr>
-augroup END
-
-" C/C++
-Plug 'vim-scripts/a.vim'
-
-" JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs='angularjs,jquery,react'
-
 " Colorschemes
-Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'
+let base16colorspace=256
 
 call plug#end()
 
@@ -180,6 +63,5 @@ call plug#end()
 filetype plugin indent on
 syntax on " Enable syntax highlighting
 
-let base16colorspace=256
 colorscheme base16-default
 

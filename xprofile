@@ -24,7 +24,7 @@ xset mouse 1/3 0
 # caps:swapescape       Swap escape and capslock
 setxkbmap \
     -layout us,il \
-    -variant dvorak \
+    -variant dvorak, \
     -option '' \
     -option grp:alt_shift_toggle \
     -option grp_led:scroll \
