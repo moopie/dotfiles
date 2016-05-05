@@ -1,11 +1,8 @@
 " Neovim compatability
 if has('nvim')
     let $VIMDIR=$HOME.'/.config/nvim'
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 else
     let $VIMDIR=$HOME.'/.vim'
-    set nocompatible
 endif
 
 " Properties
@@ -51,17 +48,10 @@ set vb t_vb=            " Disable any beeps or flashes on error
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-call plug#begin($VIMDIR.'/bundle')
+" Syntax and color schemes
 
-" Colorschemes
-Plug 'chriskempson/base16-vim'
-let base16colorspace=256
-
-call plug#end()
-
-" set syntax on after vim-plug does it's thing
 filetype plugin indent on
-syntax on " Enable syntax highlighting
+syntax on
 
 colorscheme base16-default
-
+let base16colorspace=256
