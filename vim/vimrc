@@ -23,6 +23,11 @@ if has('win32')
     set guioptions=a            " Clipboard selection
     set guioptions+=c           " Console dialogs
     au GUIEnter * set vb t_vb=  " No visual error
+
+    " Set up bash on windows
+    set shell=c:/Program\ Files/Git/bin/bash.exe
+    set shellcmdflag=--login\ -c
+    set shellxquote=\"
 endif
 
 " Properties
@@ -97,10 +102,6 @@ call plug#begin($VIMDIR.'/bundle')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Misc
-Plug 'scrooloose/nerdcommenter'
-Plug 'mattn/emmet-vim'
-
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', {
 \   'do': './install.py --omnisharp-completer --tern-completer'
@@ -109,6 +110,12 @@ nmap <leader>gd :YcmCompleter GoToDefinition<CR>
 nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>gi :YcmCompleter GetDoc<CR>
+
+" Misc
+Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
