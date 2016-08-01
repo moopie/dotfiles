@@ -6,7 +6,7 @@ else
 endif
 
 if has('win32')
-    " If windows, we are probably running in gvim
+    " If windows, we are probably running gvim
     if !has('gui_running')
         set term=xterm
         set t_Co=256
@@ -33,7 +33,6 @@ set autoread          " Automatically reload file on external changes
 set report=0          " Don't hide messages
 set clipboard=unnamed " Share clipboard with system clipboard
 set hidden            " Don't ask to save when leaving the buffer
-set autoread          " Automatically reload file on external changes
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -92,6 +91,15 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 
 " Plugins
 call plug#begin($VIMDIR.'/bundle')
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Misc
+Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 " Syntax and color schemes
