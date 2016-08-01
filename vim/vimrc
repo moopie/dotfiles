@@ -59,7 +59,6 @@ set incsearch  " Show search matches as you type
 
 " Folding
 set foldenable          " Enable folding
-set foldmethod=indent   " Fold by indent
 set foldlevelstart=20   " Don't automatically fold opened files
 
 " Command menu autocompletion
