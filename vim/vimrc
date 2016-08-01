@@ -33,6 +33,7 @@ set autoread          " Automatically reload file on external changes
 set report=0          " Don't hide messages
 set clipboard=unnamed " Share clipboard with system clipboard
 set hidden            " Don't ask to save when leaving the buffer
+set autochdir         " Automatically change the current directory
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -99,6 +100,15 @@ Plug 'airblade/vim-gitgutter'
 " Misc
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
+
+" Autocomplete
+Plug 'Valloric/YouCompleteMe', {
+\   'do': './install.py --omnisharp-completer --tern-completer'
+\}
+nmap <leader>gd :YcmCompleter GoToDefinition<CR>
+nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
+nmap <leader>gt :YcmCompleter GetType<CR>
+nmap <leader>gi :YcmCompleter GetDoc<CR>
 
 call plug#end()
 
