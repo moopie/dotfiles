@@ -17,17 +17,12 @@ if has('win32')
         nmap <Esc>[62~ <C-E>
         nmap <Esc>[63~ <C-Y>
     endif
-    set rtp+=$HOME/.vim/        " Default vim dir
+    set rtp+=$VIMDIR            " Default vim dir
     set fileformats=dos,unix    " File formats
     set guifont=Consolas:h9     " Font
     set guioptions=a            " Clipboard selection
     set guioptions+=c           " Console dialogs
     au GUIEnter * set vb t_vb=  " No visual error
-
-    " Set up bash on windows
-    set shell=c:/Program\ Files/Git/bin/bash.exe
-    set shellcmdflag=--login\ -c
-    set shellxquote=\"
 endif
 
 " Properties
@@ -46,7 +41,7 @@ set tabstop=4    " A tab is 4 spaces
 set autoindent   " Always set autoindenting on
 set copyindent   " Copy the previous indentation on autoindenting
 set shiftwidth=4 " Number of spaces to use for autoindenting
-set smarttab     " Insert tabs on the start of a line according to shiftwidth, not tabstop
+set smarttab     " Insert tabs on the start of a line
 
 " Backspace
 set backspace=indent,eol,start
@@ -113,9 +108,11 @@ nmap <leader>gi :YcmCompleter GetDoc<CR>
 
 " Misc
 Plug 'scrooloose/nerdcommenter'
-Plug 'mattn/emmet-vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'editorconfig/editorconfig-vim'
+
+" Language support
+Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
