@@ -5,6 +5,26 @@ else
     let $VIMDIR=$HOME.'/.vim'
 endif
 
+if has('win32')
+    " If windows, we are probably running in gvim
+    if !has('gui_running')
+        set term=xterm
+        set t_Co=256
+        let &t_AB='\e[48;5;%dm'
+        let &t_AF='\e[38;5;%dm'
+        imap <Esc>[62~ <C-X><C-E>
+        imap <Esc>[63~ <C-X><C-Y>
+        nmap <Esc>[62~ <C-E>
+        nmap <Esc>[63~ <C-Y>
+    endif
+    set rtp+=$HOME/.vim/        " Default vim dir
+    set fileformats=dos,unix    " File formats
+    set guifont=Consolas:h9     " Font
+    set guioptions=a            " Clipboard selection
+    set guioptions+=c           " Console dialogs
+    au GUIEnter * set vb t_vb=  " No visual error
+endif
+
 " Properties
 set encoding=utf8     " Use UTF8 everywhere
 set showmatch         " Show matching brackets
@@ -12,6 +32,8 @@ set lazyredraw        " Redraw only when we need to
 set autoread          " Automatically reload file on external changes
 set report=0          " Don't hide messages
 set clipboard=unnamed " Share clipboard with system clipboard
+set hidden            " Don't ask to save when leaving the buffer
+set autoread          " Automatically reload file on external changes
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -20,6 +42,9 @@ set autoindent   " Always set autoindenting on
 set copyindent   " Copy the previous indentation on autoindenting
 set shiftwidth=4 " Number of spaces to use for autoindenting
 set smarttab     " Insert tabs on the start of a line according to shiftwidth, not tabstop
+
+" Backspace
+set backspace=indent,eol,start
 
 augroup filetype_specific
     au!
@@ -31,6 +56,23 @@ set ignorecase " Ignore case when searching
 set smartcase  " Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set hlsearch   " Highlight search terms
 set incsearch  " Show search matches as you type
+
+" Folding
+set foldenable          " Enable folding
+set foldmethod=indent   " Fold by indent
+set foldlevelstart=20   " Don't automatically fold opened files
+
+" Command menu autocompletion
+set wildmenu                                     " Enable it
+set wildignorecase                               " Who needs case anyways
+set wildmode=list:longest,full                   " Wildmenu display options
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " Binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " Compiled object files
+set wildignore+=*.spl                            " Compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
 
 " Backups
 set swapfile
@@ -47,6 +89,10 @@ set vb t_vb=     " Disable any beeps or flashes on error
 
 " Cleans hilighted text after search
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Plugins
+call plug#begin($VIMDIR.'/bundle')
+call plug#end()
 
 " Syntax and color schemes
 
