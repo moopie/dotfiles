@@ -49,6 +49,7 @@ set backspace=indent,eol,start
 augroup filetype_specific
     au!
     au FileType make :setlocal ts=8 sw=8 sts=0 noet
+    au BufRead,BufNewFile *.cshtml :setf html
 augroup END
 
 " Search
@@ -92,9 +93,18 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " Plugins
 call plug#begin($VIMDIR.'/bundle')
 
+" Essentials
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-characterize'
+
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+" Projects
+Plug 'editorconfig/editorconfig-vim'
 
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', {
@@ -105,11 +115,7 @@ nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
 nmap <leader>gt :YcmCompleter GetType<CR>
 nmap <leader>gi :YcmCompleter GetDoc<CR>
 
-" Misc
-Plug 'scrooloose/nerdcommenter'
-Plug 'editorconfig/editorconfig-vim'
-
-" Language support
+" Language specific
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 
