@@ -7,6 +7,7 @@ endif
 
 if has('win32')
     " If windows, we are probably running gvim
+    " otherwise:
     if !has('gui_running')
         set term=xterm
         set t_Co=256
@@ -103,21 +104,10 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Projects
-Plug 'editorconfig/editorconfig-vim'
-
-" Autocomplete
-Plug 'Valloric/YouCompleteMe', {
-\   'do': './install.py --omnisharp-completer --tern-completer'
-\}
-nmap <leader>gd :YcmCompleter GoToDefinition<CR>
-nmap <leader>gD :YcmCompleter GoToImplementationElseDeclaration<CR>
-nmap <leader>gt :YcmCompleter GetType<CR>
-nmap <leader>gi :YcmCompleter GetDoc<CR>
-
 " Language specific
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
+Plug 'PProvost/vim-ps1'
 
 call plug#end()
 
