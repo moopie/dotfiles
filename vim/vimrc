@@ -26,6 +26,10 @@ if has('win32')
     au GUIEnter * set vb t_vb=  " No visual error
 endif
 
+" Extrenal vimrc
+set exrc    " Use project .vimrc if exists
+set secure  " Don't allow external .vimrc to use powerful commands
+
 " Properties
 set encoding=utf8     " Use UTF8 everywhere
 set showmatch         " Show matching brackets
@@ -35,6 +39,8 @@ set report=0          " Don't hide messages
 set clipboard=unnamed " Share clipboard with system clipboard
 set hidden            " Don't ask to save when leaving the buffer
 set autochdir         " Automatically change the current directory
+set number            " Numbers
+set ruler             " Current position in command line
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -43,6 +49,22 @@ set autoindent   " Always set autoindenting on
 set copyindent   " Copy the previous indentation on autoindenting
 set shiftwidth=4 " Number of spaces to use for autoindenting
 set smarttab     " Insert tabs on the start of a line
+
+" Statusline
+set laststatus=1
+" left hand side
+set statusline=%f " filepath
+set statusline+=\ %n " buffer number
+set statusline+=%M " modified"
+set statusline+=\ %r " readonly?
+set statusline+=\ %h " help file?
+set statusline+=\ %{fugitive#statusline()} " Git branch
+" right hand side
+set statusline+=%="
+set statusline+=\ %y " file type
+set statusline+=\ %l " line number
+set statusline+=/
+set statusline+=\%L " line count
 
 " Backspace
 set backspace=indent,eol,start
@@ -97,7 +119,7 @@ call plug#begin($VIMDIR.'/bundle')
 " Essentials
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-characterize'
 
 " Git
@@ -106,8 +128,16 @@ Plug 'airblade/vim-gitgutter'
 
 " Language specific
 Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'mattn/emmet-vim'
-Plug 'PProvost/vim-ps1'
+
+" Colorschemes
+Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-scripts/BusyBee'
+Plug 'djjcast/mirodark'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -116,5 +146,5 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-colorscheme base16-default
+colorscheme hybrid
 let base16colorspace=256
