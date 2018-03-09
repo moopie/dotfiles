@@ -51,7 +51,7 @@ set shiftwidth=4 " Number of spaces to use for autoindenting
 set smarttab     " Insert tabs on the start of a line
 
 " Statusline
-set laststatus=1
+set laststatus=2
 " left hand side
 set statusline=%f " filepath
 set statusline+=\ %n " buffer number
@@ -138,6 +138,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/BusyBee'
 Plug 'djjcast/mirodark'
 Plug 'w0ng/vim-hybrid'
+Plug 'romainl/Apprentice'
 
 call plug#end()
 
@@ -146,5 +147,5 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-colorscheme hybrid
-let base16colorspace=256
+colorscheme Apprentice
+
