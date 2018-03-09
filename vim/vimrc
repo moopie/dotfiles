@@ -52,19 +52,6 @@ set smarttab     " Insert tabs on the start of a line
 
 " Statusline
 set laststatus=2
-" left hand side
-set statusline=%f " filepath
-set statusline+=\ %n " buffer number
-set statusline+=%M " modified"
-set statusline+=\ %r " readonly?
-set statusline+=\ %h " help file?
-set statusline+=\ %{fugitive#statusline()} " Git branch
-" right hand side
-set statusline+=%="
-set statusline+=\ %y " file type
-set statusline+=\ %l " line number
-set statusline+=/
-set statusline+=\%L " line count
 
 " Backspace
 set backspace=indent,eol,start
@@ -121,6 +108,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-characterize'
+Plug 'vim-airline/vim-airline'
 
 " Git
 Plug 'tpope/vim-fugitive'
