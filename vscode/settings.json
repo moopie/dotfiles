@@ -1,0 +1,30 @@
+{
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "editor.fontSize": 12,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "gitlens.keymap": "none",
+    "git.autofetch": true,
+    "team.showWelcomeMessage": false,
+    "gitlens.historyExplorer.enabled": true,
+    "editor.rulers": [
+        80, 120
+    ],
+    "git.confirmSync": false,
+    "cSpell.language": "en",
+    "window.menuBarVisibility": "toggle",
+    "editor.renderWhitespace": "all",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.showSlider": "always",
