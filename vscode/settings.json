@@ -28,5 +28,6 @@
     "editor.renderWhitespace": "none",
     "workbench.startupEditor": "newUntitledFile",
     "editor.minimap.showSlider": "always",
-    "editor.cursorBlinking": "solid"
+    "editor.cursorBlinking": "solid",
+    "editor.fontFamily": "Consolas, 'Monaco', 'Inconsolata', monospace",
 }
