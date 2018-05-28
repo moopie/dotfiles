@@ -25,7 +25,8 @@
     "git.confirmSync": false,
     "cSpell.language": "en",
     "window.menuBarVisibility": "toggle",
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "none",
     "workbench.startupEditor": "newUntitledFile",
     "editor.minimap.showSlider": "always",
+    "editor.cursorBlinking": "solid"
 }
