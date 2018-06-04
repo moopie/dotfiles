@@ -11,6 +11,8 @@
     ],
 
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.external.linuxExec": "rxvt-256color",
+    "terminal.external.osxExec": "iTerm.app",
 
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
