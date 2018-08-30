@@ -1,29 +1,35 @@
 {
     "window.menuBarVisibility": "toggle",
-
     "editor.renderWhitespace": "none",
     "editor.minimap.showSlider": "always",
     "editor.cursorBlinking": "solid",
     "editor.fontFamily": "Consolas, 'Monaco', 'Inconsolata', monospace",
     "editor.fontSize": 12,
+    "editor.wordWrap": "on",
     "editor.rulers": [
-        80, 120
+        80,
+        120
     ],
-
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "terminal.external.linuxExec": "rxvt-256color",
     "terminal.external.osxExec": "iTerm.app",
-
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
-
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "/"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        }
+    ],
     "git.confirmSync": false,
     "git.autofetch": true,
-
     "cSpell.language": "en",
-
     "workbench.startupEditor": "newUntitledFile",
-
     "gitlens.historyExplorer.enabled": true,
     "gitlens.keymap": "none",
     "gitlens.advanced.messages": {
@@ -38,6 +44,8 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-
     "team.showWelcomeMessage": false,
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Dracula",
 }
