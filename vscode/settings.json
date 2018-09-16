@@ -1,5 +1,9 @@
 {
     "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
     "editor.renderWhitespace": "none",
     "editor.minimap.showSlider": "always",
     "editor.cursorBlinking": "solid",
@@ -26,10 +30,10 @@
             ]
         }
     ],
-    "git.confirmSync": false,
+    "git.confirmSync": true,
     "git.autofetch": true,
+    "git.enableSmartCommit": true,
     "cSpell.language": "en",
-    "workbench.startupEditor": "newUntitledFile",
     "gitlens.historyExplorer.enabled": true,
     "gitlens.keymap": "none",
     "gitlens.advanced.messages": {
@@ -44,8 +48,5 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "team.showWelcomeMessage": false,
-    "git.enableSmartCommit": true,
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "Dracula",
+    "team.showWelcomeMessage": false
 }
