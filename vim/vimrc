@@ -1,13 +1,12 @@
 " Properties
-set nocompatible
-set encoding=utf8      " Use UTF8 everywhere
-set showmatch          " Show matching brackets
-set lazyredraw         " Redraw only when we need to
-set autoread           " Automatically reload file on external changes
-set report=0           " Don't hide messages
-set clipboard+=unnamed " Share clipboard with system clipboard
-set hidden             " Don't ask to save when leaving the buffer
-set number             " Numbers
+set encoding=utf8       " Use UTF8 everywhere
+set showmatch           " Show matching brackets
+set lazyredraw          " Redraw only when we need to
+set autoread            " Automatically reload file on external changes
+set report=0            " Don't hide messages
+set clipboard+=unnamed  " Share clipboard with system clipboard
+set hidden              " Don't ask to save when leaving the buffer
+set number              " Numbers
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -20,7 +19,7 @@ set smarttab     " Insert tabs on the start of a line
 " Backspace
 set backspace=indent,eol,start  " Don't limit backspace
 
-" Filetype specific settings
+" Filetype Specific Settings
 augroup filetype_specific
     au!
     au FileType make :setlocal ts=8 sw=8 sts=0 noet
@@ -33,7 +32,7 @@ set smartcase  " Ignore case if search pattern is all lowercase, case-sensitive 
 set hlsearch   " Highlight search terms
 set incsearch  " Show search matches as you type
 
-" Command menu autocompletion
+" Command Menu Autocompletion
 set wildmenu                                     " Enable it
 set wildignorecase                               " Who needs case anyways
 set wildmode=list:longest,full                   " Wildmenu display options
@@ -45,7 +44,7 @@ set wildignore+=*.spl                            " Compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-" No annoyances
+" No Annoyances
 set novisualbell " No blinking
 set noerrorbells " No noise
 set vb t_vb=     " Disable any beeps or flashes on error
@@ -64,9 +63,7 @@ Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
-" Syntax and color schemes
-
+" Syntax & Colorschemes
 filetype plugin indent on
 syntax on
-
 colorscheme hybrid
