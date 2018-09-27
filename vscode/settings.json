@@ -48,5 +48,6 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "team.showWelcomeMessage": false
+    "team.showWelcomeMessage": false,
+    "breadcrumbs.enabled": false
 }

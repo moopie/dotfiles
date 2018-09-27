@@ -1,46 +1,13 @@
-" Neovim compatability
-if has('nvim')
-    let $VIMDIR=$HOME.'/.config/nvim'
-else
-    let $VIMDIR=$HOME.'/.vim'
-endif
-
-if has('win32')
-    " If windows, we are probably running gvim
-    " otherwise:
-    if !has('gui_running')
-        set term=xterm
-        set t_Co=256
-        let &t_AB='\e[48;5;%dm'
-        let &t_AF='\e[38;5;%dm'
-        imap <Esc>[62~ <C-X><C-E>
-        imap <Esc>[63~ <C-X><C-Y>
-        nmap <Esc>[62~ <C-E>
-        nmap <Esc>[63~ <C-Y>
-    endif
-    set rtp+=$VIMDIR            " Default vim dir
-    set fileformats=dos,unix    " File formats
-    set guifont=Consolas:h9     " Font
-    set guioptions=a            " Clipboard selection
-    set guioptions+=c           " Console dialogs
-    au GUIEnter * set vb t_vb=  " No visual error
-endif
-
-" Extrenal vimrc
-set exrc    " Use project .vimrc if exists
-set secure  " Don't allow external .vimrc to use powerful commands
-
 " Properties
-set encoding=utf8     " Use UTF8 everywhere
-set showmatch         " Show matching brackets
-set lazyredraw        " Redraw only when we need to
-set autoread          " Automatically reload file on external changes
-set report=0          " Don't hide messages
-set clipboard=unnamed " Share clipboard with system clipboard
-set hidden            " Don't ask to save when leaving the buffer
-set autochdir         " Automatically change the current directory
-set number            " Numbers
-set ruler             " Current position in command line
+set nocompatible
+set encoding=utf8      " Use UTF8 everywhere
+set showmatch          " Show matching brackets
+set lazyredraw         " Redraw only when we need to
+set autoread           " Automatically reload file on external changes
+set report=0           " Don't hide messages
+set clipboard+=unnamed " Share clipboard with system clipboard
+set hidden             " Don't ask to save when leaving the buffer
+set number             " Numbers
 
 " Tabs & Spaces
 set expandtab    " Use spaces instead of tabs
@@ -50,12 +17,10 @@ set copyindent   " Copy the previous indentation on autoindenting
 set shiftwidth=4 " Number of spaces to use for autoindenting
 set smarttab     " Insert tabs on the start of a line
 
-" Statusline
-set laststatus=2
-
 " Backspace
-set backspace=indent,eol,start
+set backspace=indent,eol,start  " Don't limit backspace
 
+" Filetype specific settings
 augroup filetype_specific
     au!
     au FileType make :setlocal ts=8 sw=8 sts=0 noet
@@ -67,10 +32,6 @@ set ignorecase " Ignore case when searching
 set smartcase  " Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set hlsearch   " Highlight search terms
 set incsearch  " Show search matches as you type
-
-" Folding
-set foldmethod=indent   " Fold by indent
-set foldlevelstart=20   " Don't automatically fold opened files
 
 " Command menu autocompletion
 set wildmenu                                     " Enable it
@@ -84,49 +45,22 @@ set wildignore+=*.spl                            " Compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
 
-" Backups
-set swapfile
-set backup
-set backupdir=$VIMDIR/bak
-set directory=$VIMDIR/tmp
-
 " No annoyances
 set novisualbell " No blinking
 set noerrorbells " No noise
 set vb t_vb=     " Disable any beeps or flashes on error
 
 " Key Bindings
-
-" Cleans hilighted text after search
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<CR> " Cleans hilighted text after search
 
 " Plugins
-call plug#begin($VIMDIR.'/bundle')
-
-" Essentials
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-characterize'
-Plug 'vim-airline/vim-airline'
+call plug#begin('~/.vim/bundle')
 
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Language specific
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'mattn/emmet-vim'
-
 " Colorschemes
-Plug 'nanotech/jellybeans.vim'
-Plug 'morhetz/gruvbox'
-Plug 'vim-scripts/BusyBee'
-Plug 'djjcast/mirodark'
 Plug 'w0ng/vim-hybrid'
-Plug 'romainl/Apprentice'
 
 call plug#end()
 
@@ -135,5 +69,4 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-colorscheme apprentice
-
+colorscheme hybrid
