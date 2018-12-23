@@ -1,22 +1,15 @@
 [core]
-    editor = vim
+    editor = code
     excludesfile = ~/.gitignore_global
-[user]
-    name = Anton Amirian
-    email = extuessl@gmail.com
 [alias]
     st = status
     co = checkout
     ci = commit
     br = branch
     d = diff
-    dt = difftool
-    mt = mergetool
     lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
-[diff]
-    tool = meld
-[merge]
-    tool = meld
+[pull]
+    ff = only
 [push]
     default = current
 [url "git@github.com:"]
