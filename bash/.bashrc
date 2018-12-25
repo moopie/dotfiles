@@ -60,6 +60,6 @@ if [ -f ~/.bash_ps1 ]; then
     source ~/.bash_ps1
 fi
 
-export EDITOR=vim
+export EDITOR=code
 export PAGER=less
 
