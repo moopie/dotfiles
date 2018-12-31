@@ -1,5 +1,5 @@
 [core]
-    editor = code
+    editor = code --wait
     excludesfile = ~/.gitignore_global
 [alias]
     st = status
@@ -10,6 +10,10 @@
     lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 [pull]
     ff = only
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [push]
     default = current
 [url "git@github.com:"]
