@@ -2,7 +2,8 @@
     editor = code --wait
     excludesfile = ~/.gitignore_global
 [alias]
-    st = status
+    st = status --show-stash
+    s = status -s -d
     co = checkout
     ci = commit
     br = branch
