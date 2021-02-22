@@ -55,6 +55,14 @@ nmap <silent> <leader>/ :nohlsearch<CR> " Cleans hilighted text after search
 " Plugins
 call plug#begin('~/.vim/bundle')
 
+Plug 'ycm-core/YouCompleteMe'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'frazrepo/vim-rainbow'
+let g:rainbow_active=1
+
+
 " Git
 Plug 'airblade/vim-gitgutter'
 
@@ -67,3 +75,4 @@ call plug#end()
 filetype plugin indent on
 syntax on
 colorscheme hybrid
+set background=dark
