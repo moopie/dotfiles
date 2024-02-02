@@ -1,8 +1,0 @@
-$include /etc/inputrc
-
-# Ignore case for tab completion
-set completion-ignore-case On
-
-# Instantly show tab completion matches
-set show-all-if-ambiguous on
-set show-all-if-unmodified on
