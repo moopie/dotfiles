@@ -27,3 +27,6 @@
     default = current
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
+[user]
+	name = Anton Amirian
+	email = extuessl@gmail.com
