@@ -1,6 +1,5 @@
 [core]
     editor = code --wait
-    excludesfile = ~/.gitignore_global
 [init]
     defaultBranch = trunk
 [alias]
@@ -9,6 +8,7 @@
     f = fetch
     fp = fetch --prune
     p = pull
+    pp = pull --prune
     co = checkout
     ci = commit
     ca = commit -a
