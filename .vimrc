@@ -50,7 +50,7 @@ set noerrorbells " No noise
 set vb t_vb=     " Disable any beeps or flashes on error
 
 " Key Bindings
-:let mapleader = ","
+let mapleader = ","
 nmap <silent> <leader>/ :nohlsearch<CR> " Cleans hilighted text after search
 
 " Plugins
