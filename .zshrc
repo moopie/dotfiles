@@ -29,6 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
+export EDITOR="vim"
 
 # Aliases
 alias ohmyzsh="$EDITOR $ZSH"
