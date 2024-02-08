@@ -3,8 +3,8 @@
 [init]
     defaultBranch = trunk
 [alias]
-    st = status --show-stash
-    s = status -s -b
+    s = status -s -b -u --show-stash
+    st = status --long -b -u --show-stash
     f = fetch
     fp = fetch --prune
     p = pull
