@@ -31,6 +31,9 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export EDITOR="vim"
 
+# Dev
+
+
 # Aliases
 alias ohmyzsh="$EDITOR $ZSH"
 alias omzupdate="cd $ZSH && git pull && cd -"
@@ -43,3 +46,4 @@ alias dc="docker compose"
 alias k="kubectl"
 alias kns="kubens"
 alias ktx="kubectx"
+export PATH="/opt/homebrew/opt/dotnet@6/bin:$PATH"
