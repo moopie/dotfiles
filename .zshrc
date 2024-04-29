@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export EDITOR="vim"
+export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin"
 
 # Dev
 
@@ -46,4 +47,3 @@ alias dc="docker compose"
 alias k="kubectl"
 alias kns="kubens"
 alias ktx="kubectx"
-export PATH="/opt/homebrew/opt/dotnet@6/bin:$PATH"

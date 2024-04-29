@@ -5,6 +5,7 @@
 [alias]
     s = status -s -b -u --show-stash
     st = status --long -b -u --show-stash
+    stasha = stash --all
     f = fetch
     fp = fetch --prune
     p = pull
