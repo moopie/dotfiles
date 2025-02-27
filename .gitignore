@@ -1,3 +1,6 @@
 # vim plugins and files
 .vim/bundle
 .vim/.netrwhist
+
+nvim/lazyvim.json
+nvim/lazy-lock.json
