@@ -1,26 +1,33 @@
 return {
-	"neovim/nvim-lspconfig",
-	config = function()
-		local lspconfig = require("lspconfig")
+  -- LSP Config
+  'neovim/nvim-lspconfig',
 
-		lspconfig.gopls.setup({
-			on_attach = function(client, bufnr)
-				local bufopts = { noremap = true, silent = true, buffer = bufnr }
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-			end,
-		})
+  -- LSP Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp', -- LSP Completion
+      'hrsh7th/cmp-buffer', -- Buffer completions
+      'hrsh7th/cmp-path', -- Path completions
+      'saadparwaiz1/cmp_luasnip', -- Snippet completions
+      'L3MON4D3/LuaSnip' -- Snippet Engine
+    }
+  },
 
-		lspconfig.omnisharp.setup({
-      cmd = { "omnisharp" }, -- Ensure `omnisharp` is in your PATH
-      on_attach = function(client, bufnr)
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-      end,
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    })
-	end,
+  -- LSP Formatting (autoformat on save)
+  {
+    'stevearc/conform.nvim',
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          go = { "goimports" },
+          cs = { "csharpier" }
+        },
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        }
+      })
+    end
+  }
 }
