@@ -2,5 +2,5 @@
 .vim/bundle
 .vim/.netrwhist
 
-nvim/lazyvim.json
-nvim/lazy-lock.json
+.config/nvim/lazyvim.json
+.config/nvim/lazy-lock.json
