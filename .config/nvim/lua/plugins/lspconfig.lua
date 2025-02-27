@@ -6,11 +6,11 @@ return {
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp', -- LSP Completion
-      'hrsh7th/cmp-buffer', -- Buffer completions
-      'hrsh7th/cmp-path', -- Path completions
+      'hrsh7th/cmp-nvim-lsp',     -- LSP Completion
+      'hrsh7th/cmp-buffer',       -- Buffer completions
+      'hrsh7th/cmp-path',         -- Path completions
       'saadparwaiz1/cmp_luasnip', -- Snippet completions
-      'L3MON4D3/LuaSnip' -- Snippet Engine
+      'L3MON4D3/LuaSnip'          -- Snippet Engine
     }
   },
 
@@ -21,13 +21,30 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           go = { "goimports" },
-          cs = { "csharpier" }
+          cs = { "csharpier" },
+          javascript = { "prettier" },
+          typescript = { "prettier" },
+          json = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
         },
         format_on_save = {
           timeout_ms = 500,
           lsp_fallback = true,
         }
       })
+    end
+  },
+
+
+  -- Linter (eslint)
+  {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('lint').linters_by_ft = {
+        javascript = { "eslint_d" },
+        typescript = { "eslint_d" }
+      }
     end
   }
 }
