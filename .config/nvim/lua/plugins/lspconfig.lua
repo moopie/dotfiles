@@ -27,6 +27,7 @@ return {
           json = { "prettier" },
           html = { "prettier" },
           css = { "prettier" },
+          python = { "black", "isort" },
         },
         format_on_save = {
           timeout_ms = 500,
@@ -36,15 +37,25 @@ return {
     end
   },
 
-
-  -- Linter (eslint)
+  -- Linter
   {
     'mfussenegger/nvim-lint',
     config = function()
       require('lint').linters_by_ft = {
+        go = { "golangci-lint" },
+        python = { "flake8" },
         javascript = { "eslint_d" },
-        typescript = { "eslint_d" }
+        typescript = { "eslint_d" },
       }
     end
-  }
+  },
+
+  -- Debugging (DAP for Go)
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = { 'leoluz/nvim-dap-go' },
+    config = function()
+      require('dap-go').setup()
+    end
+  },
 }
