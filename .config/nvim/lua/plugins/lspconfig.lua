@@ -34,17 +34,17 @@ return {
     config = function()
       require("conform").setup({
         formatters_by_ft = {
-          go = { "goimports" },
-          cs = { "csharpier" },
+          go         = { "goimports" },
+          cs         = { "csharpier" },
+          css        = { "prettier" },
+          json       = { "prettier" },
+          html       = { "prettier" },
+          python     = { "black", "isort" },
           javascript = { "prettier" },
           typescript = { "prettier" },
-          json = { "prettier" },
-          html = { "prettier" },
-          css = { "prettier" },
-          python = { "black", "isort" },
         },
         format_on_save = {
-          timeout_ms = 500,
+          timeout_ms   = 500,
           lsp_fallback = true,
         }
       })
@@ -56,8 +56,8 @@ return {
     'mfussenegger/nvim-lint',
     config = function()
       require('lint').linters_by_ft = {
-        go = { "golangci-lint" },
-        python = { "flake8" },
+        go         = { "golangci-lint" },
+        python     = { "flake8" },
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
       }
