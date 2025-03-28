@@ -51,3 +51,7 @@ alias k="kubectl"
 alias kns="kubens"
 alias ktx="kubectx"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
