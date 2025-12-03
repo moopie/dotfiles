@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export EDITOR="vim"
-export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin:/Applications/Rider.app/Contents/MacOS/"
+export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin"
 
 # Dev
 
@@ -39,8 +39,8 @@ export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin:/Applica
 alias ohmyzsh="$EDITOR $ZSH"
 alias omzupdate="cd $ZSH && git pull && cd -"
 
-alias nv="nvim"
-alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 alias p="podman"
 alias pc="podman-compose"
