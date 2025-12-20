@@ -40,7 +40,16 @@ alias ohmyzsh="$EDITOR $ZSH"
 alias omzupdate="cd $ZSH && git pull && cd -"
 
 alias vi="nvim"
-alias vim="nvim"
+alias v="nvim"
+alias nv="nvim"
+
+alias g="git"
+alias gcm="git commit -m"
+alias gall="git add ."
+alias gs="git status"
+alias gd="git diff"
+alias glog="git lg"
+alias gl="git lg"
 
 alias p="podman"
 alias pc="podman-compose"
