@@ -20,6 +20,9 @@ vim.opt.breakindent = true
 vim.opt.number = true
 vim.opt.relativenumber = false
 
+-- Set column boundaries
+vim.opt.colorcolumn = { "80", "120" }
+
 -- Show line under cursor
 vim.opt.cursorline = true
 
