@@ -1,50 +1,45 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  config = function()
-    local config = require("nvim-treesitter.configs")
-
-    config.setup({
-      ensure_installed = {
-        "c",
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-        "elixir",
-        "heex",
-        "javascript",
-        "html",
-        "c_sharp",
-        "go",
-        "python"
-      },
-      sync_install = false,
-
-      -- Enable syntax highlighting
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-
-      -- Enable incremental selection
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "gnn",    -- Start selection
-          node_incremental = "grn",  -- Expand selection
-          scope_incremental = "grc", -- Expand scope
-          node_decremental = "grm",  -- Shrink selection
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = {
+        ensure_installed = {
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "query",
+            "elixir",
+            "heex",
+            "javascript",
+            "html",
+            "c_sharp",
+            "go",
+            "python",
         },
-      },
 
-      -- Enable indentation
-      indent = { enable = true },
+        sync_install = false,
 
-      -- Enable folding with Tree-sitter
-      fold = {
-        enable = true
-      }
-    })
-  end,
-  build = ":TSUpdate"
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+
+        incremental_selection = {
+            enable = true,
+            keymaps = {
+                init_selection = "gnn",
+                node_incremental = "grn",
+                scope_incremental = "grc",
+                node_decremental = "grm",
+            },
+        },
+
+        indent = {
+            enable = true,
+        },
+    },
+
+    --config = function(_, opts)
+    --    require("nvim-treesitter.configs").setup(opts)
+    --end,
 }
