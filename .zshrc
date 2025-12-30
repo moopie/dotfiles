@@ -29,7 +29,8 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
-export EDITOR="vim"
+export EDITOR="nvim"
+export MANPAGER="most"
 export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin"
 
 # Dev
@@ -39,16 +40,17 @@ export PATH="$PATH:${HOME}/.dotnet/tools:/opt/homebrew/opt/dotnet@6/bin"
 alias ohmyzsh="$EDITOR $ZSH"
 alias omzupdate="cd $ZSH && git pull && cd -"
 
+alias r="ranger"
+
 alias vi="nvim"
 alias v="nvim"
 alias nv="nvim"
 
 alias g="git"
 alias gcm="git commit -m"
-alias gall="git add ."
+alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
-alias glog="git lg"
 alias gl="git lg"
 
 alias p="podman"
