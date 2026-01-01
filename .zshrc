@@ -61,6 +61,7 @@ alias ga="git add"
 alias gs="git status"
 alias gd="git diff"
 alias gl="git lg"
+alias gc="git checkout"
 
 alias p="podman"
 alias pc="podman-compose"
