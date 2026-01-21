@@ -55,6 +55,8 @@ export MANPAGER="less -R"
 alias ohmyzsh="$EDITOR $ZSH"
 alias omzupdate="cd $ZSH && git pull && cd -"
 
+alias py="python3"
+
 alias r="ranger"
 
 alias vi="nvim"
@@ -81,3 +83,6 @@ alias ktx="kubectx"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Added by get-aspire-cli.sh
+export PATH="$HOME/.aspire/bin:$PATH"
