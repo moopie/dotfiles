@@ -199,6 +199,29 @@ for _, spec in ipairs(ordered_specs) do
   load_plugin(spec.name)
 end
 
-vim.api.nvim_create_user_command("PackUpdate", function()
+local function tiny_packupdate()
+  local ok, mod = pcall(require, "tiny-packupdate")
+  if ok and type(mod) == "table" then
+    if type(mod.update) == "function" then
+      return mod.update()
+    end
+
+    if type(mod.pack_update) == "function" then
+      return mod.pack_update()
+    end
+  end
+
+  if vim.fn.exists(":TinyPackUpdate") == 2 then
+    return vim.cmd.TinyPackUpdate()
+  end
+
+  if vim.fn.exists(":TinyUpdate") == 2 then
+    return vim.cmd.TinyUpdate()
+  end
+
   vim.pack.update()
+end
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+  tiny_packupdate()
 end, { desc = "Update plugins managed by vim.pack" })

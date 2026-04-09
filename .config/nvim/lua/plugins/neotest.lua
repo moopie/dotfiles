@@ -14,6 +14,8 @@ return {
     },
 
     config = function()
+        vim.cmd.packadd("nvim-nio")
+
         local neotest = require("neotest")
 
         neotest.setup({
