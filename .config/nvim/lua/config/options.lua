@@ -56,6 +56,10 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
 
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
