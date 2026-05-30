@@ -21,6 +21,7 @@ plugins=(
 	docker
 	podman
 	kube-ps1
+	fzf
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -59,17 +60,17 @@ alias py="python3"
 alias py2="python2"
 alias py3="python3"
 
-alias r="ranger"
-
 alias vi="nvim"
 alias v="nvim"
 alias vv="nvim ."
 alias nv="nvim"
 
+alias lg="lazygit"
 alias g="git"
 alias ga="git add"
 alias gaa="git add ."
-alias gs="git status"
+alias gs="git status -s"
+alias gss="git status"
 alias gp="git push"
 alias gu="git pull"
 alias gd="git diff"
@@ -79,6 +80,7 @@ alias gl="git lg"
 alias gc="git commit"
 alias gm="git merge"
 alias gcm="git commit -m"
+alias gcam="git commit -am"
 alias gco="git checkout"
 
 alias p="podman"
@@ -90,6 +92,8 @@ alias k="kubectl"
 alias kns="kubens"
 alias ktx="kubectx"
 
+alias nm="neomutt"
+
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 export PATH="$DOTNET_ROOT:$PATH"/.local/bin/omnisharp-lsp:$PATH"
 
@@ -99,4 +103,3 @@ source <(ng completion script)
 # Added by get-aspire-cli.sh
 export PATH="$HOME/.aspire/bin:$PATH"
 export PATH="$HOME# Use the brew dotnet
-eval "$(atuin init zsh)"

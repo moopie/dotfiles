@@ -26,6 +26,9 @@ vim.opt.colorcolumn = { "80", "120" }
 -- Show line under cursor
 vim.opt.cursorline = true
 
+-- How long Neovim waits before firing CursorHold events.
+vim.opt.updatetime = 300
+
 -- Store undos between sessions
 -- TODO: check how to save it in a different folder
 -- vim.opt.undofile = true
@@ -60,11 +63,31 @@ if vim.g.neovide then
     vim.o.guifont = "JetBrainsMono Nerd Font:h14"
 end
 
+local lsp_document_highlight_group = vim.api.nvim_create_augroup("LspDocumentHighlight", { clear = false })
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client then
+            return
+        end
+
         if client.server_capabilities.inlayHintProvider then
             vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+        end
+
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, ev.buf) then
+            vim.api.nvim_clear_autocmds({ group = lsp_document_highlight_group, buffer = ev.buf })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                group = lsp_document_highlight_group,
+                buffer = ev.buf,
+                callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufLeave" }, {
+                group = lsp_document_highlight_group,
+                buffer = ev.buf,
+                callback = vim.lsp.buf.clear_references,
+            })
         end
     end,
 })

@@ -18,6 +18,8 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+vim.keymap.set("n", "<X1Mouse>", "<C-o>", { desc = "Jump back" })
+vim.keymap.set("n", "<X2Mouse>", "<C-i>", { desc = "Jump forward" })
 
 vim.keymap.set("n", "<leader>ff", function()
     require("telescope.builtin").find_files()
