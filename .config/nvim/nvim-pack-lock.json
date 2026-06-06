@@ -33,6 +33,10 @@
       "rev": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90",
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
+    "codex": {
+      "rev": "e1149cbc875ff71ee21f8832b9fe815a270442b3",
+      "src": "https://github.com/johnseth97/codex.nvim"
+    },
     "conform": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"

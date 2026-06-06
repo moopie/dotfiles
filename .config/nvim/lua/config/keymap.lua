@@ -38,26 +38,24 @@ vim.keymap.set("n", "<leader>fh", function()
 end, { desc = "Telescope help tags" })
 
 -- LSP
+local function telescope_lsp(picker, opts)
+    return function()
+        require("telescope.builtin")[picker](opts)
+    end
+end
+
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gd", telescope_lsp("lsp_definitions"), { desc = "LSP definitions" })
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-vim.keymap.set("n", "go", vim.lsp.buf.type_definition)
-vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "gi", telescope_lsp("lsp_implementations"), { desc = "LSP implementations" })
+vim.keymap.set("n", "go", telescope_lsp("lsp_type_definitions"), { desc = "LSP type definitions" })
+vim.keymap.set("n", "gr", telescope_lsp("lsp_references"), { desc = "LSP references" })
 vim.keymap.set("n", "gs", vim.lsp.buf.signature_help)
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename)
 vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>lq", function()
-    local win = vim.api.nvim_get_current_win()
-    vim.diagnostic.setqflist({ open = true })
-    vim.api.nvim_set_current_win(win)
-end, { desc = "Diagnostics → Quickfix" })
-vim.keymap.set("n", "<leader>ll", function()
-    local win = vim.api.nvim_get_current_win()
-    vim.diagnostic.setloclist({ open = true })
-    vim.api.nvim_set_current_win(win)
-end, { desc = "Diagnostics → Loclist" })
+vim.keymap.set("n", "<leader>lq", telescope_lsp("diagnostics"), { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>ll", telescope_lsp("diagnostics", { bufnr = 0 }), { desc = "Buffer diagnostics" })
 
 local watching = false
 
