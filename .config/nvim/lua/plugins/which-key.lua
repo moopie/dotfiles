@@ -10,6 +10,7 @@ return {
         spec = {
             { "<leader>f", group = "find" },
             { "<leader>l", group = "lsp" },
+            { "<leader>m", group = "multiple cursors" },
             { "<leader>t", group = "test" },
         },
     },
