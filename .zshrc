@@ -92,6 +92,19 @@ alias ktx="kubectx"
 
 alias nm="neomutt"
 
+fdf() {
+    fd "$@" |
+    fzf \
+        --height=50% \
+        --preview '
+            if [[ -d {} ]]; then
+                tree -C {} | head -100
+            else
+                bat --style=numbers --color=always {}
+            fi
+        ' \
+        --bind 'enter:become(nvim {})'
+}
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 export PATH="$DOTNET_ROOT:$PATH"/.local/bin/omnisharp-lsp:$PATH"
 

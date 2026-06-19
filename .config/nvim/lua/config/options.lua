@@ -26,6 +26,9 @@ vim.opt.colorcolumn = { "80", "120" }
 -- Show line under cursor
 vim.opt.cursorline = true
 
+-- Enable true color support
+vim.opt.termguicolors = true
+
 -- How long Neovim waits before firing CursorHold events.
 vim.opt.updatetime = 300
 

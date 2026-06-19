@@ -144,6 +144,10 @@
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
+    "nvim-highlight-colors": {
+      "rev": "e4c7af0211866162d999ce0bdd6a029302e19139",
+      "src": "https://github.com/brenoprata10/nvim-highlight-colors"
+    },
     "nvim-lint": {
       "rev": "99cbc3ca8a76845fca50e496be7212bebf907dd3",
       "src": "https://github.com/mfussenegger/nvim-lint"
@@ -195,10 +199,6 @@
     "rose-pine": {
       "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
       "src": "https://github.com/rose-pine/neovim"
-    },
-    "telescope": {
-      "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
-      "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "tiny-packupdate": {
       "rev": "1e3e51d845fb77262ccabe887970f74a1dfa7872",
