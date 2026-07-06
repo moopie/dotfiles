@@ -22,7 +22,8 @@ plugins=(
 	podman
 	kube-ps1
 	fzf
-	)
+    dotnet
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -30,7 +31,8 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
-export EDITOR="nvim"
+#export EDITOR="nvim"
+export EDITOR="emacsclient -t -a ''"
 
 export PATH="\
 /opt/homebrew/opt/openjdk/bin:\
@@ -67,7 +69,7 @@ alias v="nvim"
 alias nv="nvim"
 
 alias e="emacs"
-alias ec="emacsclient"
+alias ec="emacsclient -t -a ''"
 
 alias lg="lazygit"
 alias g="git"
