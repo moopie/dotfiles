@@ -78,7 +78,6 @@ alias gb="git branch"
 alias gt="git tag"
 alias gl="git lg"
 alias gf="git fetch"
-alias gm="git merge"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
@@ -114,7 +113,7 @@ fdf() {
     if [[ -d "$selected" ]]; then
         cd "$selected"
     else
-        nvim "$selected"
+        "${EDITOR:-vi}" "$selected"
     fi
 }
 
