@@ -39,12 +39,15 @@ ${HOME}/.cargo/bin:\
 ${HOME}/.dotnet/tools:\
 $PATH"
 
-export LESS_TERMCAP_mb=$'\e[1;31m'
-export LESS_TERMCAP_md=$'\e[1;33m'
-export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_mb=$'\e[5;31m'      # blinking
+export LESS_TERMCAP_md=$'\e[1;36m'      # bold
+export LESS_TERMCAP_me=$'\e[0m'         # reset
+export LESS_TERMCAP_mr=$'\e[7m'         # reverse
+export LESS_TERMCAP_mh=$'\e[2m'         # dim
+export LESS_TERMCAP_mp=$'\e[0m'         # reset protected
+export LESS_TERMCAP_so=$'\e[1;33;44m'   # standout
 export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[1;44;33m'
-export LESS_TERMCAP_us=$'\e[1;32m'
+export LESS_TERMCAP_us=$'\e[1;32m'      # underline
 export LESS_TERMCAP_ue=$'\e[0m'
 
 export MANPAGER="less -R"
