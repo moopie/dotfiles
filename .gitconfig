@@ -5,15 +5,10 @@
 [alias]
     s = status -s -b -u --show-stash
     st = status --long -b -u --show-stash
-    stasha = stash --all
     f = fetch
-    fp = fetch --prune
     p = pull
-    pp = pull --prune
     co = checkout
-    ci = commit
-    ca = commit -a
-    cm = commit -m
+    cm = commit -a
     cam = commit -am
     br = branch
     d = diff -w
