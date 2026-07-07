@@ -95,9 +95,20 @@ alias gcm="git commit -m"
 alias gcam="git commit -am"
 alias gco="git checkout"
 
+alias t="trizen"
+alias tup="trizen -Syu --noedit --noconfirm"
+alias ts="trizen -Ss"
+alias ti="trizen -S"
+alias b="brew"
+alias bup="brew upgrade"
+alias bs="brew search"
+
+alias d='docker'
 alias p="podman"
 alias pc="podman-compose"
 alias c="podman-compose"
+alias clg='podman-compose logs -f --tail 50'
+alias clogs='podman-compose logs -f'
 alias d="docker"
 alias dc="docker compose"
 alias k="kubectl"
