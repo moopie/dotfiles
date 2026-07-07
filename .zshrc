@@ -1,7 +1,10 @@
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
+export GOPATH="$HOME/go"
+
 export PATH="\
 ${HOME}/bin:\
+${GOPATH}/bin:\
 /usr/local/bin:\
 /opt/homebrew/opt/openjdk/bin:\
 /opt/homebrew/opt/dotnet@6/bin:\
