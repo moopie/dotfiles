@@ -1,5 +1,3 @@
-[core]
-    editor = emacsclient -t -a ''
 [init]
     defaultBranch = trunk
 [alias]
