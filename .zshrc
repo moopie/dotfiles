@@ -1,5 +1,16 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+
+export PATH="\
+${HOME}/bin:\
+/usr/local/bin:\
+/opt/homebrew/opt/openjdk/bin:\
+/opt/homebrew/opt/dotnet@6/bin:\
+${HOME}/.cargo/bin:\
+${HOME}/.dotnet/tools:\
+${HOME}/.aspire/bin:\
+${DOTNET_ROOT}:\
+${HOME}/.local/bin/omnisharp-lsp:\
+$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/ohmyzsh"
@@ -30,16 +41,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
 #export EDITOR="nvim"
 export EDITOR="emacsclient -t -a ''"
-
-export PATH="\
-/opt/homebrew/opt/openjdk/bin:\
-/opt/homebrew/opt/dotnet@6/bin:\
-${HOME}/.cargo/bin:\
-${HOME}/.dotnet/tools:\
-$PATH"
 
 export LESS_TERMCAP_mb=$'\e[5;31m'      # blinking
 export LESS_TERMCAP_md=$'\e[1;36m'      # bold
@@ -55,7 +59,6 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export MANPAGER="less -R"
 
 # Dev
-
 
 # Aliases
 alias ohmyzsh="$EDITOR $ZSH"
@@ -123,12 +126,5 @@ fdf() {
     fi
 }
 
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-export PATH="$DOTNET_ROOT:$PATH"/.local/bin/omnisharp-lsp:$PATH"
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
-
-# Added by get-aspire-cli.sh
-export PATH="$HOME/.aspire/bin:$PATH"
-export PATH="$HOME# Use the brew dotnet
