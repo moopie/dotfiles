@@ -141,4 +141,6 @@ fdf() {
 }
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if command -v ng >/dev/null 2&>1; then
+    source <(ng completion script)
+fi
