@@ -46,7 +46,8 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG="en_US.UTF-8"
 #export EDITOR="nvim"
-export EDITOR="emacsclient -t -a ''"
+export EDITOR="emacsclient"
+export VISUAL="emacsclient -t -a ''"
 
 export LESS_TERMCAP_mb=$'\e[5;31m'      # blinking
 export LESS_TERMCAP_md=$'\e[1;36m'      # bold
