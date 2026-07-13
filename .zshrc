@@ -118,6 +118,8 @@ alias ktx="kubectx"
 
 alias nm="neomutt"
 
+alias y="yazi"
+
 fdf() {
     local selected
 
