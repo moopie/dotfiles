@@ -53,27 +53,8 @@ set vb t_vb=     " Disable any beeps or flashes on error
 let mapleader = " "
 nmap <silent> <leader>/ :nohlsearch<CR> " Cleans hilighted text after search
 
-" Plugins
-call plug#begin('~/.vim/bundle')
-
-Plug 'ycm-core/YouCompleteMe'
-
-Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'frazrepo/vim-rainbow'
-let g:rainbow_active=1
-
-
-" Git
-Plug 'airblade/vim-gitgutter'
-
-" Colorschemes
-Plug 'w0ng/vim-hybrid'
-
-call plug#end()
-
 " Syntax & Colorschemes
 filetype plugin indent on
 syntax on
-colorscheme hybrid
+colorscheme desert
 set background=dark

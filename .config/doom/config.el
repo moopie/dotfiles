@@ -42,6 +42,10 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(after! display-fill-column-indicator
+  (setq-default display-fill-column-indicator-column 120)
+
+  (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
