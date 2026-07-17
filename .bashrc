@@ -105,10 +105,10 @@ alias .....='cd ../../../..'
 # ---------------------------------------------------------------------------
 # General linux utilities
 # ---------------------------------------------------------------------------
-alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias l='ls -CF'
-alias la='ls -A'
+alias ls='ls --color=auto -F'
+alias ll='ls -lF'
+alias l='ls -F'
+alias la='ls -laF'
 alias grep='grep --color=auto -i'
 
 # ---------------------------------------------------------------------------
