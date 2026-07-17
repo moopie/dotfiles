@@ -4,8 +4,6 @@ export PATH="\
 ${HOME}/bin:\
 ${GOPATH}/bin:\
 /usr/local/bin:\
-/opt/homebrew/opt/openjdk/bin:\
-/opt/homebrew/opt/dotnet@6/bin:\
 ${HOME}/.cargo/bin:\
 ${HOME}/.dotnet/tools:\
 ${HOME}/.aspire/bin:\
