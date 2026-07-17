@@ -218,31 +218,3 @@ fdf() {
         "${EDITOR:-vi}" "$selected"
     fi
 }
-
-# ---------------------------------------------------------------------------
-# Bash completion
-# ---------------------------------------------------------------------------
-
-# Homebrew's bash-completion package.
-#
-# Install with:
-#   brew install bash-completion@2
-#
-if [[ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]]; then
-    source /opt/homebrew/etc/profile.d/bash_completion.sh
-elif [[ -r /usr/local/etc/profile.d/bash_completion.sh ]]; then
-    source /usr/local/etc/profile.d/bash_completion.sh
-elif [[ -r /usr/local/etc/bash_completion ]]; then
-    source /usr/local/etc/bash_completion
-fi
-
-# ---------------------------------------------------------------------------
-# Replace bash history (Ctrl-R) with fzf
-# ---------------------------------------------------------------------------
-if [[ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.bash" ]]; then
-    source "$(brew --prefix)/opt/fzf/shell/key-bindings.bash"
-fi
-
-if [[ -f "$(brew --prefix)/opt/fzf/shell/completion.bash" ]]; then
-    source "$(brew --prefix)/opt/fzf/shell/completion.bash"
-fi
