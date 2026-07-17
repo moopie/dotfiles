@@ -68,9 +68,7 @@ git_prompt_branch() {
     local branch dirty
 
     branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) ||
-
         branch=$(git rev-parse --short HEAD 2>/dev/null) ||
-
         return
 
     if ! git diff --quiet --ignore-submodules HEAD 2>/dev/null ||
