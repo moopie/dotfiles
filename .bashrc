@@ -108,6 +108,7 @@ alias ll='ls -lF'
 alias l='ls -F'
 alias la='ls -laF'
 alias grep='grep --color=auto -i'
+alias dt='date +%Y-%m-%dT%H:%M:%S%z'
 
 # ---------------------------------------------------------------------------
 # Python
