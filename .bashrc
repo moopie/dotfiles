@@ -219,3 +219,20 @@ fdf() {
         "${EDITOR:-vi}" "$selected"
     fi
 }
+
+# startup messages
+
+greet() {
+    echo "user  $USER"
+    echo "host  $(hostname)"
+    echo "date  $(date)"
+    echo "shell $BASH $BASH_VERSION"
+    echo
+
+    cal
+    dt
+
+    fortune | cowsay -r
+}
+
+greet
