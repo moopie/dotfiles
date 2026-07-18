@@ -224,20 +224,20 @@ fdf() {
 
 greet() {
     uname -a
+    uptime
     echo
 
     echo "user  $(whoami)"
     echo "host  $(hostname)"
-    echo "date  $(date)"
+    echo "date  $(dt)"
     echo "shell $BASH $BASH_VERSION"
     echo
 
     cal
-    dt
 
     fortune | cowsay -r
 
-    uptime
+    echo
 }
 
 greet
