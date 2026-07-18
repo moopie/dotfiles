@@ -235,6 +235,8 @@ greet() {
 
     cal
 
+    curl 'wttr.in?0&Q'
+
     fortune | cowsay -r
 
     echo
