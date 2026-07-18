@@ -223,7 +223,10 @@ fdf() {
 # startup messages
 
 greet() {
-    echo "user  $USER"
+    uname -a
+    echo
+
+    echo "user  $(whoami)"
     echo "host  $(hostname)"
     echo "date  $(date)"
     echo "shell $BASH $BASH_VERSION"
@@ -233,6 +236,8 @@ greet() {
     dt
 
     fortune | cowsay -r
+
+    uptime
 }
 
 greet
