@@ -192,6 +192,59 @@ alias ktx='kubectx'
 
 alias nm='neomutt'
 alias y='yazi'
+alias cgreet='clear;greet'
+
+# startup messages
+
+color_cal() {
+    local today last_day color bold reset red green yellow
+
+    today=$((10#$(date +%d)))
+    last_day=$((10#$(cal | awk 'NF { last=$NF } END { print last }')))
+
+    bold=$(tput bold)
+    reset=$(tput sgr0)
+    red="${bold}$(tput setaf 1)"
+    green="${bold}$(tput setaf 2)"
+    yellow="${bold}$(tput setaf 3)"
+
+    if (( today > last_day - 7 )); then
+        color=$red
+    elif (( today * 2 >= last_day )); then
+        color=$yellow
+    else
+        color=$green
+    fi
+
+    printf '%s' "$color"
+    cal
+    printf '%s' "$reset"
+}
+
+greet() {
+    local bold reset green red
+
+    bold=$(tput bold)
+    reset=$(tput sgr0)
+    green=$(tput setaf 2)   # Green
+    red=$(tput setaf 9)
+
+    uname -a
+    uptime
+    echo
+
+    echo "user  ${bold}${green}$(whoami)${reset}"
+    echo "host  ${bold}${green}$(hostname)${reset}"
+    echo "date  ${bold}$(dt)${reset}"
+    echo "shell ${green}$BASH${reset} ${red}${bold}$BASH_VERSION${reset}"
+    echo
+
+    color_cal
+
+    fortune | cowsay -r
+
+    echo
+}
 
 # ---------------------------------------------------------------------------
 # fd + fzf file selector
@@ -218,26 +271,6 @@ fdf() {
     else
         "${EDITOR:-vi}" "$selected"
     fi
-}
-
-# startup messages
-
-greet() {
-    uname -a
-    uptime
-    echo
-
-    echo "user  $(whoami)"
-    echo "host  $(hostname)"
-    echo "date  $(dt)"
-    echo "shell $BASH $BASH_VERSION"
-    echo
-
-    cal
-
-    fortune | cowsay -r
-
-    echo
 }
 
 greet
