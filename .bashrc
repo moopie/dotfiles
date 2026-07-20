@@ -107,7 +107,7 @@ alias ls='ls --color=auto -F'
 alias ll='ls -lF'
 alias l='ls -F'
 alias la='ls -laF'
-alias grep='grep --color=auto -i'
+alias grep='grep --color=auto -i -nH'
 alias dt='date +%Y-%m-%dT%H:%M:%S%z'
 
 # ---------------------------------------------------------------------------
@@ -192,7 +192,7 @@ alias ktx='kubectx'
 
 alias nm='neomutt'
 alias y='yazi'
-alias cgreet='clear;greet'
+alias clearg='clear;greet'
 
 # startup messages
 
