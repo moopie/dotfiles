@@ -64,7 +64,6 @@ export HISTFILESIZE=20000
 # ---------------------------------------------------------------------------
 
 git_prompt_branch() {
-
     local branch dirty
 
     branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) ||
@@ -74,12 +73,11 @@ git_prompt_branch() {
     if ! git diff --quiet --ignore-submodules HEAD 2>/dev/null ||
        ! git diff --cached --quiet --ignore-submodules 2>/dev/null; then
 
-        dirty='*'
+        dirty='?'
 
     fi
 
     printf ' (%s%s)' "$branch" "$dirty"
-
 }
 
 if [[ -t 1 ]]; then
