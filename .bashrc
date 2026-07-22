@@ -63,6 +63,18 @@ export HISTFILESIZE=20000
 #   user@host current-directory git-branch
 # ---------------------------------------------------------------------------
 
+errcode_prompt() {
+    local errcode=$?
+    local red reset
+
+    red=$(tput setaf 1)
+    reset=$(tput sgr0)
+
+    if [[ $errcode -ne 0 ]]; then
+        printf '%s[%s]%s ' "$red" "$errcode" "$reset"
+    fi
+}
+
 git_prompt_branch() {
     local branch dirty ahead
 
@@ -85,7 +97,8 @@ git_prompt_branch() {
 }
 
 if [[ -t 1 ]]; then
-    PS1='\[\e[1;32m\]\u@\h\[\e[0m\] '
+    PS1='$(errcode_prompt)'
+    PS1+='\[\e[1;32m\]\u@\h\[\e[0m\] '
     PS1+='\[\e[1;34m\]\w\[\e[0m\]'
     PS1+='\[\e[1;31m\]$(git_prompt_branch)\[\e[0m\] '
     PS1+='\n\$ '
@@ -196,9 +209,7 @@ alias ktx='kubectx'
 
 alias nm='neomutt'
 alias y='yazi'
-alias clg='clear'
 alias clearg='clear;greet'
-alias clg='clear;greet'
 
 # startup messages
 
