@@ -64,7 +64,7 @@ export HISTFILESIZE=20000
 # ---------------------------------------------------------------------------
 
 git_prompt_branch() {
-    local branch dirty
+    local branch dirty ahead
 
     branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) ||
         branch=$(git rev-parse --short HEAD 2>/dev/null) ||
@@ -72,21 +72,25 @@ git_prompt_branch() {
 
     if ! git diff --quiet --ignore-submodules HEAD 2>/dev/null ||
        ! git diff --cached --quiet --ignore-submodules 2>/dev/null; then
-
         dirty='?'
-
     fi
 
-    printf ' (%s%s)' "$branch" "$dirty"
+    if git rev-parse --verify '@{u}' >/dev/null 2>&1; then
+        if [[ $(git rev-list --count '@{u}..HEAD') -gt 0 ]]; then
+            ahead='+'
+        fi
+    fi
+
+    printf ' (%s%s%s)' "$branch" "$dirty" "$ahead"
 }
 
 if [[ -t 1 ]]; then
     PS1='\[\e[1;32m\]\u@\h\[\e[0m\] '
-    PS1+='\[\e[1;34m\]\W\[\e[0m\]'
+    PS1+='\[\e[1;34m\]\w\[\e[0m\]'
     PS1+='\[\e[1;31m\]$(git_prompt_branch)\[\e[0m\] '
-    PS1+='\$ '
+    PS1+='\n\$ '
 else
-    PS1='\u@\h \W \$ '
+    PS1='\u@\h \w\n\$ '
 fi
 
 # ---------------------------------------------------------------------------
