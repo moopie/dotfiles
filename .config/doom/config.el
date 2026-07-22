@@ -34,6 +34,14 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
+(setq gnus-select-method
+      '(nntp "eternal-september"
+        (nntp-address "news.eternal-september.org")
+        (nntp-port-number 119)
+        ;;(nntp-stream ssl)
+        ;;(nntp-authinfo-force t)))
+        ))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)

@@ -101,12 +101,13 @@ alias .....='cd ../../../..'
 # ---------------------------------------------------------------------------
 # General linux utilities
 # ---------------------------------------------------------------------------
-alias ls='ls --color=auto -F'
+alias ls='ls --color=always -F'
 alias ll='ls -lF'
 alias l='ls -F'
 alias la='ls -laF'
-alias grep='grep --color=auto -i -nH'
+alias grep='grep --color=always'
 alias dt='date +%Y-%m-%dT%H:%M:%S%z'
+alias less='less -R'
 
 # ---------------------------------------------------------------------------
 # Python
@@ -124,7 +125,7 @@ alias v='nvim'
 alias nv='nvim'
 
 alias e='emacs'
-alias ec="emacsclient -t -a ''"
+alias ec="emacsclient -a ''"
 
 # ---------------------------------------------------------------------------
 # Git
@@ -137,6 +138,7 @@ alias ga='git add'
 alias gs='git s'
 alias gst='git st'
 alias gsh='git show'
+alias gg='git grep --color=always'
 alias gp='git push'
 alias gu='git pull'
 alias gd='git diff'
@@ -190,7 +192,9 @@ alias ktx='kubectx'
 
 alias nm='neomutt'
 alias y='yazi'
+alias clg='clear'
 alias clearg='clear;greet'
+alias clg='clear;greet'
 
 # startup messages
 
