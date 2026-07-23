@@ -71,7 +71,7 @@ errcode_prompt() {
     reset=$(tput sgr0)
 
     if [[ $errcode -ne 0 ]]; then
-        printf '%s[%s]%s ' "$red" "$errcode" "$reset"
+        printf '%s[%s]%s' "$red" "$errcode" "$reset"
     fi
 }
 
@@ -244,6 +244,7 @@ greet() {
     green=$(tput setaf 2)   # Green
     red=$(tput setaf 9)
 
+    figlet "$(hostname -s)"
     uname -a
     uptime
     echo
