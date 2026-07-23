@@ -120,7 +120,7 @@ alias ls='ls --color=always -F'
 alias ll='ls -lF'
 alias l='ls -F'
 alias la='ls -laF'
-alias grep='grep --color=always -inrH'
+alias grep='grep --color=always'
 alias dt='date +%Y-%m-%dT%H:%M:%S%z'
 alias less='less -R'
 
