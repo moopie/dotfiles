@@ -70,7 +70,7 @@ errcode_prompt() {
     red=$(tput setaf 1)
     reset=$(tput sgr0)
 
-    if [[ $errcode -ne 0 ]]; then
+    if (($errcode != 0)); then
         printf '%s[%s]%s' "$red" "$errcode" "$reset"
     fi
 }
