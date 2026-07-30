@@ -14,8 +14,8 @@ ${PATH}"
 export MANPATH="/usr/local/man:${MANPATH:-}"
 export LANG="en_US.UTF-8"
 
-export EDITOR="emacsclient"
-export VISUAL="emacsclient -t -a ''"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # ---------------------------------------------------------------------------
 # less and man
@@ -98,10 +98,10 @@ git_prompt_branch() {
 
 if [[ -t 1 ]]; then
     PS1='$(errcode_prompt)'
-    PS1+='\[\e[1;32m\]\u@\h\[\e[0m\] '
+    #PS1+='\[\e[1;32m\]\u@\h\[\e[0m\] '
     PS1+='\[\e[1;34m\]\w\[\e[0m\]'
     PS1+='\[\e[1;31m\]$(git_prompt_branch)\[\e[0m\] '
-    PS1+='\n\$ '
+    PS1+='\$ '
 fi
 
 # ---------------------------------------------------------------------------
