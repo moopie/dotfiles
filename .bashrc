@@ -130,6 +130,7 @@ alias .....='cd ../../../..'
 # ---------------------------------------------------------------------------
 alias ls='ls --color=always -F'
 alias ll='ls -lF'
+alias lt='ls -ltrF'
 alias l='ls -F'
 alias la='ls -laF'
 alias grep='grep --color=always'
