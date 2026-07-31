@@ -98,7 +98,7 @@ git_prompt_branch() {
 
 if [[ -t 1 ]]; then
     PS1='$(errcode_prompt)'
-    PS1+='\[\e[1;32m\]\u@\h\[\e[0m\] '
+    PS1+='\[\e[1;32m\]\u@\h\[\e[0m\]:'
     PS1+='\[\e[1;34m\]\w\[\e[0m\]'
     PS1+='\[\e[1;31m\]$(git_prompt_branch)\[\e[0m\] '
     PS1+='\n'
