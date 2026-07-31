@@ -222,31 +222,6 @@ alias clearg='clear;greet'
 
 # startup messages
 
-color_cal() {
-    local today last_day color bold reset red green yellow
-
-    today=$((10#$(date +%d)))
-    last_day=$((10#$(cal | awk 'NF { last=$NF } END { print last }')))
-
-    bold=$(tput bold)
-    reset=$(tput sgr0)
-    red="${bold}$(tput setaf 1)"
-    green="${bold}$(tput setaf 2)"
-    yellow="${bold}$(tput setaf 3)"
-
-    if (( today > last_day - 7 )); then
-        color=$red
-    elif (( today * 2 >= last_day )); then
-        color=$yellow
-    else
-        color=$green
-    fi
-
-    printf '%s' "$color"
-    cal
-    printf '%s' "$reset"
-}
-
 greet() {
     local bold reset green red
 
@@ -266,7 +241,7 @@ greet() {
     echo "shell ${green}$BASH${reset} ${red}${bold}$BASH_VERSION${reset}"
     echo
 
-    color_cal
+    cal
 
     fortune | cowsay -r
 
