@@ -65,13 +65,14 @@ export HISTFILESIZE=20000
 
 errcode_prompt() {
     local errcode=$?
-    local red reset
+    local red bold reset
 
     red=$(tput setaf 1)
+    bold=$(tput bold)
     reset=$(tput sgr0)
 
     if (($errcode != 0)); then
-        printf '%s[%s]%s' "$red" "$errcode" "$reset"
+        printf '%s%s[%s]%s' "$bold" "$red" "$errcode" "$reset"
     fi
 }
 
