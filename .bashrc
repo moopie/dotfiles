@@ -128,11 +128,11 @@ alias .....='cd ../../../..'
 # ---------------------------------------------------------------------------
 # General linux utilities
 # ---------------------------------------------------------------------------
-alias ls='ls --color=always -F'
-alias ll='ls -lF'
-alias lt='ls -ltrF'
-alias l='ls -F'
-alias la='ls -laF'
+alias ls='ls --color=always'
+alias ll='ls -l'
+alias lt='ls -ltr'
+alias l='ls'
+alias la='ls -la'
 alias grep='grep --color=always'
 alias dt='date +%Y-%m-%dT%H:%M:%S%z'
 alias less='less -R'
