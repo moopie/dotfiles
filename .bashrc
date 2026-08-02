@@ -220,7 +220,7 @@ alias ktx='kubectx'
 
 alias nm='neomutt'
 alias y='yazi'
-alias clearg='clear;greet'
+alias gclear='clear;greet'
 
 # startup messages
 
