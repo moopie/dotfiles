@@ -276,5 +276,3 @@ fdf() {
         "${EDITOR:-vi}" "$selected"
     fi
 }
-
-greet
