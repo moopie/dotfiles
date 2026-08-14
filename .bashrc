@@ -71,7 +71,7 @@ errcode_prompt() {
     bold=$(tput bold)
     reset=$(tput sgr0)
 
-    if (($errcode != 0)); then
+    if ((errcode != 0)); then
         printf '%s%s[%s]%s' "$bold" "$red" "$errcode" "$reset"
     fi
 }
