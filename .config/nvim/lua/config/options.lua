@@ -74,6 +74,28 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+local trailing_whitespace_group = vim.api.nvim_create_augroup("TrailingWhitespace", { clear = true })
+
+local function set_trailing_whitespace_highlight()
+    vim.api.nvim_set_hl(0, "TrailingWhitespace", { bg = "#7f1d1d" })
+end
+
+set_trailing_whitespace_highlight()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = trailing_whitespace_group,
+    callback = set_trailing_whitespace_highlight,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+    group = trailing_whitespace_group,
+    callback = function()
+        if not vim.w.trailing_whitespace_match then
+            vim.w.trailing_whitespace_match = vim.fn.matchadd("TrailingWhitespace", [[\s\+$]])
+        end
+    end,
+})
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
 

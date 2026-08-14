@@ -77,7 +77,7 @@ errcode_prompt() {
 }
 
 git_prompt_branch() {
-    local branch dirty ahead behind sync_status
+    local branch dirty
 
     branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null) ||
         branch=$(git rev-parse --short HEAD 2>/dev/null) ||
@@ -86,25 +86,10 @@ git_prompt_branch() {
     # Check for staged or unstaged changes.
     if ! git diff --quiet --ignore-submodules HEAD 2>/dev/null ||
        ! git diff --cached --quiet --ignore-submodules 2>/dev/null; then
-        dirty='?'
+        dirty='*'
     fi
 
-    # Compare the local branch with its upstream branch.
-    if git rev-parse --verify '@{u}' >/dev/null 2>&1; then
-        read -r ahead behind < <(
-            git rev-list --left-right --count 'HEAD...@{u}'
-        )
-
-        if (( ahead > 0 )); then
-            sync_status="+$ahead"
-        fi
-
-        if (( behind > 0 )); then
-            sync_status="${sync_status}-$behind"
-        fi
-    fi
-
-    printf ' (%s%s%s)' "$branch" "$dirty" "$sync_status"
+    printf ' (%s%s)' "$branch" "$dirty"
 }
 
 if [[ -t 1 ]]; then
