@@ -186,14 +186,10 @@ alias gco='git checkout'
 # Arch Linux / AUR
 alias t='trizen'
 alias tup='trizen -Syu --noedit --noconfirm'
-alias ts='trizen -Ss'
-alias ti='trizen -S'
 
 # Homebrew
 alias b='brew'
 alias bup='brew upgrade'
-alias bs='brew search'
-alias bi='brew install'
 
 # ---------------------------------------------------------------------------
 # Containers and Kubernetes
