@@ -231,29 +231,3 @@ greet() {
     echo
 }
 
-# ---------------------------------------------------------------------------
-# fd + fzf file selector
-# ---------------------------------------------------------------------------
-
-fdf() {
-    local selected
-
-    selected=$(
-        fd "$@" |
-            fzf \
-                --height=50% \
-                --preview '
-                    if [[ -d {} ]]; then
-                        tree -C -- {} | head -100
-                    else
-                        bat --style=numbers --color=always -- {}
-                    fi
-                '
-    ) || return
-
-    if [[ -d "$selected" ]]; then
-        cd -- "$selected" || return
-    else
-        "${EDITOR:-vi}" "$selected"
-    fi
-}
