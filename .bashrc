@@ -165,6 +165,25 @@ alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gco='git checkout'
 
+# Git completions for aliases
+__git_complete g __git_main
+__git_complete ga _git_add
+__git_complete gs _git_status
+__git_complete gst _git_status
+__git_complete gsh _git_show
+__git_complete gg _git_grep
+__git_complete gp _git_push
+__git_complete gu _git_pull
+__git_complete gd _git_diff
+__git_complete gb _git_branch
+__git_complete gt _git_tag
+__git_complete gl _git_log
+__git_complete gf _git_fetch
+__git_complete gc _git_commit
+__git_complete gcm _git_commit
+__git_complete gcam _git_commit
+__git_complete gco _git_checkout
+
 # ---------------------------------------------------------------------------
 # Package managers
 # ---------------------------------------------------------------------------
