@@ -145,8 +145,6 @@ alias ec="emacsclient -a ''"
 # Git
 # ---------------------------------------------------------------------------
 
-alias lg='lazygit'
-
 alias g='git'
 alias ga='git add'
 alias gs='git s'
@@ -215,12 +213,12 @@ alias k='kubectl'
 alias kns='kubens'
 alias ktx='kubectx'
 
+alias y='yazi'
+
 # ---------------------------------------------------------------------------
 # Other programs
 # ---------------------------------------------------------------------------
 
-alias nm='neomutt'
-alias y='yazi'
 alias gclear='clear;greet'
 
 # startup messages
@@ -244,7 +242,7 @@ greet() {
     echo "shell ${green}$BASH${reset} ${red}${bold}$BASH_VERSION${reset}"
     echo
 
-    cal
+    cal -3
 
     fortune | cowsay -r
 
