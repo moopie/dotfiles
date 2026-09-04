@@ -1,4 +1,5 @@
 return {
-    'nvim-mini/mini.statusline',
-    opts={}
+    "nvim-mini/mini.statusline",
+    name = "mini.statusline",
+    opts = {},
 }
