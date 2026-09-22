@@ -1,12 +1,15 @@
 return {
     {
-        "ellisonleao/gruvbox.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme("gruvbox")
+            vim.cmd.colorscheme("catppuccin-frappe")
         end,
     },
-    { "catppuccin/nvim", name = "catppuccin" },
+    {
+        "ellisonleao/gruvbox.nvim",
+    },
     { "folke/tokyonight.nvim", name = "tokyonight" },
     { "rose-pine/neovim", name = "rose-pine" },
     { "rebelot/kanagawa.nvim", name = "kanagawa" },
