@@ -1,5 +1,5 @@
 export GOPATH="$HOME/go"
-export DOTNET_ROOT="/opt/homebrew/Cellar/dotnet/10.0.401/libexec"
+export DOTNET_ROOT="$(brew --prefix dotnet)/libexec"
 
 export PATH="\
 ${HOME}/bin:\
